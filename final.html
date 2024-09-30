@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>CodeNest</title>
+    <link rel="icon" type="image/png" href="https://www.khmer168.com/wp-content/uploads/2024/01/c-tutorial-for-beginners.png"> 
+    
+    <link rel="stylesheet" type="text/css" href="style_first.css">
+</head>
+<body>
+
+    <div class="grid">
+        <header style="background-color: rgba(159, 182, 148, 0.884);">
+            <h1><b>Ας γνωρίσουμε την γλώσσα C</b></h1>
+        </header>
+            
+        <main style="background-color: rgba(200, 213, 193, 0.884);">
+            
+            <h2 class="magenta" style="text-align: center;"><b>Προγραμματισμός ενός προβλήματος σε γλώσσα C βασισμένο στις ενότητες των μαθημάτων της πλατφόρμας</b></h2>
+
+            <p>
+                <br><h3 class="blue">Θέμα:</h3> Διαχείριση Βιβλίων μιας Βιβλιοθήκης
+
+                <br><br><h3 class="blue">Σκοπός:</h3> Δημιουργία ενός προγράμματος σε C που διαχειρίζεται τα βιβλία μιας βιβλιοθήκης. Το πρόγραμμα θα πρέπει να επιτρέπει την καταχώριση, την προβολή, την αναζήτηση, τη διαγραφή, την ταξινόμηση των βιβλίων κατά τίτλο ή έτος, και την παρακολούθηση δανεισμού και επιστροφής βιβλίων.
+
+                <br><br><h3 class="blue">Απαιτήσεις:</h3>
+
+                <br><b class="magenta">Δομή Βιβλίου (Book):</b> Χρησιμοποιήστε μια δομή (struct) για να αποθηκεύσετε τις πληροφορίες ενός βιβλίου. Κάθε βιβλίο θα έχει:
+
+                <br>📍Τίτλο (συμβολοσειρά)
+                <br>📍Συγγραφέα (συμβολοσειρά)
+                <br>📍Έτος έκδοσης (ακέραιος αριθμός)
+                <br>📍Κατάσταση Δανεισμού (ακέραιος αριθμός για να δείξει αν το βιβλίο είναι διαθέσιμο ή δανεισμένο)
+                <br>📍Πίνακας Βιβλίων: Χρησιμοποιήστε έναν στατικό πίνακα για να αποθηκεύσετε μέχρι 100 βιβλία.
+
+                <br><br><b class="magenta">Συναρτήσεις:</b>
+
+                <br>📍addBook: Προσθέτει ένα νέο βιβλίο στη βιβλιοθήκη.
+                <br>📍displayBooks: Εμφανίζει όλα τα βιβλία στη βιβλιοθήκη.
+                <br>📍searchBookByTitle: Αναζητά ένα βιβλίο με βάση τον τίτλο του και εμφανίζει τις πληροφορίες του αν βρεθεί.
+                <br>📍deleteBook: Διαγράφει ένα βιβλίο από τη βιβλιοθήκη με βάση τον τίτλο.
+                <br>📍borrowBook: Επιτρέπει τη δανειστική χρήση ενός βιβλίου αν είναι διαθέσιμο.
+                <br>📍returnBook: Επιστρέφει ένα βιβλίο αν είχε δανειστεί.
+
+                <br><br><b class="magenta">Δομές Επαναλήψης και Επιλογής:</b>
+
+                <br>Χρησιμοποιήστε επαναληπτικές δομές (for, while) για να περιηγηθείτε και να διαχειριστείτε τα βιβλία.
+                <br>Χρησιμοποιήστε δομές επιλογής (if) για να ελέγξετε τις συνθήκες (π.χ. αν υπάρχει ένα βιβλίο με τον δοθέντα τίτλο ή αν είναι διαθέσιμο για δανεισμό).
+                
+                <br><br><b class="magenta">Δείκτες:</b> Χρησιμοποιήστε δείκτες για να περάσετε παραμέτρους στις συναρτήσεις.
+
+                <br><br><b class="magenta">Ταξινόμηση Βιβλίων:</b> Ενσωματώστε δυνατότητες ταξινόμησης των βιβλίων κατά:
+
+                <br>📍Τίτλο (Αύξουσα ή Φθίνουσα σειρά)
+                <br>📍Έτος έκδοσης (Αύξουσα ή Φθίνουσα σειρά)
+
+                <br><br><h3 class="blue">Επιπλέον Οδηγίες:</h3>
+
+                💠Χρησιμοποιήστε συναρτήσεις για την ταξινόμηση των βιβλίων κατά τίτλο και κατά έτος. Οι συναρτήσεις θα πρέπει να οργανώνουν τα βιβλία είτε αλφαβητικά είτε χρονολογικά.
+                <br>💠Εξασφαλίστε ότι η ταξινόμηση μπορεί να γίνει είτε σε αύξουσα είτε σε φθίνουσα σειρά.
+                <br>💠Η συνάρτηση sortBooks θα πρέπει να επιτρέπει στον χρήστη να επιλέξει τον τρόπο ταξινόμησης μέσω ενός μενού επιλογών.
+
+                <br><br>💠Το πρόγραμμα θα πρέπει να συνεχίζει να εκτελείται μέχρι ο χρήστης να επιλέξει την έξοδο.
+
+                <br><br>💠<u class="blue">Δείγμα Εξόδου:</u>
+            </p>
+
+    <pre>
+<code>Epilxte mia energeia:
+    1. Prosthiki vivliou
+    2. Emfanisi vivlion
+    3. Anazhthsh vivliou me titlo
+    4. Diagraphi vivliou
+    5. Daneismos vivliou
+    6. Epistrofi vivliou
+    7. Taxinomisi vivlion
+    8. Exodos
+    Epilogi: </code>
+    </pre>
+
+            
+            <br><p class="blue">Μπορείτε να προσθέσετε περισσότερες λειτουργίες ή να βελτιώσετε τον κώδικα με βάση τις ανάγκες σας. </p>
+            <b>ΕΠ! Μην κρυφοκοιτά την λύση. Προσπάθησε μόνος/η σου πρώτα.</b>
+            <br><br><h1 , style="text-align: center;"><span class="magenta"><b>Καλή επιτυχία!🙂</b></span></h1>
+            <br><br><br><br><br><br><br><br>
+
+
+            <pre><code style="font-size: 10px;">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+typedef struct {
+    char title[100];
+    char author[100];
+    int year;
+    int isBorrowed; // 0 an to vivlio einai diathesimo, 1 an exei daneistei
+} Book;
+
+// Pinakas vivlion
+Book library[100];
+int bookCount = 0; // Arithmos vivlion sti vivliothiki
+
+void sortByTitleAsc(Book *library, int bookCount) {
+    Book temp;
+    for (int i = 0; i < bookCount - 1; i++) {
+        for (int j = i + 1; j < bookCount; j++) {
+            if (strcmp(library[i].title, library[j].title) > 0) {
+                temp = library[i];
+                library[i] = library[j];
+                library[j] = temp;
+            }
+        }
+    }
+}
+
+void sortByTitleDesc(Book *library, int bookCount) {
+    Book temp;
+    for (int i = 0; i < bookCount - 1; i++) {
+        for (int j = i + 1; j < bookCount; j++) {
+            if (strcmp(library[i].title, library[j].title) < 0) {
+                temp = library[i];
+                library[i] = library[j];
+                library[j] = temp;
+            }
+        }
+    }
+}
+
+void sortByYearAsc(Book *library, int bookCount) {
+    Book temp;
+    for (int i = 0; i < bookCount - 1; i++) {
+        for (int j = i + 1; j < bookCount; j++) {
+            if (library[i].year > library[j].year) {
+                temp = library[i];
+                library[i] = library[j];
+                library[j] = temp;
+            }
+        }
+    }
+}
+
+void sortByYearDesc(Book *library, int bookCount) {
+    Book temp;
+    for (int i = 0; i < bookCount - 1; i++) {
+        for (int j = i + 1; j < bookCount; j++) {
+            if (library[i].year < library[j].year) {
+                temp = library[i];
+                library[i] = library[j];
+                library[j] = temp;
+            }
+        }
+    }
+}
+
+// Synartisi Epilogh Taxinomisis
+int getSortOption() {
+    int option;
+    printf("Epilexte pos na taxinomithoun ta vivlia:\n");
+    printf("1. Kata titlo (Auksousa)\n");
+    printf("2. Kata titlo (Fthinousa)\n");
+    printf("3. Kata etos (Auksousa)\n");
+    printf("4. Kata etos (Fthinousa)\n");
+    printf("Epilogi: ");
+    scanf("%d", &option);
+    getchar(); // Katharismos tou xaraktira newline
+    
+    while (option < 1 || option > 4) {
+        printf("Lathos epilogi. Parakalw epilxte 1, 2, 3 i 4: ");
+        scanf("%d", &option);
+        getchar(); // Katharismos tou xaraktira newline
+    }
+    return option;
+}
+
+// Synartisi Taxinomisis Vivlion
+void sortBooks(Book *library, int bookCount) {
+    int option = getSortOption();
+
+    if (option == 1) {
+        sortByTitleAsc(library, bookCount);
+        printf("Taxinomisi kata titlo (auksousa) oloklhrwthike.\n");
+    } else if (option == 2) {
+        sortByTitleDesc(library, bookCount);
+        printf("Taxinomisi kata titlo (fthinousa) oloklhrwthike.\n");
+    } else if (option == 3) {
+        sortByYearAsc(library, bookCount);
+        printf("Taxinomisi kata etos (auksousa) oloklhrwthike.\n");
+    } else if (option == 4) {
+        sortByYearDesc(library, bookCount);
+        printf("Taxinomisi kata etos (fthinousa) oloklhrwthike.\n");
+    }
+}
+
+// Synartisi gia sygkrisi titlon vivlion (xrisimopoiitai gia taxinomisi)
+int compareBooks(const void *a, const void *b) {
+    return strcmp(((Book *)a)->title, ((Book *)b)->title);
+}
+
+// Synartiseis
+void addBook(Book *library, int *bookCount) {
+    if (*bookCount >= 100) {
+        printf("H vivliothiki einai pliris!\n");
+        return;
+    }
+    
+    Book newBook;
+    
+    printf("Eisagete ton titlo tou vivliou: ");
+    fgets(newBook.title, 100, stdin);
+    newBook.title[strcspn(newBook.title, "\n")] = '\0'; // Afairesi tou \n apo to fgets
+    
+    printf("Eisagete ton siggrafea tou vivliou: ");
+    fgets(newBook.author, 100, stdin);
+    newBook.author[strcspn(newBook.author, "\n")] = '\0'; // Afairesi tou \n apo to fgets
+    
+    printf("Eisagete to etos ekdosis tou vivliou: ");
+    scanf("%d", &newBook.year);
+    getchar(); // Katharismos tou xaraktira newline
+    
+    newBook.isBorrowed = 0; // To vivlio einai diathesimo otan prostethetai
+    
+    library[*bookCount] = newBook;
+    (*bookCount)++;
+    
+    printf("To vivlio prostethike epityxws!\n");
+}
+
+void displayBooks(Book *library, int bookCount) {
+    if (bookCount == 0) {
+        printf("H vivliothiki einai keni!\n");
+        return;
+    }
+    
+    // Taxinomisi vivlion alfabitika kata titlo
+    // qsort(library, bookCount, sizeof(Book), compareBooks);
+    
+    printf("\nLista vivlion:\n");
+    for (int i = 0; i < bookCount; i++) {
+        printf("Titlos: %s\n", library[i].title);
+        printf("Siggrafeas: %s\n", library[i].author);
+        printf("Etos Ekdosis: %d\n", library[i].year);
+        printf("Katastasi Daneismou: %s\n", library[i].isBorrowed ? "Daneismeno" : "Diathesimo");
+        printf("-------------------------\n");
+    }
+}
+
+void searchBookByTitle(Book *library, int bookCount, const char *title) {
+    for (int i = 0; i < bookCount; i++) {
+        if (strcmp(library[i].title, title) == 0) {
+            printf("Vivlio vrethike!\n");
+            printf("Titlos: %s\n", library[i].title);
+            printf("Siggrafeas: %s\n", library[i].author);
+            printf("Etos Ekdosis: %d\n", library[i].year);
+            printf("Katastasi Daneismou: %s\n", library[i].isBorrowed ? "Daneismeno" : "Diathesimo");
+            return;
+        }
+    }
+    printf("Vivlio me titlo '%s' den vrethike sti vivliothiki.\n", title);
+}
+
+void deleteBook(Book *library, int *bookCount, const char *title) {
+    for (int i = 0; i < *bookCount; i++) {
+        if (strcmp(library[i].title, title) == 0) {
+            for (int j = i; j < *bookCount - 1; j++) {
+                library[j] = library[j + 1];
+            }
+            (*bookCount)--;
+            printf("To vivlio me titlo '%s' diagraphike epityxws.\n", title);
+            return;
+        }
+    }
+    printf("Vivlio me titlo '%s' den vrethike gia diagrafi.\n", title);
+}
+
+void borrowBook(Book *library, int bookCount, const char *title) {
+    for (int i = 0; i < bookCount; i++) {
+        if (strcmp(library[i].title, title) == 0) {
+            if (library[i].isBorrowed) {
+                printf("To vivlio me titlo '%s' exei hdh daneistei.\n", title);
+            } else {
+                library[i].isBorrowed = 1;
+                printf("To vivlio me titlo '%s' daneistike epityxws.\n", title);
+            }
+            return;
+        }
+    }
+    printf("Vivlio me titlo '%s' den vrethike gia daneismo.\n", title);
+}
+
+void returnBook(Book *library, int bookCount, const char *title) {
+    for (int i = 0; i < bookCount; i++) {
+        if (strcmp(library[i].title, title) == 0) {
+            if (library[i].isBorrowed) {
+                library[i].isBorrowed = 0;
+                printf("To vivlio me titlo '%s' epistrofike epityxws.\n", title);
+            } else {
+                printf("To vivlio me titlo '%s' den einai daneismeno.\n", title);
+            }
+            return;
+        }
+    }
+    printf("Vivlio me titlo '%s' den vrethike gia epistrofi.\n", title);
+}
+
+int main() {
+    int choice;
+    char searchTitle[100];
+    
+    while (1) {
+        printf("\nEpilxte mia energeia:\n");
+        printf("1. Prosthiki vivliou\n");
+        printf("2. Emfanisi vivlion\n");
+        printf("3. Anazhthsh vivliou me titlo\n");
+        printf("4. Diagraphi vivliou\n");
+        printf("5. Daneismos vivliou\n");
+        printf("6. Epistrofi vivliou\n");
+        printf("7. Taxinomisi vivlion\n");
+        printf("8. Exodos\n");
+        printf("Epilogi: ");
+        scanf("%d", &choice);
+        getchar(); // Katharismos tou xaraktira newline
+        
+        if (choice == 1) {
+            addBook(library, &bookCount);
+        } else if (choice == 2) {
+            displayBooks(library, bookCount);
+        } else if (choice == 3) {
+            printf("Eisagete ton titlo tou vivliou pou thelete na anazhthsete: ");
+            fgets(searchTitle, 100, stdin);
+            searchTitle[strcspn(searchTitle, "\n")] = '\0'; // Afairesi tou \n apo to fgets
+            searchBookByTitle(library, bookCount, searchTitle);
+        } else if (choice == 4) {
+            printf("Eisagete ton titlo tou vivliou pou thelete na diagraphsete: ");
+            fgets(searchTitle, 100, stdin);
+            searchTitle[strcspn(searchTitle, "\n")] = '\0'; // Afairesi tou \n apo to fgets
+            deleteBook(library, &bookCount, searchTitle);
+        } else if (choice == 5) {
+            printf("Eisagete ton titlo tou vivliou pou thelete na daneisteite: ");
+            fgets(searchTitle, 100, stdin);
+            searchTitle[strcspn(searchTitle, "\n")] = '\0'; // Afairesi tou \n apo to fgets
+            borrowBook(library, bookCount, searchTitle);
+        } else if (choice == 6) {
+            printf("Eisagete ton titlo tou vivliou pou thelete na epistrepste: ");
+            fgets(searchTitle, 100, stdin);
+            searchTitle[strcspn(searchTitle, "\n")] = '\0'; // Afairesi tou \n apo to fgets
+            returnBook(library, bookCount, searchTitle);
+        } else if (choice == 7) {
+            sortBooks(library, bookCount);
+        } else if (choice == 8) {
+            printf("Exodos apo to programma.\n");
+            return 0;
+        } else {
+            printf("Mi egkyri epilogi. Dokimaste ksana.\n");
+        }
+    }
+    
+    return 0;
+}</code></pre>
+
+        </main>
+    </div>
+
+</body>
+</html>

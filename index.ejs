@@ -1,0 +1,3000 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CodeNest</title>
+  <link rel="icon" type="image/png" href="https://www.khmer168.com/wp-content/uploads/2024/01/c-tutorial-for-beginners.png"> 
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+     <div class="grid"> <!-- grid display to all the areas -->
+        <header>
+            <h1><b>Καλώς ήρθατε στο ταξίδι εκμάθησης γλωσσών προγραμματισμού</b></h1>
+        </header>
+
+        <aside>
+            🚀Τσέκαρε τις παρακάτω ενότητες που έχουμε ετοιμάσει για σένα:
+            <br><br>
+            <!-- side buttons -->
+            <button class="button" , id="cMain">📌 Συνάρτηση main</button>
+            <br><br>
+            <button class="button" , id="cVar">📌 Μεταβλητές και Σταθερές</button>
+            <br><br>
+            <button class="button" , id="cOpp">📌 Τελεστές και Εκφράσεις</button>
+            <br><br>
+            <button class="button" , id="cStandard">📌 Βασικές Εντολές και Βιβλιοθήκη stdio.h</button>
+            <br><br>
+            <button class="button" , id="cFlow1">📌 Δομές Eλέγχου Ροής (1)</button>
+            <br><br>
+            <button class="button" , id="cFlow2">📌 Δομές Eλέγχου Ροής (2)</button>
+            <br><br>
+            <button class="button" , id="cBreak">📌 Break και Continue</button>
+            <br><br>
+            <button class="button" , id="cArrays">📌 Πίνακες</button>
+            <br><br>
+            <button class="button" , id="cStrings">📌 Αλφαρηθμητικά Strings</button>
+            <br><br>
+            <button class="button" , id="cFunc">📌 Συναρτήσεις</button>
+            <br><br>
+            <button class="button" , id="cPointers">📌 Δείκτες</button>
+            <br><br>
+            <button class="button" , id="cStruct">📌 Δομές struct</button>
+            <br><br><br><br>
+            <button class="button" , id="showResultsBtn">📌 Βαθμολογία</button>
+            <br>
+            <button class="button" , id="cProg">📌 Τελικό Project σε C</button>
+
+            <br><br><br><br><br><br><br>
+            <form action="/logout?_method=DELETE" method="POST">
+                <button class="button" , type="submit">Αποσύνδεση</button>
+            </form>
+
+        </aside>
+
+        <main>
+            <!-- C -->
+            <div id="Cintro" , class="hide", style="position: absolute;">
+
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANYAAADsCAMAAAA/3KjXAAAA1VBMVEX///9lmtIARIIAWZwAQoFgl9FYk89Wks8AWp0AL3gAQYEALHddltAAP4AAM3oANXsAO30AOHxpn9fs8vna5fMAKnaKsNugvuEAU5jp7fLB1OsASZXL1OD19/rM2+7k7PaVt94AT5dzotW3zeiYud8ARpRLbZqCl7VZd6DX3uerxeTR3/DD1uwAUpMXTYe1wdI/ZJXAy9miscd9qNiXsM1NgboATIx5kLCOobxqhKijssgxW49zi60wdrcsbKphibZRfq93mL9AdKoiZKNVgrI3b6iUpb/Kl60fAAAMe0lEQVR4nNWde1faWhPGAbOThlxIwkWxXBQsNy2oHFtF23NsX/3+H+lNVBTIbWb2Jfj80Z511jLkR/Y8e/bMxJZKStSYtcrl8uBkWFfzeUp0EeiMhVhlZhvLftF3I0iNgV7+EDNa3aLvSIDqLaO8LWbMir4pXnUPDVaOybaPi74xLg31BKhIenBe9L2R1SvbyVAvYJ/UO/pLPR3qJcROPp93hE6Rsv4+s3fM8qEi2ewzecfQzgiqbemDz+Id50F2UO3oc+QdeU4RFzPO9t07uiewoNoF22/vmKVtv3my2UXR956qYwZ2irj0QaPo+0/U+QAbVDsyWvt3GOvHEnW89s47umcUp0gA04dFo2woNVHHyy7vi3dcZCXqeO2HdzR4nSKu4r0jfqQXIWYcFukdyUd6IWAFeodAp4jLLvcKgco80otQEd6BT9QJUu0dkCO9CIXeoZAKeKQXIdtW5R3H8CO9EDAl3oE80ouQPpBdFlDiFDExud5BO9KLAZPnHeQjvQjJ8g7FTpEAJsE7uI/0IiS6HSHiSC9CzDgR5x2ijvQiJK6kyJuoM8Zs29ZfFP4HY3yXE9PKvOAo/jFbN/TB8mw2PO6dnzca5+e94+HsbDkI/7dNh+NvZZKP9CGRPjg8bqSEQr1xfDjQyWx83kE90jPdaA0Bh6XGsBWikT6B3sokHultYzBDnP8as4FBIaN6B8kpmB4M0eujPhxQvkCKd5CO9LZ+SFzz/UNKDoP1jj7BKZg+4CrIXgwIywPjHZQjPTOW3AWVxpLyuVDvIBzpwwORkGytT/pCId5BSdQFdrX7S/yekj8GQTnS22Lnlyi3kF1SpBzpJZSVhwS7T18wpCO9lKHHLiG7SWtlUop/zJZU7OoRssUk7yB16XV586ndFiHH3h2DoCXqhtQ5rGNKmr1VUpxRrsDKkouS/TIl0zbeH9gJ5VHpLblQkSgL8X0NzUg/rGRKibKMgl+d6Ef7lBUoN6w+dIG9uUD/e/Q1MrIlYQUbymYbGyiugP0+Ojg4+pf2sHSFg419TIj8CqFCfauXhvj9ylba+qxDbzC4OXjT6arUQq9BtVRQriio1lhHjyUslHIqENdrUL3rCY2lMq7Wyo+vX5tQobBYRiFzVtl++BFUVCyjmNGWUi+dazOoiFh6YRPQaalQYP+OQyGxmII8ME0pjr0bVAQsNiiOqlQaJDyqeFARsPRCpxfru8sw0L8kPyocVlF2sda2bQR2glMQsNhJsVThuXAzvJ4yoFBPq2iq0se9pgcVFquYfXhbb7tycJMeVEgs+6xopkhnLC+okFisaKJXsdSdioSlF+yCa53/AjCBsdiS937q/UaoPufO1/8P8qjAWAbHaaTem7WYbryOmxg6W856RLju4zcgFQyLvmU1DgeGvT02w5htBIcEX/3nFAoFxDJoX299Vk5rBzO9PMNd9OrLKRgKhsVIk5f9k+x5C9s4gS/t/p+vCCgYlkHoi8BefgeO4CKCCo5FeVjAZhmsnf3PVyQUCAsfWf0AXHy0c/suuKACY+GPxLiGQPYDayCDCoylY70Y21fX0/d6fFCBsZAn/W6AHxgJUjwJs1MhsZDj53XKyCpjSeFLCiooFs7dYwUHoOIV8CktqIBYOMPokgdw2fa3Rw4qIBbuREJqYr9ibdUUCDsVEgtDRWlsvnN9+CFPUMGwUGuQ1Ft/17oQzhdUMCwbMdCJa/PG9VIE6v7LF1QwLIwP8r+wISCoYFiIvfiQ+z0o9sgfVCAsBm/81HnfGQpuDsQ8qXwsHT5/gW+tb0MlNd9kYcFDi88vdjrasrEC8MPi2bLK5afvQqFysBi4Qk0anHpTbp9ANBY8ez8kP6ys5pskLPgJkmruKR1tuVhgxzinpk3ZzTdJWDb0YZ2Q1qCMoIJggXMMyhoENN/kYIFL76iZvzcoSPNNEhY0dTrGPy1ZQQXAAvs7NrSCG9HbLwoLethKGHDJhJIYVAAscKKLCS3JQQXBAu7GiDNJIDuoIFjA/hPcCOUHFQQL2CppALFUBJVArB4IS01QAbCgja0eYNsKynJy2mKxgj/aj4Mv+4ElbBEGNz+cSqXy/YsyMAWWEdjfI6jKC9g+YIkw+DCoPK3yLkVgsrfj4E+1WtmQohCTmzwFNxWnsiMlYDJT3UCfx6BeJB9M3sEkKP/dDKptyQ4xacfI4MlJhZIPJunQHwZVNQtKNpiUEk1qUG1JpndIKKgF7G/2+lMAJr78GTxVYVAv+iEnoRJdrIYE1bakhJjY1gIsqBSAiWwEhUGVvlNlSEKIiWrbRT3WnJ1KJZiwJquODqptiQUT1hKf+DxQkUSGmLABhqnFi1WpnJLHInFYmHGTn9yPy/9Z/983JViY4SCyYbxJc6KH/iRgkEvoKFeHcxlaL79sRcTYndjBu3GNh6o2Xl9ndSp7nhA3Jnnp0am8y40L3Uqf/sQMtXbn5K2rOt+K4jrnWKHYEeS2R+Sqeu2dS/X/43liggfG2y6Jq+ruUoXq/JY4B48c7297hBTe8ROoQi0OqGDCX8Zoz9G+4c2TqUrR6xg0MAmvzoyQPl8bZVyMOOcv40Wn2yYiwKrN2+yrtSmmKOW1tOkcnB/682n+5fCT8ZJeIhw3QRHmNcf51wp19RcZYrJe+WxPrFwwz5qkesWuVkcoMHkv6E4nlp+R02shVP762xBq8l/m69Tt26qZXLPRPNO5BT+pN2FMUfLL753x3Kpt79COV7Pm4w7lamFCJRAruHFRy2Vb7cV45Jmm6YYK//JG4wX2OX2o8yQKKyppOpf5n5ipbnvaCTVt8/4i3hGsQpWHFZR/R4d5c8F5O4K0MGFl+xysdUdb84oGetWrA+WX3jKxNvoE3kPRRJEe1nthHlgG1nafwCJ5l1h9FIHyqtupWLt9Aq1SNFSppG3cUDZYKlasT+DdFU11t5OOZYAlYyU234p2w8gFd5Q6HJaEldJ800z6NipAbTMpD0vxjjhWeke7Oi8SK61YlwgWw8oaE/EmxVFN0s45id6xg5XT0XZzDujydOum31UC2BZWfkfbKsg2Fjlti13v2MACdbSbhezKnWbefe2E2MYr67COtslxRqFqGrf2HLD1LCB4TESrKbf5dg3UENwIsafXcaXgBj4mUlXN1a5By45rsKPHaBYwsKGzV69cvtJfMt73Md2KF7DTRalroMdENJ4aAFZTbA8mDLHo35AY43tSmnWliurKwjfaTx+jnyTMKWnWSg3VikD1dpKfNgmTBxasysypMWF4QGu+hciVRWghZrZvBAnbUopUbb4HyFTLKiunyKtINo5pBT84EIJs3tWtib9EtXktk+oa0yV7k2fu5OLduya+6euO5P2zYiNQwrQlp3kXbxZML0301+P4kjL6hY/+kqvmZXJUXM3xIWpOJPxK//oE/6hq8/S9dFXDt+lN4RF2jQ90r5Z9F+P8JuKOtKzviaBwzWBt2cvfRdsT9C6WuqoJmo7QEV6F9Wqn94mlqyw5yIZp6kdPLKxVaOY99KMXFfQ6cKwRdzmgM8JD1SoYL3520VHrmPdcbr+4N9Gm7pnPuA/p/sRvz1rN/Ulci9OfLnqBhNvvAz4daI/QIRZ18OfPaLL+8zxlIiDzs8wRrfrQmbuE045vovr40SwA6lj/9jHunB7LC4eQ2leqnmtNrjv5C2R6PTFdysCo5jt8WRsltY/k+K55/7DqpKyTduf64d518Znfi2KJOl6k1P5VmheymfPRw/h6tbi66nSurhar6/HDaG6ark96JypSYqKOFyW134RzHM/3a7Wa64Z/+L7ncL3eoIlLaSipvSSJTUCvfe4XY0TI80UfF/CpvXgoayz+NE5I7YUKmKjjRUjthSlM1OV11hYaPnMTAuVX5bZBCak9v9CJOl7dB/ShiFOORUjU8WqPCPV+ssiJOl6de0JqT4PiSdTxClN7FVS+p6jh9K5b+duzZxUw3cKR2oMUJuoqnCIuztQ+UwITdbykpfaCK8VorWSk9uITdbS6wHea4HKaEhJ1vMSm9tISdbzEpfaIiroKLShN9TiUr+3JSx/vEpDae670RB2v7gPf9kyqqKsQT2ofJupK595QClN7GpXaRB2vlYf3Dk19oo4XumovoKKuQvU7TFnAse72ZfvNEzy1FzkkoEDA1L7oRB0vwECO5xaeqBOUU7UHjL7sp7JS+z1K1PFKS+01V2JFXYUWlfj2rPmo0Zf91PPu9qygoq5C26m9ooq6CrUnTT/qg2uOb032N1HHq726u69U7u9Wiuzv/6e0iPiWV98EAAAAAElFTkSuQmCC", style="max-width:80%">            
+
+                <br>Η <span class="magenta"><b>C</b></span> είναι μια γλώσσα, η οποία βασίζεται στην ιδέα του δομημένου προγραμματισμού κάνοντας χρήση συναρτήσεων. 
+                <br><br><u><b>Δομημένος προγραμματισμός</u></b> είναι η διαίρεση του προγράμματος σε μικρότερα τμήματα, τις συναρτήσεις. 
+                Κάθε συνάρτηση είναι ορισμένη να επιτελεί μια συγκεκριμένη ενέργεια και μπορεί να κληθεί είτε μέσα στο κύριο πρόγραμμα,
+                είτε σε κάποιο άλλο από τα υπό-προγράμματα του.
+                <br><br>Η C αποτελεί μια δημοφιλή επιλογή γλώσσας για να ξεκινήσει κάποιος το ταξίδι εξερεύνησης και κατανόησης του 
+                προγραμματισμού και των δυνατοτήτων του. Είναι μια απλή σε επίπεδο κατανόησης γλώσσα στον κόσμο της πληροφορικής 
+                με ευρεία χρήση της σε εφαρμογές και λειτουργικά συστήματα. Εμείς, θα προσπαθήσουμε να κατανοήσουμε τις βασικές έννοιες 
+                και τεχνικές της C, καθώς και θα αναπτύξουμε απλά αποτελεσματικά προγράμματα.
+
+                <br><br><div class="magenta"><b><u>Βασικά Χαρακτηριστικά της γλώσσας:</u></b></div>
+                <br>💠Όλες οι εντολές που θα προστεθούν στο πρόγραμμα μας πρέπει υποχρεωτικά να συνοδέυονται στο τέλος με το σύμβολο του ερωτηματικού (;).
+                <br>💠Ο υπολογιστής "καταλαβαίνει" μόνο την γλώσσα μηχανής, δηλαδή μόνο 0 ή 1. Όλες η εντολές που υπάρχουν στο πρόγραμμα μετατρέπονται αυτόματα από τον
+                μεταγλωττιστή της C σε 0 ή 1. 
+                <br>Ο μεταγλωττιστής ή αλλιώς compiler που χρησιμοποιεί η γλώσσα C είναι ο gcc, τον οποίο τον χρησιμοποιούμε κάθε φορά που "τρέχουμε" - εκτελούμε το πρόγραμμα.
+                <br>💠Η C είναι case sensitive: σε κάθε λέξη τα κεφαλαία γράμματα θεωρούνται διαφορετικά από τα μικρά.
+                <br>💠Στην γλώσσα C υπάρχουν πολλές εντολές που μπορούμε να χρησιμοποιήσουμε για να εκτελέσουμε μια ενέργεια. Τα ονόματα τέτοιων εντολών ονομάζονται: 
+                <br><br><u><b>Δεσμευμένες λέξεις</u></b> 
+                είναι λέξεις που έχουν ειδικό νόημα στη γλώσσα και χρησιμοποιούνται για τη δήλωση των δομών ελέγχου του κώδικα (όπως η if, else, for, while κ.α) και για 
+                άλλες συγκεκριμένες λειτουργίες, τις οποίες θα βλέπουμε σιγά σιγά κατά την διάρκεια των κεφαλαίων.
+                
+
+
+                <br><br><b><span class="magenta"><u>Πως μπορώ να "τρέξω" το πρόγραμμα μου;</u></span></b>
+                <br><br><b>ΒΗΜΑ 1:</b> Κατέβασε στον υπολογιστή σου μια εφαρμογή επεξεργασίας κώδικα, όπως το Visual Studio Code και ακολούθα της οδηγίες εγκατάστασης του.
+                Μπορείς να βρείς υλικό online για το πως να το εγκαταστήσεις και την εφαρμογή και το MinGW. Εδώ υπάρχει ένα βοηθητικό βίντεο: 
+                <br><button class="buttonClick" onclick="Video()">Video</button>
+                <br><br><b>ΒΗΜΑ 2:</b> Πήγαινε στην επιφάνεια εργασίας σου και δημιούργησε έναν νέο κενό φάκελο.
+                <br><br><b>ΒΗΜΑ 3:</b> Αφού κάνεις με επιτυχία όλα τα βήματα εγκατάστασης άνοιξε την εφαρμογή και άνοιξε τον φάκελο που δημιούργησες.
+                <br><br><b>ΒΗΜΑ 4:</b> Δημιούργησε το αρχείο που θα γράψεις τον κώδικα σου. Ονόμασε όπως θέλεις το αρχείο και βάλε την κατάληξη .c (πχ main.c)
+                <br><br><b>ΒΗΜΑ 5:</b> Γράψε τον κώδικα μέσα στο αρχείο, όπως θα δούμε σε επόμενα κεφάλαια.
+                <br><br><b>ΒΗΜΑ 6:</b> Πάνω πάνω στην εφαρμογή υπάρχει η γραμμή εργασίας. Πήγαινε στην επιλογή Terminal και στην συνέχεια επίλεξε New Terminal.
+                <br><br><b>ΒΗΜΑ 7:</b> Στο παράθυρο που εμφανίστηκε γράψε την ενολή: <span class="red-text"><b>gcc main.c</b></span> και πάτησε enter. Αντί για main.c βάλε το όνομα που έβαλες στο αρχείο σου.
+                <br><br><b>ΒΗΜΑ 8:</b> Παρατήρησε ότι δημιουργήθηκε ένα αρχείο a.exe το οποίο θα είναι το εκτελέσιμο αρχείο. Γράψε επίσης στο παράθυρο την εντολή: <span class="red-text"><b>./a.exe</b></span>
+
+                <div style="text-align: center;">
+                    <br><br><br><br><br>
+                    <span class="red-text" style="font-size: 20px"><b>ΚΑΛΟ ΠΡΟΓΡΑΜΜΑΤΙΣΜΟ!</b></span>
+                </div>
+
+                <br>
+                <div class="container-img">
+                    <img src="https://media.istockphoto.com/id/157030584/vector/thumb-up-emoticon.jpg?s=612x612&w=0&k=20&c=GGl4NM_6_BzvJxLSl7uCDF4Vlo_zHGZVmmqOBIewgKg=", style="max-width: 30%;">
+                </div>
+                
+
+            </div>
+
+            <div id="cMainMSG" , class="hide", style="position: absolute;">
+                
+                <h2 style="text-align: center;"> Η Συνάρτηση <span class="magenta">Main</span> </h2>
+                
+                <br><br>Ένα πρόγραμμα σε C αναφέραμε προηγουμένως ότι είναι δομημένο σε συναρτήσεις. 
+                Η κύρια συνάρτηση του προγράμματος είναι η <span class="red-text"><b>main</b></span>.
+                Η εκτέλεση του προγράμματος ξεκινά πάντα από την main συνάρτηση.
+                <br><br><h3><b>Η σύνταξη της ορίζεται συνήθως ως</b></h3>
+                <div class="frame">
+                    <pre style="margin: 0; white-space: pre-wrap;">int main(int argc, char* argv) {
+    <span class="green">// υπόλοιπες εντολές</span>
+
+    return 0;
+}</pre>
+                </div>
+                <h3><b>ή ως</b></h3>
+                <div class="frame">
+                    <pre style="margin: 0; white-space: pre-wrap;">int main() {
+    <span class="green">// υπόλοιπες εντολές</span>
+
+    return 0;
+}</pre>
+                </div>
+                <br>✏️Η <u>πρώτη μορφή</u> του προγράμματος της main είναι τύπου int. Η λέξη αυτή εκφράζει τον τύπο δεδομένων μίας τιμής που πρέπει να επιστρέψει μετά τον 
+                τερματισμό του το πρόγραμμα. Ο τύπος <b>int</b> συματοδοτεί ότι το αποτέλεσμα που πρόκειται να επιστραφεί στο τέλος θα είναι ένας ακέραιος αριθμός.
+                Το αποτέλεσμα του προγράμματος επιστρέφεται με την δεσμευμένη λέξη <span class="red-text"><b>return</b></span>. 
+                <br><br><b>Όταν ο υπολογιστής "διαβάσει" την εντολή return τότε κατευθείαν θα τερματίσει το πρόγραμμα, αγνοώντας οποιαδήποτε εντολή υπάρχει μετά από αυτήν.</b>
+                <br>Τι θα επιστρέψει το πρόγραμμα, το ορίζει ο προγραμματιστής του -δηλαδή εμείς.
+                Όταν όλα βαίνουν καλώς και το πρόγραμμα μας εκτελείται κανονικά τότε μπορούμε να προσθέσουμε στο τέλος του προγράμματος μας την εντολή
+                <div class="frame">
+                    return 0;
+                </div>
+                To 0 είναι ο αριθμός που συματοδοτεί τον κανονικό τερματισμό του προγράμματος. 
+                <br><br>Αντίθετα, αν θέλω να ορίσω τον μη κανονικό τερματισμό του προγράμματος
+                προσθέτω την εντολή 
+                <div class="frame">
+                    return 1;
+                </div>
+                Όταν ο υπολογιστής δει τον αριθμό 1 θα καταλάβει ότι υπήρξε κάποιο πρόβλημα με τον κώδικα του προγράμματος, δηλαδή ένα σφάλμα.
+
+                <br>Στην εντολή return δεν μπορεί να μπει κάποιος άλλος αριθμός πέραν του 0 ή 1 διότι η εντολή αυτή συμμετέχει στο πρόγραμμα μας για να 
+                μπορέσει ο υπολογιστής να καταλάβει αν κάτι πήγε στραβά κατα την διαδικασία της μεταγλώττισης του προγράμματος από την γλώσσα C σε γλώσσα μηχανής. 
+
+                <br><br>Ας γυρίσουμε όμως πίσω στην μορφή της συνάρτησης main για να εξηγήσουμε τα ορίσματα της.
+                <br><br>Στην εντολή: <h3><b>int main(int argc, char* argv)</b></h3>
+                εξηγήσαμε τι σημάινει η πρώτη λέξη int και καταλάβαμε ότι συνδέεται με το αποτέλεσμα που θα επιστραφεί κατά την έξοδο του προγράμματος. 
+                
+                <br><br>Κάθε συνάρτηση πρέπει να ακολουθείται πάντα από παρενθέσεις. Μέσα στις παρενθέσεις μπορούν να υπάρχουν ή και όχι οι παράμετροι ή αλλιώς ορίσματα 
+                της συνάρτησης. Τα ονόματα των μεταβλητών που υπάρχουν ως παράμετροι είναι αμετάβλητα, δεν αλλάζουν. 
+                <br><br>Το πρώτο όρισμα είναι, <span class="red-text"><b>argc</b></span> είναι το πλήθος των ορισμάτων που δίνονται στο πρόγραμμα κατά την εκκίνησή 
+                του από το σύστημα εκτέλεσης, το terminal.
+                <br>Η <span class="red-text"><b>argv</b></span> είναι ένας πίνακας από συμβολοσειρές που περιέχει τα ίδια τα ορίσματα που δίνονται στο πρόγραμμα. Η argv[0] είναι πάντα 
+                το όνομα του προγράμματος που εκτελείται.
+                <br>Οι παράμετροι αυτοί επιτρέπουν στο πρόγραμμα να διαχειριστεί προαιρετικά ορίσματα που δίνονται κατά την εκτέλεσή του από τον χρήστη.
+
+                <br><br>✏️Η <u>δεύτερη πιο σύνηθες μορφή</u> της main που είδαμε είναι το: int main()
+                Εδώ τα πράγματα είναι πιο απλά. Το int όπως είδαμε πριν είναι ο τύπος δεδομένων της επιστρεφόμενης τιμής της συνάρτησης. Aναφέραμε πιο πάνω ότι οι παράμετροι μιας συνάρτησης μπορούν να υπάρχουν ή όχι. Εδώ κάνοντας χρήση μόνο των υποχρεωτικών παρενθέσεων
+                παραλείπουμε οποιοδήποτε όρισμα.
+                
+                <br><br>Μπορούμε στην παραπάνω μορφή της main να προσθέσουμε την λέξη void ως όρισμα μέσα στις παρενθέσεις. Αν δείτε την μορφή δηλαδή <b>int main(void)</b>
+                τότε αυτό δεν έχει καμία απολύτως διαφορά με την προηγούμενη εμφάνιση της. Πάλι δεν δέχεται καμία παράμετρο.
+                
+                <br>Το <b>void</b> εκφράζει ότι η συνάρτηση δεν θα λάβει καμία απολύτως τιμή και συμβολίζει το κενό.
+
+                <br><br><br>❗️Πρέπει η συάρτηση main() να έχει πάντα τύπο δεδομένων integer (int) δηλαδή ακέραιο.
+
+                <br><br><br><hr>
+                
+                <br><br><h2>ΣΧΟΛΙΑ ΣΤΗΝ C</h2>
+
+                <p>
+                    <br>Τα σχόλια στον κώδικα είναι σαν μικρά σημειωματάκια που γράφουμε για να καταλαβαίνουμε τι κάνει το πρόγραμμα ή για να εξηγήσουμε κάποιες εντολές. 
+                    <br>Τα σχόλια δεν εκτελούνται από τον υπολογιστή, απλώς μας βοηθούν να θυμόμαστε τι κάναμε ή να εξηγούμε τον κώδικα σε άλλους. 
+                    <br>Στη γλώσσα C, υπάρχουν δύο ειδών σχόλια: <b>τα σχόλια μίας γραμμής</b> και <b>τα σχόλια πολλαπλών γραμμών</b>.
+                </p>
+
+                <br><h3 class="magenta">Σχόλια μίας γραμμής</h3>
+
+                <p>
+                    <br>Για να γράψουμε ένα σχόλιο μίας γραμμής, χρησιμοποιούμε δύο κάθετους (//). Ό,τι γράφουμε μετά τις δύο κάθετες μέχρι το τέλος της γραμμής, ο υπολογιστής το αγνοεί.
+                    <br>Για παράδειγμα στα προηγούμενα κομμάτια κώδικα της παραπάνω ενότητας το <b class="green">//υπόλοιπες εντολές</b> αποτελεί σχόλιο για το πρόγραμμα και το αγννοεί παντελώς,
+                    Το χρησιμοποιούμε μόνο για δικιά μας ευκολία.
+                </p>
+
+                <br><h3 class="magenta">Σχόλια πολλαπλών γραμμών</h3>
+
+                <p>
+                    <br>Για να γράψουμε σχόλια που καταλαμβάνουν πολλές γραμμές, χρησιμοποιούμε το /* για να ξεκινήσουμε το σχόλιο και το */ για να το τελειώσουμε. 
+                    <br>Ας δούμε ένα παράδειγμα:
+                </p>
+
+                <br><div class="frame">
+                    <pre style="margin: 0; white-space: pre-wrap;">
+<code>int main() {
+    /* Αυτό είναι ένα σχόλιο πολλαπλών γραμμών.
+        Μπορούμε να γράψουμε όσες γραμμές θέλουμε.
+        Ο υπολογιστής θα αγνοήσει όλα αυτά τα σχόλια. */
+    
+    return 0;
+}</code></pre>
+                </div>
+
+                <p>
+                    <br>📍Χρησιμοποιώντας σχόλια, ο κώδικάς μας γίνεται πιο ευανάγνωστος και κατανοητός. Είναι σαν να κρατάμε σημειώσεις για να θυμόμαστε τι κάνει κάθε μέρος του προγράμματος 
+                    και να βοηθάμε τους άλλους να καταλάβουν τον τρόπο που σκεφτόμαστε όταν γράφαμε τον κώδικα.
+                </p>
+
+                <br><br><hr>
+
+                <br><br><br><span class="magenta"><b>Είσαι έτοιμος/η για ένα μικρό κουιζ κατανόησης;</b></span>
+                <br><br><br>
+
+                <div class="quiz-container">
+                    <h3>Κουιζ συνάρτησης main στη C</h3>
+                    <br><br>
+            
+                    <div class="question">
+                        <p>1. Είναι σωστή αυτή η μορφή της συνάρτησης main;</p>
+                        <pre><code><b>int main() {
+    return 0;
+}</b></code></pre>
+                        <input type="radio" id="q1-true" name="q1" value="true">
+                        <label for="q1-true">Σωστό</label><br>
+                        <input type="radio" id="q1-false" name="q1" value="false">
+                        <label for="q1-false">Λάθος</label>
+                    </div>
+            
+                    <div class="question">
+                        <p>2. Είναι αποδεκτή αυτή η μορφή της συνάρτησης main;</p>
+                        <pre><code><b>void main() {
+    return 0;
+}</b></code></pre>
+                        <input type="radio" id="q2-true" name="q2" value="true">
+                        <label for="q2-true">Σωστό</label><br>
+                        <input type="radio" id="q2-false" name="q2" value="false">
+                        <label for="q2-false">Λάθος</label>
+                    </div>
+            
+                    <div class="question">
+                        <p>3. Ποιο από τα παρακάτω είναι το σωστό πρωτότυπο για τη συνάρτηση main;</p>
+                        <input type="radio" id="q3-1" name="q3" value="1">
+                        <label for="q3-1"><code>int main(){
+                                return 3;
+                            }
+                        </code></label><br>
+                        <input type="radio" id="q3-2" name="q3" value="2">
+                        <label for="q3-2"><code>void main()</code></label><br>
+                        <input type="radio" id="q3-3" name="q3" value="3">
+                        <label for="q3-3"><code>int main(void)</code></label><br>
+                        <input type="radio" id="q3-4" name="q3" value="4">
+                        <label for="q3-4"><code>float main()</code></label>
+                    </div>
+
+                    <button class="button" onclick="checkAnswersGeneric(1, ['true', 'false', '3'], 3)"> Υποβολή Απαντήσεων</button>
+            
+                    <div id="result1" class="result"></div>
+                    <p>Μόλις απαντήσεις στις ερωτήσεις αυτές μπορείς να πας στην ενότητα "Βαθμολογίες" και να δεις τα συνολικά σου αποτελέσματα.</p>
+                </div>
+            </div>
+
+            <div id="CvarMSG" , class="hide", style="position: absolute;">
+                Στην C για να μπορέσουμε να αναπαραστήσουμε και να αποθηκεύσουμε στο πρόγραμμα μας μια τιμή χρησιμοποιούμε μεταβλητές και σταθερές,
+                όπως γίνεται και στα μαθηματικά. Και οι μεταβλητές και οι σταθερές είναι συμβολικά ονόματα τα οποία δέχονται τιμές, για να εισάγουμε δεδομένα
+                στο πρόγραμμα καθώς και να αποθηκεύσουμε αποτελέσματα για να τα χρησιμοποιήσουμε- αν τα χρειαστούμε- στο μέλλον.
+
+                <br><br>Οι ονομασίες και των σταθερών και των μεταβλητών αποθηκεύονται σε μια <b>διεύθυνση - θέση μνήμης</b> στον υπολογιστή. Μία θέση μνήμης στον υπολογιστή,
+                είναι ένας αριθμός που αποτελεί και την διεύθυνση μνήμης. 
+                <u>Οι διευθύνσεις αυτές είναι μοναδικές και επιλέγονται από τον υπολογιστή,</u> με σκοπό να μπορεί να ανατρέξει στις μεταβλητές και στις σταθερές ανά πάσα στιγμή, όποτε το χρειαστεί.
+                <br><br>&emsp;&emsp;<b><u>Παράδειγμα:</u></b>
+
+                <div class="frame"> <!--κωδικας σε c-->
+                    Αν έχω την μεταβλητή x=42 τότε
+                    <br><br>Θέση μνήμης: 1000
+                    <br>Περιεχόμενο: 42
+                </div>
+
+                <br><u>Ας δούμε τι είναι και πώς λειτουργούν οι μεταβλητές και οι σταθερές:</u>
+
+                <br><br><br>
+                <hr>
+                <br><br>
+
+                <h2><b> Μεταβλητές - Variables:</b></h2>
+                <br>Μια μεταβλητή είναι ουσιαστικά ένας χώρος στη μνήμη του υπολογιστή του οποίου του δίνουμε κάποιο όνομα.
+                Σε όλες τις μεταβλητές δεν αποθηκεύονται ίδιου τύπου τιμές. Αν θέλω εγώ ως προγραμματιστής να κρατήσω σε μια μεταβλητή την ηλικία μου για παράδειγμα
+                έστω ότι είμαι 20 χρονών τότε η τιμή αυτή είναι ακεραίου τύπου. Διαφορετικά αν θέλω να αποθηκεύσω την τιμή που κοστίζει ένας καφές 
+                έστω 3,50€, τότε η τιμή είναι δεκαδικού τύπου ή αλλιώς ανήκει στους πραγματικούς αριθμούς. Αντίστοιχα, το όνομα ενός μαθητή θα αποθηκευτεί σε μια μεταβλητή
+                με χαρακτήρες. 
+                <br><br>Όλα αυτα τα διαφορετικά είδη μεταβλητών ονομάζονται <b>τύποι δεδομένων</b>.
+                Οι μεταβλητές πρέπει να δηλωθούν πριν από τη χρήση τους, με τον τύπο δεδομένων που θα αποθηκεύουν, και μπορεί να τους ανατεθεί μια αρχική τιμή 
+                κατά τη δήλωση αυτής της μεταβλητής.
+                <br>Οι τύποι δεδομένων που μπορεί να δεχτεί η γλώσσα C είναι αρκετοί. 
+                <br><u>Πάμε να γνωρίσουμε τους βασικούς τύπους δεδομένων:</u>
+
+                <br><br>☛Για <b>ακέραιους</b> αριθμούς:
+                <br>💠int: Απλός ακέραιος αριθμός (-100, 1, 20)
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="red-text"><b>int</b></span> age;
+                    <br>age = 20;
+                    <br>ή
+                    <br>int age = 20;
+                </div>
+
+                <br><br>☛Για <b>πραγματικούς</b> αριθμούς:
+                <br>💠float: Πραγματικός αριθμός με μικρότερη ακρίβεια
+                <br>💠double: Πραγματικός αριθμός με μεγαλύτερη ακρίβεια από το float
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="red-text"><b>float</b></span> price;
+                    <br>price = 3.5;
+                    <br><span class="red-text"><b>double</b></span> x = 7.2;
+                </div>
+
+                <br><br>☛Για <b>χαρακτήρες</b>:
+                <br>💠char: Μόνο για αποθήκευση ενός χαρακτήρα - γράμματος
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="red-text"><b>char</b></span> name = 'Α';
+                </div>
+                <br>Η δήλωση της τιμής των char μεταβλητών πρέπει να περικλύεται σε μονά «αυτάκια» όπως φαίνεται στο παράδειγμα παραπάνω.
+
+                <br><br><br>
+                <hr>
+                <br><br>
+
+                <h2><b>Σταθερές - Constants:</b></h2>
+                <br>Η διαφορά των σταθερών από τις μεταβλητές ειναι ότι οι σταθερές είναι τιμές που δεν μπορούν να αλλάξουν κατά τη διάρκεια της εκτέλεσης του προγράμματος.
+                Όπως συμβαίνει και στις μεταβλητές, έτσι και στις σταθερές οι τιμές που αποθηκεύονται μπορούν να ειναι διαφορετικών τύπων δεδομένων. Οι σταθερές μπορούν 
+                να είναι ακέραιοι, πραγματικοί, χαρακτήρες, ή οποιοσδήποτε άλλος τύπος δεδομένων υποστηρίζεται από τη C.
+                Δηλώνονται με τη χρήση της δεσμευμένης λέξης <span class="red-text"><b>const</b></span>:
+                <div class="frame"> <!--κωδικας σε c-->
+                    const float pi = 3.14;
+                </div>
+                <br>Καθόλη την διάρκεια του προγράμματος η μεταβλητή pi θα έχει τιμή 3,14
+
+                <br><br><br><u><b>Ας μάθουμε τώρα τους κανόνες που πρέπει να ακολουθούμε κάθε φορά που εισάγουμε στο πρόγραμμα μας μια νέα μεταβλητή ή στεθερά.</b></u>
+                <br>💠Η δήλωση του τύπου δεδομένων τους υποχρεωτικά πρέπει να γίνεται πριν την χρήση τους στο πρόγραμμα.
+                <br>💠Υποχρεωτικά το όνομα τους να ξεκινάει με χαρακτήρα ή κάτω πάυλα ( _ ).
+                <br>💠Μπορεί να περιέχει το όνομα τους: χαρακτήρες, αριθμούς και κάτω πάυλα.
+                <br>💠<b>Δεν</b> επιτρέπεται να ξεκινάει η ονομασία τους με αριθμό ή να περιέχει οποιοδήποτε σύμβολο εκτός της κάτω πάυλας.
+                <br>💠Ένα όνομα <b>δεν</b> μπορεί να είναι μια δεσμευμένη λέξη.
+                <br><br><u>Παραδείγματα αποδεκτών ονομάτων:</u> age, x, y, _name, play123, programma_se_c_1
+                <br><u>Παραδείγματα μη αποδεκτών ονομάτων:</u> 5xronon, paradeigma-3, if, return
+
+                <br><br><br>
+                <hr>
+                <br><br>
+                <h2>Δοκίμασε τώρα μόνος/η σου κάποια ονόματα για να δεις αν το κατάλαβες!</h2>
+                <br><label for="variableName">Βάλε ένα όνομα:</label>
+                <input type="text" id="variableName">
+                
+                <br><button class="button" onclick="checkName()">Έλεγχος</button>
+                <div id="result10" class="result"></div>
+
+            </div>
+                
+            <div id="cOppMSG" , class="hide", style="position: absolute;">
+                <h2>&emsp;&emsp;<b>ΤΕΛΕΣΤΕΣ</b></h2>
+                <br><u>Τελεστής</u> είναι ένα σύμβολο ή μια λέξη που επιτελεί μια ορισμένη ενέργεια. Η ενέργεια αυτή εκτελείται πάνω σε ένα ή και περισσότερα δεδομένα.
+                <br>Υπάρχουν πολλές διαφορετικές κατηγορίες τελεστών. Τους περισσότερους από αυτούς θα τους γνωρίζεις ήδη από τα Μαθηματικά.
+                <br>Για παράδειγμα ο τελεστής '=' χρησιμοποιείται ως εξής: α=β ή α=+β που σημαίνουν το ίδιο (το '+' παραλείπεται) είτε α=-β όπου εδώ ο τελεστής '-' δίχνει τον αριθμό με αντίθετο πρόσημο.
+                <br><hr>
+                <br><br>Αναλυτικότερα χωρίζονται στους:
+                <h3><br>&emsp;✏️<u><b>Αριθμητικοί:</b></u></h3>
+                
+                <br><div class="table-container">
+                    <table>
+                        <tr>
+                            <td>Πρόσθεση</td>
+                            <td><span class="red-text"><b>+</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Αφαίρεση</td>
+                            <td><span class="red-text"><b>⎯</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Πολλαπλασιασμός</td>
+                            <td><span class="red-text"><b>*</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Πηλίκο Διαίρεσης</td>
+                            <td><span class="red-text"><b>/</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Υπόλοιπο Διαίρεσης</td>
+                            <td><span class="red-text"><b>%</b></span></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <br><u>Ο τελεστής % δεν εφαρμόζεται σε πραγματικούς αριθμούς.</u>
+
+                <br><br>
+                <hr>
+                <br><br>
+
+                <h3><br>&emsp;✏️<u><b>Λογικοί:</b></u></h3>
+                
+                <br><div class="table-container">
+                    <table>
+                        <tr>
+                            <td>Λογικό "και" (and)</td>
+                            <td><span class="red-text"><b>&&</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Λογικό "ή" (or)</td>
+                            <td><span class="red-text"><b>||</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Λογικό "όχι" (not)</td>
+                            <td><span class="red-text"><b>!</b></span></td>
+                        </tr>
+                    </table>                
+                </div>
+                <br><u>Οι λογικοί τελεστές επιτρέπουν να συνδυάσουμε απλές εκφράσεις έτσι ώστε να δημιουργήσουμε σύνθετες.</u>
+                <br><u>Το αποτέλεσμα τους μπορεί να είναι είτε 1 (αληθής - true), είτε 0 (ψευδής - false).</u>
+
+                <br><br>
+                <hr>
+                <br><br>
+
+                <h3><br>&emsp;✏️<u><b>Συσχέτισης - Σύγκρισης:</b></u></h3>
+                
+                <br><div class="table-container">
+                    <table>
+                        <tr>
+                            <td>Μεγαλύτερο</td>
+                            <td><span class="red-text"><b>&gt;</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Μεγαλύτερο Ίσον</td>
+                            <td><span class="red-text"><b>&gt;=</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Ίσον</td>
+                            <td><span class="red-text"><b>= =</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Διάφορο</td>
+                            <td><span class="red-text"><b>!=</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Μικρότερο</td>
+                            <td><span class="red-text"><b>&lt;</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Μικρότερο Ίσον</td>
+                            <td><span class="red-text"><b>&lt;=</b></span></td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <br><u>Το αποτέλεσμα τους μπορεί να είναι είτε 1 (αληθής - true), είτε 0 (ψευδής - false).</u>
+
+                <br><br>
+                <hr>
+                <br><br>
+                
+                <h3><br>&emsp;✏️<u><b>Unary:</b></u></h3>
+                <br><u>Είναι οι τελεστές που χρησιμοποιούνται μόνο σε έναν όρο, για να παράγουν κάποιο αποτέλεσμα.</u>
+                
+                <br><br><div class="table-container">
+                    <table>
+                        <tr>
+                            <td>Εκχώρηση Τιμής</td>
+                            <td><span class="red-text"><b>=</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Αύξηση κατά ένα</td>
+                            <td><span class="red-text"><b>++</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Μείωση κατά ένα</td>
+                            <td><span class="red-text"><b>⎯ ⎯</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Αύξηση</td>
+                            <td><span class="red-text"><b>+=</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Μείωση</td>
+                            <td><span class="red-text"><b>⎯ =</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Πολλαπλασιασμός</td>
+                            <td><span class="red-text"><b>*=</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Διαίρεση</td>
+                            <td><span class="red-text"><b>/=</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Υπόλοιπο Διαίρεσης</td>
+                            <td><span class="red-text"><b>%=</b></span></td>
+                        </tr>
+                    </table>  
+                </div>              
+
+                <br>
+                <hr>
+                <h2><br><br>&emsp;<b>ΕΚΦΡΑΣΕΙΣ</b></h2>
+                <br>Μια <u>έκφραση - expression</u> είναι ένας συνδυασμός μεταβλητών, σταθερών, λειτουργιών και τελεστών που αξιολογείται σε μια τιμή. Ουσιαστικά, μια έκφραση εκφράζει μια πράξη που πρέπει να εκτελεστεί.
+                <br>Οι εκφράσεις μπορούν να συνδιάσουν ένα ή και περισσότερους τελεστές από αυτούς που μόλις είδαμε.
+
+                <br><br><b>Παραδείγματα απλών και σύνθετων εκφράσεων με τελεστές:</b>
+
+                <p class="frame">
+                    int x = 5;
+                    <br>int y = 3;
+                    <br>int sum, mul, div, inc, mod, dec, result;
+                    <br><br>sum = x + y; <span class="green">// Άθροισμα</span>
+                    <br>mul = x * y; <span class="green">// Πολλαπλασιασμός</span>
+                    <br>div = x / y; <span class="green">// Πηλίκο ακέραιας διαίρεσης</span>
+                    <br>mod = x % y; <span class="green">// Υπόλοιπο ακέραιας διάιρεσης</span>
+                    <br><br>inc = x;     <span class="green">// inc ίσο με 5</span>
+                    <br>dec = y;     <span class="green">// dec ίσο με 3</span>
+                    <br>inc++;       <span class="green">// Αύξηση κατά 1</span>
+                    <br>dec *= 2;    <span class="green">// Πολλαπλασιασμός Unary</span>
+                    <br><br>result = (x > y && x &lt; inc);    <span class="green">// Λογικοί και Συγκριτικοί τελεστές</span>
+                </p>
+                
+                <p class="big-text red-text">
+                    <br>❓<b>Μπορείς να σκεφτείς το αποτέλεσμα που θα εμφανίσει το πρόγραμμα αν τυπώσουμε την τιμή όλων των μεταβλητών του παραπάνου τμήματος;</b>
+                </p>
+
+                <br><u>Τελικές τιμές μεταβλητών:</u>
+                <br>x ⇾ 5
+                <br>y ⇾ 3
+                <br>sum ⇾ 8
+                <br>mul ⇾ 15
+                <br>div ⇾ 1
+                <br>mod ⇾ 2
+                <br>inc ⇾ 6
+                <br>dec ⇾ 6
+                <br>result ⇾ True
+
+                <p class="big-text red-text">
+                    <br>❗️<b>Σημείωση:</b>
+                </p>
+                Αν δεν γνωρίζεις ήδη τους πίνακες αληθείας για τους λογικούς τελεστές μπορείς να μάθεις πληροφορίες πολύ απλά
+                <button class="buttonClick" onclick="logical()">ΕΔΩ</button>
+
+                <br>
+                <br><br>
+                <hr>
+                <br><br>
+                <div class="quiz-container">
+                    <br>Πάμε για ακόμη ένα γρήγορο τεστάκι;
+                    <h3>Κουιζ ερωτήσεων:</h3>
+                    <br><br>
+            
+                    <div class="question">
+                        <p>1. Έστω Α=2, Β=3 και Γ=7 τότε η έκφραση <p class="red-text">!(Β>=Α) && (Γ&lt;Β) </p> θα παράγει: <b>true</b>.</p>
+                        <input type="radio" id="q1-true" name="q1" value="true">
+                        <label for="q1-true">Σωστό</label><br>
+                        <input type="radio" id="q1-false" name="q1" value="false">
+                        <label for="q1-false">Λάθος</label>
+                    </div>
+            
+                    <div class="question">
+                        <p>2. Έστω μεταβλητή sum τύπου float και ίση με 5. Αν κανω την πράξη <p class="red-text">sum=+2;</p> και στην συνέχεια την <p class="red-text">sum++;</p> Ποιό θα είναι το τελικό αποτέλεσμα της sum;</p>
+                        
+                        <input type="radio" id="q2-1" name="q2" value="1">
+                        <label for="q2-1"><code>7</code></label><br>
+                        <input type="radio" id="q2-2" name="q2" value="2">
+                        <label for="q2-2"><code>3</code></label><br>
+                        <input type="radio" id="q2-3" name="q2" value="3">
+                        <label for="q2-3"><code>8</code></label><br>
+                        <input type="radio" id="q2-4" name="q2" value="4">
+                        <label for="q2-4"><code>6</code></label>
+                    </div>
+            
+                    <div class="question">
+                        <p>3. Με ποιό από τα παρακάτω μπορώ να διαβάσω από το πληκτρολόγιο μια μεταβλητή τύπου double;</p>
+                        <input type="radio" id="q3-1" name="q3" value="1">
+                        <label for="q3-1"><code>%c</code></label><br>
+                        <input type="radio" id="q3-2" name="q3" value="2">
+                        <label for="q3-2"><code>%d</code></label><br>
+                        <input type="radio" id="q3-3" name="q3" value="3">
+                        <label for="q3-3"><code>%p</code></label><br>
+                        <input type="radio" id="q3-4" name="q3" value="4">
+                        <label for="q3-4"><code>%f</code></label>
+                    </div>
+            
+                    <button class="button" onclick="checkAnswersGeneric(2, ['false', '2', '4'], 3)"> Υποβολή Απαντήσεων</button>
+            
+                    <div id="result2" class="result"></div>
+                    <p>Μόλις απαντήσεις στις ερωτήσεις αυτές μπορείς να πας στην ενότητα "Βαθμολογίες" και να δεις τα συνολικά σου αποτελέσματα.</p>
+                </div>
+
+            </div>
+        
+            <div id="cStandardMSG" , class="hide", style="position: absolute;">
+                <br>Στην ενότητα αυτήν θα ασχοληθούμε με δύο από τις βασικότερες εντολές που υπάρχουν στην C. Με την χρήση αυτών των εντολών μπορόυμε να είτε να <b>εισάγουμε</b>,
+                είτε να <b>εξάγουμε</b> δεδομένα και πληροφορίες μέσω του υπολογιστή μας.
+                <br>Η κύρια εντολή εξαγωγής δεδομένων, είναι η εντολή <span class="red-text"><b>printf()</b></span>.
+                <br>Η εντολή αυτή ανήκει στην βιβλιοθήκη <b>stdio.h</b> την οποία πρέπει να προσθέσουμε στο πρόγραμμα μας αν θέλουμε να την χρησιμοποιήσουμε.
+
+                <h3><br>✏️<u><b>ΣΥΝΤΑΞΗ:</b></u></h3>
+                <br>
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="red-text"><b>#include &lt;stdio.h> </b></span>
+                    
+                        <pre style="margin: 0; white-space: pre-wrap;"><br>int main(){
+    printf("Hello everyone!");     
+    return 0;
+}</pre>
+                </div>
+                
+                <br>Με την εντολή #include ακολουθούμενη από τις αγκύλες (< >) και το όνομα μίας βιβλιοθήκης, την προσθέτουμε στο πρόγραμμα μας και έπειτα μπορούμε να
+                χρησιμοποιήσουμε τις έτοιμες εντολές που περιέχει για να εκτελέσουμε διάφορες ενέργειες. 
+                Στην προκειμένη περίπτωση η εντολή είναι η printf() με την οποία εκτυπώνουμε δεδομένα στην οθόνη του υπολογιστή.
+
+                <br><br>Το περιεχόμενο που τοποθετούμε στο εσωτερικό των παρενθέσεων της εντολής μπορεί να είναι ένα γράμμα, μία έκφραση, ένας αριθμός, το περιεχόμενο μιας μεταβλητής
+                ή σταθεράς και γενικότερα οποιοσδήποτε τύπος δεδομένων. 
+                <br>Οι χαρακτήρες ΠΡΕΠΕΙ να αναπαριστούνται μέσα σε εισαγωγικά <b>" "</b> όπως φαίνεται και από το παραπάνω παράδειγμα.
+                <br><br>☛Μια μεταβλητή ή μια σταθερά όμως οποιουδήποτε τύπου δεδομένων αλλάζει την μορφή της εντολής και προστίθεται το σύμβολο <b>%</b>. Το σύμβολο % ακολουθείται από ένα γράμμα,
+                το οποίο προσδιορίζει τον τύπο δεδομένων του περιεχομένου της μεταβλητής, ή της σταθεράς που θέλουμε να εκτυπώσουμε στην οθόνη.
+                <br>Το όνομα των μεταβλητών τοποθετείται μετά το κόμμα στην εντολή και το περιεχόμενο της αντιστοιχίζεται στο σύμβολο % και παίρνει την θέση του κατά την εκτύπωση.
+
+                <br><br>Οι τύποι δεδομένων αναπαρίστονται στην εντολή όπως φαίνεται στον παρακάτω πίνακα.
+
+                <br><br><div class="table-container">
+                    <table>
+                        <tr>
+                            <td>Ακέραιοι</td>
+                            <td><span class="red-text"><b>%d</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Δεκαδικοί</td>
+                            <td><span class="red-text"><b>%f</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Χαρακτήρας</td>
+                            <td><span class="red-text"><b>%c</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Αλφαρηθμητικό</td>
+                            <td><span class="red-text"><b>%s</b></span></td>
+                        </tr>
+                        <tr>
+                            <td>Διέυθυνση μνήμης</td>
+                            <td><span class="red-text"><b>%p</b></span></td>
+                        </tr>
+                    </table> 
+                </div>
+
+                <br><br>Πάμε να δούμε μαζί μερικά παραδείγματα από αυτά!
+                <div class="frame"> <!--κωδικας σε c-->
+                    printf("%c", char_variable);
+                    <br><br>printf("Όλα τα παιδια της τάξης είναι: %d", int_variable);
+                    <br><br>printf("Η μπλούζα κοστίζει %f ευρώ", float_variable); <span class="green">// για float ή double</span>
+                </div>
+
+                <br>Αν υποθέσουμε ότι οι μεταβλητές έχουν περιεχόμενο
+                <br>💠char_variable = 'Α'
+                <br>💠int_variable = 25
+                <br>💠float_variable = 12.99
+                <br>τότε, οι παραπάνω εντολές printf() θα εκτυπώσουν στην οθόνη:
+                <span class="red">Α</span> , 
+                <span class="magenta">Όλα τα παιδιά της τάξης είναι: 25</span> ,
+                <span class="blue">Η μπλούζα κοστίζει 12.99 ευρώ</span>
+                <br>αντίστοιχα.
+
+                <br><br>☛<u>Για τους δεκαδικούς:</u>
+                <br>Στην περίπτωση που θέλουμε να εμφανίσουμε έναν δεκαδικό αριθμό με συγκεκριμένο εύρος δεκαδικών στοιχείων, τότε προσθέτουμε μετά το σύμβολο % 
+                την τελεία και έπειτα το πλήθος των δεκαδικών ψηφίων.
+                <br><u><b>Για παράδειγμα:</b></u>
+                <br><br>
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="green">//αν έχω float_variable = 2.917,727</span>
+                    <br>printf("Η υψηλότερη κορύφη του Ολύμπου είναι στα %.2f μέτρα", float_variable);
+                </div>
+                <br>Τότε η εντολή του προγράμματος θα παραλείψει το τελευταίο δεκαδικό ψηφίο και θα εμφανίσει τον αριθμό μόνο με τα δύο πρώτα δεκαδικά.
+                <br>Θα εμφανίσει: <span class="magenta">Η υψηλότερη κορύφη του Ολύμπου είναι στα 2.917,72 μέτρα</span>
+
+                <br><br>Είπαμε ότι η εντολή printf() χρησιμοποιείται για εξαγωγή δεδομένων στην οθόνη μας. Αν θέλει όμως ο χρήστης να <u>εισάγει δεδομένα</u> στον υπολογιστή;
+                <br>Αυτό επιτυγχάνεται με την χρήση της εντολής: <span class="magenta"><b>scanf()</b></span>
+                <br>
+                <h3><br>✏️<u><b>ΣΥΝΤΑΞΗ:</b></u></h3>
+                <br>
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="red-text"><b>#include &lt;stdio.h> </b></span>
+                    
+                        <pre style="margin: 0; white-space: pre-wrap;"><br>int main(){
+    int A;
+    scanf("%d" , &A);     
+    return 0;
+}</pre>
+                </div>      
+
+                <br><br>☛Η εντολή της scanf() συμπεριλαμβάνεται και αυτή στις εντολές τις βιβλιοθήκης <b>stdio.h</b>.
+                <br>☛Όπως φαίνεται και στο παράδειγμα αρχίζει με την χρήση των εισαγωγικών " " , ακριβώς όπως ξεκινάει και η εντολή της printf().
+                ☛Στην εντολή της scanf() όμως δεν επιτρέπεται να βάλουμε κάποιο κείμενο, παρά μόνο το σύμβολο % ακολουθούμενο από ένα χαρακτηριστικό 
+                γράμμα -από τον προηγούμενο πίνακα-για να καταλάβει ο υπολογιστής τον τύπο δεδομένων του περιεχομένου της μεταβλητής που πρόκειται να αποθηκεύσει 
+                για μελλοντική χρήση. 
+                <br>☛Μετά τα εισαγωγικά ακολουθεί το κόμμα όπως και στην εντολή printf και το όνομα της μεταβλητής, όπου θα αποθηκευτούν τα δεδομένα που θα δώσει ο χρήστης 
+                στον υπολογιστή.
+                <br>☛Η διαφορά εδώ στην εντολή αυτή είναι ότι μπροστά από το όνομα της μεταβλητής υπάρχει το σύμβολο <span class="magenta"><b>&</b></span>.
+                
+                <br><br><u><b>Το σύμβολο & :</b></u>
+                <br>Για να αποθηκεύσει αυτά τα δεδομένα εισόδου το πρόγραμμα, το scanf πρέπει να γνωρίζει την θέση μνήμης της μεταβλητής. Αυτό συμβαίνει με την βοήθεια του
+                συμβόλου &. Όταν μπροστά από μια μεταβλητή υπάρχει το σύμβολο αυτό τότε το πρόγραμμα αυτόματα καταλαβαίνει ότι η αναφορά στην μεταβλητή αυτή ΔΕΝ ΑΦΟΡΑ το
+                περιεχόμενο - την τιμή της, αλλά ΑΦΟΡΑ την <b>διεύθυνση μνήμης</b> που είναι αποθηκευμένη στον υπολογιστή.
+                
+                <br><br>&emsp;&emsp;<b>Για παράδειγμα μια μεταβλητή αποτελείται από:</b>
+
+                <br>&emsp;&emsp;&emsp;    <u>Όνομα</u>&emsp;&emsp;    <u>Περιεχόμενο</u>&emsp;&emsp;  <u>Διεύθυνση μνήμης</u>
+                <br>&emsp;&emsp;&emsp;      var&emsp;&emsp;&emsp;&emsp;&emsp;               80&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;                0x1000&emsp;
+                <br><br>Επομένως, κάθε φορά που γίνεται αναφορά σε μια μεταβλητή με το σύμβολο & ο υπολογιστής αναγνωρίζει ότι πρέπει να βρει την θέση μνήμης της. Με
+                την εντολή της scanf() το πρόγραμμα πηγαίνει στην αντίστοιχη διεύθυνση και αποθηκεύει τα δεδομένα που εισήγαγε ο χρήστης ως το νέο περιεχόμενο της.
+
+                <br><br>❔Πάμε να δούμε ένα πιο αναλυτικό παράδειγμα;
+
+                <div class="frame"> <!--κωδικας σε c-->
+                    #include &lt;stdio.h> 
+                        <pre style="margin: 0; white-space: pre-wrap;"><br>
+int main() {
+    int a, b;
+    
+        printf("Enter first number: ");
+        scanf("%d", &a);
+    
+        printf("Enter second number: ");
+        scanf("%d", &b);
+    
+        printf("A : %d and B : %d" , a , b);
+    
+    return 0;
+}</pre>
+                </div>
+
+                <br><br>❕Κάθε φορά που το πρόγραμμα συναντάει την εντολή της scanf, σταματάει την εκτέλεση των επόμενων εντολών και "περιμένει" τον χρήστη να εισάγει τα δεδομένα
+                <br>Στο παράδειγμα αυτό αν δώσουμε ως είσοδο τα δεδομένα: 5 και 10 τότε η εντολή printf θα τυπώσει 
+                <br><span class="magenta"><b>Α : 5 and B : 10</b></span>
+
+                <br><br><hr><br><br>
+
+                <h3>Προσπάθησε να απαντήσεις σωστά στις παρακάτω ερωτήσεις ανοιχτού τύπου.</h3>
+                <div class="question">
+                    <p>1. Ποια είναι η εντολή για την εκτύπωση στην οθόνη στη C;</p>
+                    <input type="text" id="q1">
+                </div>
+                <div class="question">
+                    <p>2. Ποια είναι η εντολή για την εισαγωγή δεδομένων στη C;</p>
+                    <input type="text" id="q2">
+                </div>
+                <div class="question">
+                    <p>3. Ποιο σύμβολο χρησιμοποιούμε για να δηλώσουμε έναν ακέραιο αριθμό στην εντολή printf();</p>
+                    <input type="text" id="q3">
+                </div>
+                <div class="question">
+                    <p>4. Ποιο σύμβολο χρησιμοποιούμε για να δηλώσουμε έναν δεκαδικό αριθμό στην εντολή printf();</p>
+                    <input type="text" id="q4">
+                </div>
+                <div class="question">
+                    <p>5. Ποιο σύμβολο πρέπει να προστεθεί πριν από το όνομα μιας μεταβλητής στη scanf();</p>
+                    <input type="text" id="q5">
+                </div>
+                
+                <button class="button" onclick="checkAnswers7()">Έλεγχος</button>
+                <div id="result7" class="result"></div>
+                <p>Μόλις απαντήσεις στις ερωτήσεις αυτές μπορείς να πας στην ενότητα "Βαθμολογίες" και να δεις τα συνολικά σου αποτελέσματα.</p>
+            </div>
+
+            <div id="cFlow1MSG" , class="hide", style="position: absolute;">
+                
+                <h2><b>ΔΟΜΗ ΕΠΙΛΟΓΗΣ</b></h2>
+                <h2><br>💠<u>Η απλή μορφή δομής επιλογής: <span class="red-text">IF</span></u></h2>
+            
+
+                <br>Η εντολή if είναι μια βασική δομή προγραμματισμού που χρησιμοποιείται για να ελέγχει συνθήκες και να εκτελεί διαφορετικά κομμάτια κώδικα ανάλογα με 
+                το αν αυτές οι συνθήκες είναι <span class="red-text">αληθείς</span> ή <span class="red-text">ψευδείς</span>.
+                <br>Με απλά λόγια, είναι ένας τρόπος να πει ο προγραμματιστής στον υπολογιστή να κάνει επιλεκτική εκτέλεση ενός τμήματος κώδικα, σύμφωνα με την τιμή
+                μίας συνθήκης (condition).
+
+                <br><br><b><u><h3>ΣΥΝΤΑΞΗ:</h3></u></b>
+                <br><div class="frame"> <!--κωδικας σε c-->
+                    <pre style="margin: 0; white-space: pre-wrap;">
+if (<span class="red-text">συνθήκη</span>) {
+    <span class="green">// εντολές</span>
+}
+                    </pre>
+                </div>
+
+                <br><b><u><h3>ΠΩΣ ΛΕΙΤΟΥΡΓΕΙ;</h3></u></b>
+                <br>Αν η συνθήκη που πρόκειται να ελέγξει το πρόγραμμα ισχύει (αληθής), τότε εκτελείται το κομμάτι κώδικα που υπάρχει μέσα στις αγκύλες {...},
+                σε αντίθετη περίπτωση δεν εκτελείται και το πρόγραμμα συνεχίζει την εκτέλεση των υπόλοιπων εντολών που βρίσκονται μετά την δομή επιλογής.
+
+                <br><br><b><u><h3>ΠΑΡΑΔΕΙΓΜΑ:</h3></u></b>
+
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="red-text"><b>#include &lt;stdio.h> </b></span>
+                    
+                        <pre style="margin: 0; white-space: pre-wrap;"><br>int main(){
+    int num = 20;
+    
+    if(num < 100){
+        printf("Ο οριθμός είναι μικρότερος του 100.");
+    }
+    printf("Ο αριθμός είναι το %d.", num);
+
+    return 0;
+}</pre>
+                </div>
+
+                <br>Στον παραπάνω κώδικα ελέγχει το πρόγραμμα εαν ο αριθμός num είναι μικρότερος από το 100. Στην προκειμένη η μεταβλητή num είναι ίση με 20, επομένως
+                η συνθήκη είναι αληθής και το μύνημα που εμφανίζεται στην οθόνη είναι:
+                <br>&emsp;&emsp;<span class="red-text"><b>Ο αριθμός είναι μικρότερος του 100.
+                Ο αριθμός είναι το 20.</b></span>
+
+                <br><br>❓Τι θα γινόταν αν η μεταβλητή num ήταν ίση με 200; Τι μύνημα θα εμφανιζόταν στην οθόνη;
+
+                <br><br>
+                <hr>
+                <br><br>
+
+                <h2>
+                💠<u>Η σύνθετη μορφή δομής επιλογής: <span class="red-text">IF...ELSE</span></u>
+                </h2>
+
+                <br>Όπως και η απλή μορφή της δομής επιλογής, έτσι στην σύνθετη μορφή της δομής της η εντολή if χρησιμοποιείται για να εκτελέσει το πρόγραμμα ένα συγκεκριμένο
+                τμήμα κώδικα σύμφωνα με μία συνθήκη.
+
+                <br><br><b><u><h3>ΣΥΝΤΑΞΗ:</h3></u></b>
+                <br><div class="frame"> <!--κωδικας σε c-->
+                    <pre style="margin: 0; white-space: pre-wrap;">
+if (<span class="red-text">συνθήκη</span>) {
+    <span class="green">// εντολές</span>
+}
+else {
+    <span class="green">// εντολές</span>
+}
+                    </pre>
+                </div>
+
+                <br><b><u><h3>ΠΩΣ ΛΕΙΤΟΥΡΓΕΙ;</h3></u></b>
+                <br>Αν η συνθήκη που πρόκειται να ελέγξει το πρόγραμμα ισχύει (αληθής), τότε εκτελείται το κομμάτι κώδικα που υπάρχει μέσα στις πρώτες αγκύλες {...} της if,
+                σε αντίθετη περίπτωση εκτελείται το τμήμα κώδικα που βρίσκεται μέσα στις δεύτερες αγκύλες {...} της else.
+                <br>Στην συνέχεια, το πρόγραμμα συνεχίζει την εκτέλεση των υπόλοιπων εντολών που βρίσκονται μετά την δομή επιλογής.
+
+                <br><br><b><u><h3>ΠΑΡΑΔΕΙΓΜΑ:</h3></u></b>
+
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="red-text"><b>#include &lt;stdio.h> </b></span>
+                    
+                        <pre style="margin: 0; white-space: pre-wrap;"><br>int main(){
+    int num = 20;
+    
+    if(num < 100){
+        printf("Ο οριθμός είναι μικρότερος του 100.");
+    }
+    else{
+        printf("Ο οριθμός είναι μεγαλύτερος ή ίσος του 100.");
+    }
+
+    printf("Ο αριθμός είναι το %d.", num);
+
+    return 0;
+}</pre>
+                </div>
+
+                Το πρόγραμμα σύμφωνα με το δεδομένο ότι η μεταβλητή num είναι ίση με 20, βλέπει ότι η συνθήκη είναι αληθής (20&lt;100) και το μύνημα που εμφανίζεται στην οθόνη είναι:
+                <br>&emsp;&emsp;<span class="red-text"><b>Ο αριθμός είναι μικρότερος του 100.
+                    Ο αριθμός είναι το 20.</b></span>
+                <br> Ακριβώς όπως συνέβει και με το προηγούμενο παράδειγμα. 
+                <br><br>Αν num = 150 τότε το μύνημα που θα εμφανιζόταν στην οθόνη θα ήταν:
+                <br>&emsp;&emsp;<span class="red-text"><b>Ο αριθμός είναι μεγαλύτερος ή ίσος του 100.
+                    Ο αριθμός είναι το 150.</b></span>
+
+                <br><br>❗️Κάθε φορά που στην δομή επιλογής υπάρχει το κομμάτι της else, τότε οι εντολές στο εσωτερικό του βρόχου θα εκτελεστούν στην περίπτωση που η αρχική συνθήκη
+                είναι ψευδής. Αν δεν εκτελεστεί το τμήμα κώδικα της if, τότε η else θα εκτελεστεί σίγουρα!
+                
+                <br><br>
+                <hr>
+                <br>
+                <h2>
+                    <br>💠<u>Η πολλαπλή μορφή δομής επιλογής: <span class="red-text">IF...ELSE IF...ELSE</span></u>
+                </h2>
+
+                <br>Ενώ οι δύο προηγούμενες εντολές της δομής επιλογής ελέγχουν μόνο μία συνθήκη, η πολλαπλή μορφή μπορεί να ελέγξει περισσότερες από μία διαφορετικές συνθήκες.
+                Επιπλέον, μπορεί να περιέχει κανονικά την επιλογή της "else" προαιρετικά αναλόγως τις απαιτήσεις ενός προγράμματος.
+
+                <br><br><b><u><h3>ΣΥΝΤΑΞΗ:</h3></u></b>
+                <br><div class="frame"> <!--κωδικας σε c-->
+                    <pre style="margin: 0; white-space: pre-wrap;">
+if (<span class="red-text">1η_συνθήκη</span>) {
+    <span class="green">// εντολές</span>
+}
+else if (<span class="red-text">2η_συνθήκη</span>) {
+    <span class="green">// εντολές</span>
+}
+else if (<span class="red-text">ν_συνθήκη</span>) {
+    <span class="green">// εντολές</span>
+}
+else {
+    <span class="green">// εντολές</span>
+}
+</pre>
+                </div>
+
+                <br><b><u><h3>ΠΩΣ ΛΕΙΤΟΥΡΓΕΙ;</h3></u></b>
+
+                <br>☛ Το πρόγραμμα μόλις φτάσει στην δομή επιλογής, κάνει έλεγχο της 1ης συνθήκης της "if". Αν η συνθήκη είναι αληθής τότε εκτελούνται οι εντολές που υπάρχουν μέσα στον 1ο βρόχο της.
+                Αντίθετα, αν η συνθήκη είναι ψευδής, τότε το πρόγραμμα κάνει έλεγχο της 2ης συνθήκης της "else if" και επαναλαμβάνει την ίδια διαδικασία. Αν είναι αληθής η 2η συνθήκη εκτελείται
+                ο 2ος βρόχος εντολών. Αν και η 2η συνθήκη είναι ψευδής τότε συνεχίζει να ελέγχει όλες της υπόλοιπες συνθήκες, μέχρις ότου να τελειώσουν.
+                <br>☛ Όμως εάν κάποια απο τις συνθήκες βρεθεί να είναι αληθής τότε η διαδικασία ελέγχου τερματίζει και το πρόγραμμα βγαίνει έξω από την δομή επιλογής και συνεχίζει την εκτέλεση
+                των υπόλοιπων εντολών του προγράμματος.
+                <br>☛ Στην περίπτωση της "else" και καμία από τις συνθήκες που υπάρχουν στην δομή επιλογής βρεθεί αληθής, τότε το πρόγραμμα εκτελεί κανονικά τις εντολές
+                στο εσωτερικό του βρόχου της "else" -αν αυτή υπάρχει (είδαμε ότι είναι προαιρετική😉).
+
+                <br><br><b><u><h3>ΠΑΡΑΔΕΙΓΜΑ:</h3></u></b>
+
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="red-text"><b>#include &lt;stdio.h> </b></span>
+                    
+                        <pre style="margin: 0; white-space: pre-wrap;"><br>int main(){
+    int num = 75;
+
+    if (num < 50){
+        printf("Ο αριθμός είναι μικρότερος του 50\n");
+    }
+    else if (num < 100){
+        printf("Ο αριθμός είναι μικρότερος του 100\n");
+    }
+    else{
+        printf("Ο αριθμός ειναι το %d\n", num);
+    }
+    
+    return 0;
+}</pre>
+                </div>
+
+                <br><br>Ας δούμε μαζί τον τρόπο που ελέγχει το πρόγραμμα την δομή πολλαπλής επιλογής!
+                <br>📍Η μεταβλητή num είναι αρχικοποιημένη στο πρόγραμμα και ίση με 75.
+                <br>📍Η πρώτη συνθήκη num < 50 είναι ψευδής (75 < 50), άρα δεν εκτελείται το μπλοκ κώδικα του "if".
+                <br>📍Η δεύτερη συνθήκη num < 100 είναι αληθής (75 < 100), επομένως εκτελείται το μπλοκ κώδικα του "else if" και εκτυπώνεται το μήνυμα:
+                <br>&emsp;&emsp;<span class="red-text"><b>Ο αριθμός είναι μικρότερος του 100 αλλά μεγαλύτερος ή ίσος με 50</b></span>
+                <br>📍Η περίπτωση του "else" δεν ελέγχεται αφού η δεύτερη συνθήκη είναι αληθής και το αντίστοιχο μπλοκ κώδικα έχει ήδη εκτελεστεί.
+                <br>📍Η τελευταία εντολή της printf() εκτελείται ανεξάρτητα από το αποτέλεσμα των συνθηκών "if-else if-else". Επομένως, εκτυπώνεται το μήνυμα:
+                <br>&emsp;&emsp;<span class="red-text"><b>Ο αριθμός είναι το 75</b></span>
+
+                <br><br><br>❗️Οι συνθήκες της δομής επιλογής μπορούν να συνδιαστούν πολύ εύκολα και με τις εκφράσεις που είδαμε σε προηγούμενο κεφάλαιο. Τσέκαρε μερικά παραδείγματα
+
+                <img src="https://utopia.duth.gr/glykos/ioannina/html/c_02/img024.GIF", style="max-width:40%">
+                <img src="https://utopia.duth.gr/glykos/ioannina/html/c_02/img026.GIF", style="max-width:40%">
+
+                <br>
+                <hr>
+                
+                <br>❗️Υπάρχει περίπτωση να θέλουμε να ελέγξουμε και περισσότερες από μία συνθήκες, αν και μόνο αν ισχύει μια άλλη αρχική συνθήκη. Όταν μια δομή λοιπόν περικλύεται μέσα σε μία άλλη τότε λέγεται <span class="magenta"><b>Εμφωλευμένη</b></span>. <u>Για παράδειγμα:</u>
+
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="red-text"><b>#include &lt;stdio.h> </b></span>
+                    
+                        <pre style="margin: 0; white-space: pre-wrap;"><br>int main(){
+    int num;
+
+    printf("Δώσε έναν αριθμό: ");
+    scanf("%d", &num);
+
+    <span class="green">// Ελέγχουμε αν ο αριθμός είναι θετικός ή αρνητικός</span>
+    if (num >= 0) {
+        <span class="green">// Αν είναι θετικός, ελέγχουμε αν είναι άρτιος ή περιττός</span>
+        if (num % 2 == 0) {
+            printf("Ο αριθμός %d είναι θετικός και άρτιος.\n", num);
+        } else {
+            printf("Ο αριθμός %d είναι θετικός και περιττός.\n", num);
+        }
+    } else {
+        <span class="green">// Αν είναι αρνητικός, ελέγχουμε αν είναι άρτιος ή περιττός</span>
+        if (num % 2 == 0) {
+            printf("Ο αριθμός %d είναι αρνητικός και άρτιος.\n", num);
+        } else {
+            printf("Ο αριθμός %d είναι αρνητικός και περιττός.\n", num);
+        }
+    }
+
+    return 0;
+}</pre>
+                </div>
+
+                <br><b>💠Εξωτερική if δομή:</b> Ελέγχουμε αν ο αριθμός είναι θετικός ή αρνητικός. Αν ο αριθμός είναι μεγαλύτερος ή ίσος με το μηδέν, μπαίνουμε στο πρώτο μπλοκ if, αλλιώς μπαίνουμε στο else.
+
+                <br><b>💠Εσωτερική if δομή:</b> Μέσα σε κάθε μπλοκ (θετικός ή αρνητικός αριθμός), ελέγχουμε αν ο αριθμός είναι άρτιος ή περιττός χρησιμοποιώντας τον τελεστή modulo %. Αν το υπόλοιπο της διαίρεσης του αριθμού με το 2 είναι μηδέν (num % 2 == 0), τότε ο αριθμός είναι άρτιος, αλλιώς είναι περιττός.
+                
+
+
+                <br><br><br><br><h3><b>Είσαι πανέτοιμος/η για να δημιουργήσουμε το πρώτο μας πρόγραμμα;</b></h3>
+                <br><button class="buttonClick" onclick="example1()">ΠΑΜΕ</button>
+
+
+            </div>
+
+            <div id="cFlow2MSG" , class="hide", style="position: absolute;">
+
+                <h2>
+                    <b>ΔΟΜΗ ΕΠΑΝΑΛΗΨΗΣ</b>
+                    <br><br>💠<u>ΕΝΤΟΛΗ <span class="red-text">FOR</span></u>
+                </h2>
+
+                <br><br><b><u><h3>ΠΟΤΕ ΧΡΗΣΙΜΟΠΟΙΕΙΤΑΙ;</h3></u></b>
+                <br>Η δομή επανάληψης <span class="red-text">"for"</span> στη γλώσσα προγραμματισμού C χρησιμοποιείται για να εκτελεστεί επαναληπτικά ένα μπλοκ εντολών 
+                για ένα προκαθορισμένο αριθμό επαναλήψεων. 
+                Συνήθως χρησιμοποιείται όταν γνωρίζουμε εκ των προτέρων το πλήθος των επαναλήψεων που θέλουμε να εκτελεστούν.
+
+                <br><br><b><u><h3>ΣΥΝΤΑΞΗ:</h3></u></b>
+                <br><div class="frame"> <!--κωδικας σε c-->
+                    <pre style="margin: 0; white-space: pre-wrap;">
+for (<span class="red-text">αρχικοποίηση</span>;<span class="red-text">συνθήκη</span>;<span class="red-text">αύξηση</span>;) {
+    <span class="green">// εντολές</span>
+}
+                    </pre>
+                </div>
+
+                <br><b><u><h3>ΠΩΣ ΛΕΙΤΟΥΡΓΕΙ;</h3></u></b>
+                <br>Πάμε να δούμε αναλυτικά όλα τα στοιχεία της.
+
+                <br><br>📍<b><u>Αρχικοποίηση:</u></b> Εκτελείται στην αρχή και για μια φορά. Γίνεται η αρχικοποίηση της μεταβλητής (μετρητής) που θα χρησιμοποιηθεί στην 
+                επανάληψη.
+                <br><br>📍<b><u>Συνθήκη:</u></b> Η συνθήκη ελέγχεται πριν από κάθε επανάληψη. Όσο η συνθήκη είναι αληθής (true), ο βρόχος της for εκτελείται 
+                (δηλ. οι εντολές). Αν η συνθήκη γίνει ψευδής (false), η επανάληψη σταματά.
+                <br><br>📍<b><u>Αύξηση:</u></b> Αυτή η εντολή εκτελείται στο τέλος κάθε επανάληψης και χρησιμοποιείται για να τροποποιηθεί η μεταβλητή-μετρητής. Μόλις 
+                αλλάξει η τιμή του μετρητή, ανάλογα με την τιμή αύξησης του (ή μείωσης όπως θα δουμε παρακάτω)το πρόγραμμα θα ελέγξει πάλι την συνθήκη και η διαδικασία 
+                αυτή θα επαναλαμβάνεται μέχρι να φτάσουμε τον επιθυμητό αριθμό επαναλήψεων.
+
+                <br><br><b><u><h3>ΠΑΡΑΔΕΙΓΜΑ:</h3></u></b>
+
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="red-text"><b>#include &lt;stdio.h> </b></span>
+                    
+                        <pre style="margin: 0; white-space: pre-wrap;"><br>int main(){
+    for (int i = 0; i < 5; i++) {
+        printf("Ο αριθμός είναι το %d\n", i);
+    }
+
+    return 0;
+}</pre>
+                </div>
+
+                <br>💠Ξεκινάμε με την αρχικοποίηση του μετρητή μας (συνήθως ονομάζεται i) που ορίζουμε να είναι το μηδέν (i=0), η οποία δηλώνεται ως ακέραιος.
+                <br>💠Πριν από κάθε επανάληψη, ελέγχουμε την συνθήκη, δηλαδή αν η τιμή του i είναι μικρότερη από 5 (i < 5). Αν ναι, το πρόγραμμα θα μπει μέσα στον βρόχο να
+                εκτελέσει τις εντολές που βρίσκονται στο εσωτερικό του. 
+                <br>💠Μετά το πέρας κάθε επανάληψης τροποποιείται ο μετρητής ανάλογα την αύξηση του. Εδω έχουμε i++ το οποίο συμαίνει ότι θα γίνει η πράξη i+1 και θα αυξηθεί
+                ο μετρητής κατά ένα. Στην συνέχεια ελέγχεται ξανά η συνθήκη με την νέα τιμή του i.
+                
+                <br><br>Στο παράδειγμα μας θα συμβεί αυτό:
+                
+                <br><br><h3>&emsp;<b><u>Μετρητής</u></b>      &emsp;&emsp;&emsp;<b><u>Συνθήκη</u></b>   &emsp;&emsp;&emsp;&emsp;<b><u>Εκτύπωση</u></b></h3>
+                <br>&emsp;&emsp;&emsp;i = 0   &emsp;&emsp;☛  &emsp;&emsp;0 < 5 (Α)   &emsp;&emsp;☛  &emsp;&emsp;Ο αριθμός είναι το 0
+                <br>&emsp;&emsp;&emsp;i = 1   &emsp;&emsp;☛  &emsp;&emsp;1 < 5 (Α)   &emsp;&emsp;☛  &emsp;&emsp;Ο αριθμός είναι το 1
+                <br>&emsp;&emsp;&emsp;i = 2   &emsp;&emsp;☛  &emsp;&emsp;2 < 5 (Α)   &emsp;&emsp;☛  &emsp;&emsp;Ο αριθμός είναι το 2
+                <br>&emsp;&emsp;&emsp;i = 3   &emsp;&emsp;☛  &emsp;&emsp;3 < 5 (Α)   &emsp;&emsp;☛  &emsp;&emsp;Ο αριθμός είναι το 3
+                <br>&emsp;&emsp;&emsp;i = 4   &emsp;&emsp;☛  &emsp;&emsp;4 < 5 (Α)   &emsp;&emsp;☛  &emsp;&emsp;Ο αριθμός είναι το 4
+                <br>&emsp;&emsp;&emsp;i = 5   &emsp;&emsp;☛  &emsp;&emsp;5 < 5 (Ψ)   &emsp;&emsp;☛  &emsp;&emsp;&emsp;&emsp;-
+
+                <br><br>❗️<u>Σημείωση:</u>
+                <br>Ο μετρητής μπορεί να πάρει οποιαδήποτε τιμή και να τροποποιηθεί είτε αυξάνοντας, είτε μειώνοντας κατά όσες μονάδες θέσει ο προγραμματιστής ανάλογα τις ανάγκες του. 
+                
+                <br><br>
+                <hr>
+
+                <h2>
+                    <br>💠<u>ΕΝΤΟΛΗ <span class="red-text">WHILE</span></u>
+                </h2>
+                
+                <br><br><b><u><h3>ΠΟΤΕ ΧΡΗΣΙΜΟΠΟΙΕΙΤΑΙ;</h3></u></b>
+                <br>Η δομή επανάληψης <span class="red-text">"while"</span> στη γλώσσα προγραμματισμού C χρησιμοποιείται για να εκτελεστεί επαναληπτικά ένα μπλοκ εντολών πολλές φορες, όσο μια συνθήκη είναι αληθής (true). Συνήθως χρησιμοποιείται όταν δεν γνωρίζουμε εκ των προτέρων πόσες φορές θέλουμε να εκτελεστούν οι επαναλήψεις.
+                
+                <br><br><b><u><h3>ΣΥΝΤΑΞΗ:</h3></u></b>
+                <br><div class="frame"> <!--κωδικας σε c-->
+                    <pre style="margin: 0; white-space: pre-wrap;">
+while (<span class="red-text">συνθήκη</span>) {
+    <span class="green">// εντολές</span>
+}
+    </pre>
+                </div>
+                
+                <br><b><u><h3>ΠΩΣ ΛΕΙΤΟΥΡΓΕΙ;</h3></u></b>
+                
+                <br>📍Η συνθήκη ελέγχεται πριν από κάθε επανάληψη. Όσο η συνθήκη είναι αληθής (true), ο βρόχος της while εκτελείται. Αν η συνθήκη γίνει ψευδής (false), η επανάληψη σταματά.
+                <br>Συνήθως, κάποια εντολή μέσα στο μπλοκ εντολών μεταβάλλει την κατάσταση της συνθήκης για να αποφευχθεί ο ατέρμονας βρόχος.
+                
+                <br><br><b><u><h3>ΠΑΡΑΔΕΙΓΜΑ:</h3></u></b>
+                
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="red-text"><b>#include &lt;stdio.h></b></span>
+                    
+                        <pre style="margin: 0; white-space: pre-wrap;"><br>int main(){
+    int num = 0;
+
+    printf("Δώσε έναν αριθμό εκτός του μηδενός: ");
+    scanf("%d", &num);
+
+    while (num != 0) {
+        if (num > 0) {
+            printf("Ο αριθμός %d είναι θετικός.\n", num);
+        } else {
+            printf("Ο αριθμός %d είναι αρνητικός.\n", num);
+        }
+        
+        printf("Αν θες να σταματήσεις δώσε το 0 αλλιώς δώσε νέο αριθμό: ");
+        scanf("%d", &num);
+    }
+
+    printf("Μηδενικός αριθμός δόθηκε, τέλος προγράμματος.\n");
+                
+    return 0;
+}</pre>
+                </div>
+                
+                <br>💠 Αρχικά, ζητάμε από τον χρήστη να δώσει έναν αριθμό και τον αποθηκεύουμε στη μεταβλητή num.
+                <br>💠 Η συνθήκη της while είναι num != 0, που σημαίνει ότι ο βρόχος θα εκτελείται όσο ο αριθμός δεν είναι μηδενικός.
+                <br>💠 Μέσα στον βρόχο, χρησιμοποιούμε μια εντολή if για να ελέγξουμε αν ο αριθμός είναι θετικός (num > 0). Αν ναι, εκτυπώνουμε ότι ο αριθμός είναι θετικός.
+                <br>💠 Αν η συνθήκη if είναι ψευδής, σημαίνει ότι ο αριθμός είναι αρνητικός και εκτυπώνουμε το αντίστοιχο μήνυμα.
+                <br>💠 Ζητάμε από τον χρήστη να δώσει έναν άλλο αριθμό και ενημερώνουμε τη μεταβλητή num.
+                <br>💠 Η διαδικασία επαναλαμβάνεται μέχρι ο χρήστης να δώσει τον αριθμό 0, οπότε η συνθήκη num != 0 γίνεται ψευδής και ο βρόχος τερματίζεται.
+                <br>💠 Τέλος, εκτυπώνουμε ένα μήνυμα ότι δόθηκε μηδενικός αριθμός και το πρόγραμμα τελειώνει.
+                
+                <br><br>Στο παράδειγμα μας αν x1-x4 αριθμοί διάφοροι του μηδενός και x5 το μηδέν, θα συμβεί αυτό:
+                
+                <br><h3>&emsp;&emsp;<b><u>Είσοδος</u></b>  &emsp;&emsp;<b><u>Μετρητής</u></b>      &emsp;&emsp;&emsp;<b><u>Συνθήκη</u></b>     &emsp;&emsp;&emsp;<b><u>Εκτύπωση</u></b></h3>
+                <br>&emsp;&emsp;&emsp;&emsp;x1    &emsp;&emsp;&emsp;&emsp;&emsp;num = x1   &emsp;&emsp;☛  &emsp;&emsp;num!=0   &emsp;&emsp;☛  &emsp;&emsp;...
+                <br>&emsp;&emsp;&emsp;&emsp;x2    &emsp;&emsp;&emsp;&emsp;&emsp;num = x2   &emsp;&emsp;☛  &emsp;&emsp;num!=0   &emsp;&emsp;☛  &emsp;&emsp;...
+                <br>&emsp;&emsp;&emsp;&emsp;x3    &emsp;&emsp;&emsp;&emsp;&emsp;num = x3   &emsp;&emsp;☛  &emsp;&emsp;num!=0   &emsp;&emsp;☛  &emsp;&emsp;...
+                <br>&emsp;&emsp;&emsp;&emsp;x4    &emsp;&emsp;&emsp;&emsp;&emsp;num = x4   &emsp;&emsp;☛  &emsp;&emsp;num!=0   &emsp;&emsp;☛  &emsp;&emsp;...
+                <br>&emsp;&emsp;&emsp;&emsp;x5    &emsp;&emsp;&emsp;&emsp;&emsp;num =  0    &thinsp;&thinsp;&emsp;&emsp;☛  &thinsp;&thinsp;&thinsp;&thinsp;&emsp;num==0   &emsp;&emsp;☛  &emsp;&emsp;Μηδενικός αριθμός δόθηκε, τέλος προγράμματος.
+                
+                <br><br>
+                <hr>
+
+                <h2>
+                    <br>💠<u>ΕΝΤΟΛΗ <span class="red-text">DO WHILE</span></u>
+                </h2>
+                
+                <br><br><b><u><h3>ΠΟΤΕ ΧΡΗΣΙΜΟΠΟΙΕΙΤΑΙ;</h3></u></b>
+                <br>Η δομή επανάληψης <span class="red-text">"do while"</span> στη C έχει πολύ παρόμοια συμπεριφορά με την προηγούμενη εντολή της while. Χρησιμοποιείται και αυτή για να εκτελεστεί επαναληπτικά ένα μπλοκ εντολών <u>τουλάχιστον μία φορά</u> και μετά συνεχίζει να εκτελείται όσο μια συνθήκη είναι αληθής (true). 
+                <br>Συνήθως, χρησιμοποιείται όταν θέλουμε να εξασφαλίσουμε ότι το μπλοκ εντολών θα εκτελεστεί τουλάχιστον μία φορά, ανεξάρτητα από την αρχική κατάσταση της συνθήκης.
+                
+                <br><br><b><u><h3>ΣΥΝΤΑΞΗ:</h3></u></b>
+                <br><div class="frame"> <!--κωδικας σε c-->
+                    <pre style="margin: 0; white-space: pre-wrap;">
+do {
+    <span class="green">// εντολές</span>
+} while (<span class="red-text">συνθήκη</span>);
+    </pre>
+                </div>
+                
+                <br><b><u><h3>ΠΩΣ ΛΕΙΤΟΥΡΓΕΙ;</h3></u></b>
+                
+                <br>📍Η εντολή <span class="red-text">do while</span> σε αντίθεση με την while, εκτελεί πρώτα το μπλοκ εντολών μια φορά στην αρχή και στη συνέχεια ελέγχει τη συνθήκη. Αν η συνθήκη είναι αληθής (true), ο βρόχος εκτελείται ξανά. Η διαδικασία αυτή επαναλαμβάνεται μέχρι η συνθήκη να γίνει ψευδής (false).
+                
+                <br><br><b><u><h3>ΠΑΡΑΔΕΙΓΜΑ:</h3></u></b>
+                
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="red-text"><b>#include &lt;stdio.h></b></span>
+                    
+                    <pre style="margin: 0; white-space: pre-wrap;"><br>int main(){
+    <span class="green">// Ίδιο παράδειγμα με πριν</span>
+    int num = 0;
+
+    do {
+        printf("Δώσε έναν αριθμό (0 για έξοδο): ");
+        scanf("%d", &num);
+
+        if (num > 0) {
+            printf("Ο αριθμός %d είναι θετικός.\n", num);
+        } else if (num < 0) {
+            printf("Ο αριθμός %d είναι αρνητικός.\n", num);
+        }
+        
+    } while (num != 0);
+
+    printf("Μηδενικός αριθμός δόθηκε, τέλος προγράμματος.\n");
+    
+    return 0;
+}</pre>
+                </div>
+                
+                <br>💠Πρώτα το πρόγραμμα ελέγχει την συνθήκη της if.
+                <br>💠Μέσα στον βρόχο, χρησιμοποιούμε την εμφωλευμένη εντολή if για να ελέγξουμε αν ο αριθμός είναι θετικός (num > 0) ή αρνητικός (num < 0) και εκτυπώνουμε το αντίστοιχο μήνυμα.
+                <br>💠Όταν το πρόγραμμα βγει εκτός της δομής επιλογής ήρθε η ώρα να ελεγθεί η συνθήκη της while. Η διαδικασία αυτή επαναλαμβάνεται μέχρι ο χρήστης να &thinsp;δώσει τον αριθμό 0, οπότε η συνθήκη num != 0 γίνεται ψευδής και ο βρόχος τερματίζεται.
+                
+                <br><br>Στο παράδειγμα μας αν x1-x4 αριθμοί διάφοροι του μηδενός και x5 το μηδέν, θα συμβεί αυτό:
+                
+                <br><h3>&emsp;&emsp;<b><u>Είσοδος</u></b>  &emsp;&emsp;<b><u>Μετρητής</u></b>      &emsp;&emsp;&emsp;<b><u>Εκτύπωση</u></b>     &emsp;&emsp;&emsp;<b><u>Συνθήκη</u></b></h3>
+                <br>&emsp;&emsp;&emsp;&emsp;x1    &emsp;&emsp;&emsp;&emsp;&emsp;num = x1   &emsp;&emsp;☛  &emsp;&emsp;...   &emsp;&emsp;☛  &emsp;&emsp;num!=0 (Α)
+                <br>&emsp;&emsp;&emsp;&emsp;x2    &emsp;&emsp;&emsp;&emsp;&emsp;num = x2   &emsp;&emsp;☛  &emsp;&emsp;...   &emsp;&emsp;☛  &emsp;&emsp;num!=0 (Α)
+                <br>&emsp;&emsp;&emsp;&emsp;x3    &emsp;&emsp;&emsp;&emsp;&emsp;num = x3   &emsp;&emsp;☛  &emsp;&emsp;...   &emsp;&emsp;☛  &emsp;&emsp;num!=0 (Α)
+                <br>&emsp;&emsp;&emsp;&emsp;x4    &emsp;&emsp;&emsp;&emsp;&emsp;num = x4   &emsp;&emsp;☛  &emsp;&emsp;...   &emsp;&emsp;☛  &emsp;&emsp;num!=0 (Α)
+                <br>&emsp;&emsp;&emsp;&emsp;x5    &emsp;&emsp;&emsp;&emsp;&emsp;num =  0   &thinsp;&thinsp;&emsp;&emsp;☛  &thinsp;&thinsp;&thinsp;&thinsp;&emsp;⛔️   &emsp;&thinsp;&thinsp;&thinsp;☛  &emsp;&emsp;num!=0 (Ψ)
+                <br>&emsp;&emsp;Μηδενικός αριθμός δόθηκε, τέλος προγράμματος.
+                
+                <br><br><br>❗️<u>Σημείωση:</u>
+                <br>Στις δύο τελευταίες εντολές <span class="red-text">while</span> και <span class="red-text">do while</span> , είναι σημαντικό να διασφαλίζεται ότι η συνθήκη κάποια στιγμή θα γίνει ψευδής, διαφορετικά το πρόγραμμα θα βρεθεί σε ατέρμονα βρόχο. Η εντολή που τροποποιεί τη συνθήκη μπορεί να βρίσκεται οπουδήποτε μέσα στον βρόχο. 
+                
+                <br><br><hr><br><br>
+
+                <h3>Τεστάκι Επανάληψης</h3>
+                <br>
+                <div class="question" id="q1">
+                    <span class="magenta">1. Ποιο από τα παρακάτω είναι σωστό για την εντολή <code><b>for</b></code>;</span><br>
+                    <label><input type="radio" name="q1" value="a"> Εκτελείται τουλάχιστον μία φορά</label><br>
+                    <label><input type="radio" name="q1" value="b"> Η συνθήκη ελέγχεται μετά από κάθε επανάληψη</label><br>
+                    <label><input type="radio" name="q1" value="c"> Η συνθήκη ελέγχεται πριν από κάθε επανάληψη</label><br>
+                    <label><input type="radio" name="q1" value="d"> Δεν χρησιμοποιεί μετρητή</label>
+                </div>
+
+                <div class="question" id="q2">
+                    <span class="magenta">2. Ποια εντολή επανάληψης χρησιμοποιείται όταν <b>δεν</b> γνωρίζουμε εκ των προτέρων τον αριθμό επαναλήψεων;</span><br>
+                    <label><input type="radio" name="q2" value="a">FOR</label><br>
+                    <label><input type="radio" name="q2" value="b">WHILE</label><br>
+                    <label><input type="radio" name="q2" value="c">DO...WHILE</label><br>
+                    <label><input type="radio" name="q2" value="d">IF</label>
+                </div>
+
+
+                <div class="question" id="q3">
+                    <span class="magenta">3. Πόσες φορές θα εκτελεστεί ο παρακάτω κώδικας;</span><br><code>for (int i = 0; i &lt; 5; i++) { // κώδικας }</code><br>
+                    <input type="number" name="q3" id="q3-input">
+                </div>
+                
+
+                <div class="question" id="q4">
+                    <span class="magenta">4. Ποιες από τις παρακάτω εντολές είναι δομές επανάληψης;</span><br>
+                    <label><input type="checkbox" name="q4" value="a"> if</label><br>
+                    <label><input type="checkbox" name="q4" value="b"> switch</label><br>
+                    <label><input type="checkbox" name="q4" value="c"> for</label><br>
+                    <label><input type="checkbox" name="q4" value="d"> while</label>
+                </div>
+
+                <button class="button" onclick="checkAnswers8()">Υποβολή</button>
+                <div id="result8" class="result"></div>
+                <p>Μόλις απαντήσεις στις ερωτήσεις αυτές μπορείς να πας στην ενότητα "Βαθμολογίες" και να δεις τα συνολικά σου αποτελέσματα.</p>
+
+            </div>
+
+            <div id="cBreakMSG" , class="hide", style="position: absolute;">
+                
+                <h2>
+                    <b>ΔΟΜΕΣ ΕΛΕΓΧΟΥ</b>
+                    <br><br>💠<u>ΕΝΤΟΛΕΣ <span class="red-text">BREAK</span> ΚΑΙ <span class="red-text">CONTINUE</span></u>
+                </h2>
+                
+                <br><br><b><u><h3>ΤΙ ΕΙΝΑΙ Η BREAK;</h3></u></b>
+                <br>Η εντολή <span class="red-text">break</span> στη γλώσσα προγραμματισμού C χρησιμοποιείται για να τερματίσει την εκτέλεση της πιο εσωτερικής επανάληψης (ή του πιο εσωτερικού βρόχου) νωρίτερα από το κανονικό. Όταν εκτελείται η εντολή break, ο έλεγχος μεταφέρεται αμέσως στην επόμενη εντολή μετά τον βρόχο.
+                
+                <br><br><b><u><h3>ΠΑΡΑΔΕΙΓΜΑ:</h3></u></b>
+                
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="red-text"><b>#include &lt;stdio.h></b></span>
+                    
+                    <pre style="margin: 0; white-space: pre-wrap;"><br>int main(){
+    for (int i = 0; i < 10; i++) {
+        if (i == 5) {
+            <span class="red-text">break</span>;
+        }
+        printf("i = %d\n", i);
+    }
+
+    printf("Η επανάληψη σταμάτησε.\n");
+    
+    return 0;
+}</pre>
+                </div>
+                
+                <br>Στο παράδειγμα, όταν η τιμή του i γίνει 5, η εντολή <span class="red-text">break</span> εκτελείται και τερματίζει τον βρόχο for. Έτσι, το πρόγραμμα εκτυπώνει τις τιμές από 0 έως 4 και στη συνέχεια εκτυπώνει το μήνυμα "Η επανάληψη σταμάτησε." χωρίς να εκτυπώσει την τιμή 5.
+                
+                <br><br><b><u><h3>ΤΙ ΕΙΝΑΙ Η CONTINUE;</h3></u></b>
+                <br>Η εντολή <span class="red-text">continue</span> στη γλώσσα προγραμματισμού C χρησιμοποιείται για να παραλείψει το υπόλοιπο των εντολών μέσα σε έναν βρόχο και να μεταφέρει τον έλεγχο στην επόμενη επανάληψη του βρόχου. Σε βρόχους for, η εντολή continue μεταφέρει τον έλεγχο στην εντολή αύξησης, ενώ σε βρόχους while και do-while, μεταφέρει τον έλεγχο στην εντολή συνθήκης.
+                
+                <br><br><b><u><h3>ΠΑΡΑΔΕΙΓΜΑ:</h3></u></b>
+                
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="red-text"><b>#include &lt;stdio.h></b></span>
+                    
+                    <pre style="margin: 0; white-space: pre-wrap;"><br>int main(){
+    for (int i = 0; i < 10; i++) {
+        if (i % 2 == 0) {
+            <span class="red-text">continue</span>;
+        }
+        printf("i = %d\n", i);
+        <b><span class="green">// Άλλες εντολές εδώ</span></b>
+    }
+
+    printf("Η επανάληψη ολοκληρώθηκε.\n");
+    
+    return 0;
+}</pre>
+                </div>
+                
+                <br>Στο παράδειγμα, η εντολή <span class="red-text">continue</span> εκτελείται όταν η τιμή του i είναι άρτιος αριθμός. Αυτό παραλείπει την εκτύπωση της τιμής του i για τους άρτιους αριθμούς και συνεχίζει με την επόμενη επανάληψη του βρόχου. Έτσι, το πρόγραμμα εκτυπώνει μόνο τις περιττές τιμές από 0 έως 9 (δηλ. 1,3,5,7,9) και στη συνέχεια εκτυπώνει το μήνυμα "Η επανάληψη ολοκληρώθηκε."
+                
+                <br><br><br>❗️<u>Σημείωση:</u>
+                <br>Η χρήση των εντολών <span class="red-text">break</span> και <span class="red-text">continue</span> μπορεί να κάνει τον κώδικα πιο δύσκολο στην ανάγνωση και κατανόηση. Είναι σημαντικό να χρησιμοποιούνται με προσοχή και να υπάρχει σαφής λόγος για την χρήση τους.
+                <br><br><br>
+                <hr>
+                <br><br><b><u><span class="magenta">Ας δούμε ένα συνδιαστικό πρόγραμμα:</span></u></b>
+                <br><br>
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="red-text"><b>#include &lt;stdio.h></b></span>
+                    
+                    <pre style="margin: 0; white-space: pre-wrap;"><br>int main(){
+    int sum = 0;
+
+    for (int i = 1; i <= 10; i++) {
+
+        if (i == 7) {
+            printf("Η τιμή του i είναι 7, τερματισμός βρόχου.\n");
+            break;      <b><span class="green">// Τερματίζει τον βρόχο αν το i είναι 7</span></b>
+        }
+        if (i % 3 == 0) {
+            continue;   
+            <b><span class="green">// Παραλείπει την πρόσθεση αν το i είναι πολλαπλάσιο του 3</span></b>
+        }
+        
+        sum += i;       
+        <b><span class="green">// Προσθέτει το i στο sum αν δεν πληροί τις συνθήκες</span></b>
+
+        printf("Προστέθηκε το %d. Τρέχον άθροισμα: %d\n", i, sum);
+    }
+
+    printf("Η τελική τιμή του αθροίσματος είναι %d.\n", sum);
+
+    return 0;
+}</pre>
+                </div>
+
+                <br><br><b><h3>Στάδια ελέγχου και εκτέλεσης του προγράμματος:</h3></b>
+                <br><br>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>i</th>
+                                <th>Ενέργεια</th>
+                                <th>Τρέχον Άθροισμα</th>
+                                <th>Εκτύπωση</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Προστέθηκε</td>
+                                <td>1</td>
+                                <td>Προστέθηκε το 1 στο άθροισμα. Τρέχον άθροισμα: 1</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Προστέθηκε</td>
+                                <td>3</td>
+                                <td>Προστέθηκε το 2 στο άθροισμα. Τρέχον άθροισμα: 3</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Παραλείφθηκε</td>
+                                <td>3</td>
+                                <td>Το i είναι πολλαπλάσιο του 3. Παράλειψη επανάληψης.</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Προστέθηκε</td>
+                                <td>7</td>
+                                <td>Προστέθηκε το 4 στο άθροισμα. Τρέχον άθροισμα: 7</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Προστέθηκε</td>
+                                <td>12</td>
+                                <td>Προστέθηκε το 5 στο άθροισμα. Τρέχον άθροισμα: 12</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Παραλείφθηκε</td>
+                                <td>12</td>
+                                <td>Το i είναι πολλαπλάσιο του 3. Παράλειψη επανάληψης.</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Τερματίστηκε</td>
+                                <td>12</td>
+                                <td>Η τιμή του i είναι 7, τερματισμός βρόχου.</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Δεν εκτελείται</td>
+                                <td>12</td>
+                                <td>⛔️</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>Δεν εκτελείται</td>
+                                <td>12</td>
+                                <td>⛔️</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>Δεν εκτελείται</td>
+                                <td>12</td>
+                                <td>⛔️</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <b>Η τελική τιμή του αθροίσματος είναι 12.</b>
+
+
+                <br><br><hr><br><br>
+
+                <div class="quiz-container">
+                    <h3>ΕΡΩΤΗΣΕΙΣ ΚΑΤΑΝΟΗΣΗΣ:</h3>
+
+                    <br><br><span class="magenta">1.Τι κάνει η εντολή <code>break</code>;</span>
+                            
+                    <br><input type="radio" id="q1-1" name="q1" value="1"> Παραλείπει την τρέχουσα επανάληψη και συνεχίζει με την επόμενη.
+                    <br><input type="radio" id="q1-2" name="q1" value="2"> Επαναλαμβάνει την τρέχουσα εντολή στον βρόχο.
+                    <br><input type="radio" id="q1-3" name="q1" value="3"> Τερματίζει την εκτέλεση του βρόχου.
+                    <br><input type="radio" id="q1-4" name="q1" value="4"> Εκτελεί την επόμενη εντολή στον βρόχο.
+
+                    
+                    <br><br><span class="magenta">2.Τι κάνει η εντολή <code>continue</code>;</span>
+                            
+                    <br><input type="radio" id="q2-1" name="q2" value="1"> Εκτελεί την επόμενη εντολή στον βρόχο.
+                    <br><input type="radio" id="q2-2" name="q2" value="2"> Τερματίζει την εκτέλεση του βρόχου.
+                    <br><input type="radio" id="q2-3" name="q2" value="3"> Επαναλαμβάνει την τρέχουσα εντολή στον βρόχο.
+                    <br><input type="radio" id="q2-4" name="q2" value="4"> Παραλείπει την τρέχουσα επανάληψη και συνεχίζει με την επόμενη.
+                            
+                        
+                    <br><br><span class="magenta">3.Ποιο είναι το αποτέλεσμα του παρακάτω προγράμματος;</span>
+                    <br>        <pre>
+                #include &lt;stdio.h&gt;
+
+                int main() {
+                    for (int i = 0; i &lt; 5; i++) {
+                        if (i == 2) {
+                            break;
+                        }
+                        printf("%d\n", i);
+                    }
+                    return 0;
+                }
+                            </pre>
+                            
+                    <br><input type="radio" id="q3-1" name="q3" value="1"> 0 1 2 3 4
+                    <br><input type="radio" id="q3-2" name="q3" value="2"> 0 1 2
+                    <br><input type="radio" id="q3-3" name="q3" value="3"> 0 1
+                    <br><input type="radio" id="q3-4" name="q3" value="4"> 1 2 3 4
+            
+                    <br><br><span class="magenta">4.Η εντολή <code>break</code> μπορεί να χρησιμοποιηθεί μόνο σε βρόχους for.</span>
+                    
+                    <!-- <br><input type="radio" id="q4-1"  name="q4" value="1"> Σωστό
+                    <br><input type="radio" id="q4-2" name="q4" value="2"> Λάθος -->
+                    <br>
+                    <input type="radio" id="q4-true" name="q4" value="true">
+                        <label for="q4-true">Σωστό</label><br>
+                        <input type="radio" id="q4-false" name="q4" value="false">
+                        <label for="q4-false">Λάθος</label>
+                    
+                    <br><br>
+                    
+                    <button class="button" onclick="checkAnswersGeneric(3, ['3', '4', '3', 'false'], 4)"> Υποβολή Απαντήσεων</button>
+                    <div id="result3" class="result"></div>
+                    <p>Μόλις απαντήσεις στις ερωτήσεις αυτές μπορείς να πας στην ενότητα "Βαθμολογίες" και να δεις τα συνολικά σου αποτελέσματα.</p>
+                </div>  
+            </div>
+
+            <div id="cArraysMSG" , class="hide" , style="position: absolute;">
+                
+                <h2><u><b>ΠΙΝΑΚΕΣ - ARRAYS</b></u></h2>
+
+                <br><br><h3>💠<b><u>ΤΙ ΕΙΝΑΙ ΕΝΑΣ ΠΙΝΑΚΑΣ;</u></b></h3>
+
+                <br>Ένας πίνακας είναι μια δομή δεδομένων που αποτελείται από στοιχεία <u>ίδιου τύπου</u>, που αποθηκεύονται σε <span class="magenta"><b>συνεχόμενες θέσεις μνήμης</b></span>.
+                Οι πίνακες επιτρέπουν την αποθήκευση πολλών δεδομένων σε μία μόνο μεταβλητή, διευκολύνοντας τη διαχείριση και την πρόσβαση σε αυτά τα δεδομένα.
+                
+                <br><br><h3>💠<b><u>ΠΩΣ ΔΗΜΙΟΥΡΓΩ ΕΝΑΝ ΠΙΝΑΚΑ;</u></b></h3>
+
+                <br>Για να δημιουργήσεις έναν πίνακα, δηλώνεις τον τύπο δεδομένων των στοιχείων που θα περιέχει, το όνομα του πίνακα και το μέγεθός του. 
+                
+                <br><br>📍<b><u>ΣΥΝΤΑΞΗ:</u></b>
+                <br><div class="frame"> <!--κωδικας σε c-->
+                    <pre style="margin: 0; white-space: pre-wrap;">
+τύπος_δεδομένων <span class="magenta">όνομα</span>[πλήθος στοιχείων]</pre>
+                </div>
+
+                <br>Για να έχουμε πρόσβαση σε κάποιο από τα στοιχεία του πίνακα, απλά αναφερόμαστε στο όνομα του και μέσα στις αγκύλες βάζουμε την θέση (index) του στοιχείου που θέλουμε να χρησιμοποιήσουμε. <b>Το πρώτο στοιχείο του πίνακα αποθηκεύεται πάντα στην θέση 0 του πίνακα.</b>
+                
+                <br><br><b><u>Ας δούμε ένα παράδειγμα κώδικα:</u></b>
+                
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="red-text"><b>#include &lt;stdio.h></b></span>
+                    
+                    <pre style="margin: 0; white-space: pre-wrap;"><br>int main(){
+    <b><span class="green">// Δημιουργία πίνακα ακεραίων με όνομα myArray και πλήθος στοιχείων 5</span></b>
+    int myArray[5];  
+
+    <b><span class="green">// Αποθήκευση στοιχείων στον πίνακα όπως κάναμε και με τις μεταβλητές</span></b>
+    myArray[0] = 10;
+    myArray[1] = 20;
+    myArray[2] = 30;
+    myArray[3] = 40;
+    myArray[4] = 50;
+
+    return 0;
+}</pre>
+                </div>
+                
+                <br>Στο παραπάνω παράδειγμα, δημιουργούμε έναν πίνακα ακεραίων με όνομα `myArray` και μέγεθος 5. Στη συνέχεια, αποθηκεύουμε τιμές στα διάφορα στοιχεία του πίνακα και τις εκτυπώνουμε ξεκινώντας πάντα από την θέση 0.
+                
+                <br><br><h3>💠<b><u>ΠΡΟΣΒΑΣΗ ΣΕ ΣΥΓΚΕΚΡΙΜΕΝΟ ΣΤΟΙΧΕΙΟ ΤΟΥ ΠΙΝΑΚΑ</u></b></h3>
+                <br>Μπορούμε να αποκτήσουμε πρόσβαση σε συγκεκριμένο στοιχείο του πίνακα χρησιμοποιώντας την θέση του. Επίσης, η αρχικοποήση των στοιχείων του πίνακα μπορεί να γίνει και με την χρήση άγκυστρων {} . 
+                <br>Δείτε πώς:
+                
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="red-text" style="overflow-wrap: break-word;"><b>#include &lt;stdio.h></b></span>
+                    
+                    <pre style="margin: 0; white-space: pre-wrap;"><br>int main(){
+    int myArray[3] = {5, 10, 15};
+
+    <b><span class="green">// Πρόσβαση στο 2ο στοιχείο του πίνακα που βρίσκεται στην θεση-index 1</span></b>
+    int secondElement = myArray[1]; 
+    printf("Το δεύτερο στοιχείο είναι %d\n", secondElement);
+
+    return 0;
+}</pre>
+                </div>
+                
+                <br>Στο παράδειγμα, έχουμε έναν πίνακα με 3 στοιχεία. Αποκτάμε πρόσβαση στο δεύτερο στοιχείο χρησιμοποιώντας το index 1 και αποθηκεύουμε την τιμή του σε μια νέα μεταβλητή.
+
+                <br><br><h3>💠<b><u>ΑΡΧΙΚΟΠΟΙΗΣΗ ΠΙΝΑΚΑ ΑΠΟ ΤΟΝ ΧΡΗΣΤΗ</u></b></h3>
+
+                <br>Ο ορισμός των στοιχείων του πίνακα μπορεί να γίνει κανονικά όπως και μια μεταβλητή ή μια σταθερά, από το πληκτρολόγιο. Θα μπορούσαμε για παράδειγμα σε έναν πίνακα με δύο στοιχεία να γράψουμε την εντολή:
+                <br><b><span class="magenta">scanf("%d", &A[0]);
+                <br>scanf("%d", &A[1]);
+                </span></b>
+                <br>Σε αυτή την διαδικασία όμως υπάρχει ένα μεγάλο <b>μειονέκτημα</b> ☞ Η πολύ μεγάλη χρονική διάρκεια που θα πάρει στον προγραμματιστή να γράψει την ίδια εντολή πολλές φορές για τα διαφορετικά στοιχεία του πίνακα.
+                <br>Σκέψου έναν πίνακα με 100 ή με 1000 θέσεις. Αν θέλω να αποθηκέυσω τιμές σε όλα τα στοιχεία του, πρέπει να γράψω την εντολή scanf("%d", &A[...]); 1000 φορές. Αυτό αυξάνει την πολυπλοκότητα του προγράμματος και θα πάρει πολύ χρόνο. Για να εξαλείψουμε αυτό το πρόβλημα, χρησιμοποιούμε την δομή επανάληψης <b>FOR</b>!!
+
+                <br><br><u>Παράδειγμα:</u>
+
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="red-text"><b>#include &lt;stdio.h></b></span>
+                    
+                    <pre style="margin: 0; white-space: pre-wrap;"><br>int main(){
+
+    int A[10];
+
+    for ( i = 0; i < 10; i++) {
+        scanf("%d", &A[i]) ;
+        <b><span class="green">// Όπου i θα μπαίνει κάθε φορά το αντίστοιχο στοιχείο: 0-9</span></b>
+    }
+
+    <b><span class="green">// Εκτύπωση στοιχείων του πίνακα με τον ίδιο τρόπο σκέψης</span></b>
+    for (int i = 0; i < 10; i++) {
+        printf("Α[%d] = %d\n", i, Α[i]);
+    }
+
+    return 0;
+}</pre>
+                </div>
+                
+                <br><br><h3>💠<b><u>ΔΙΣΔΙΑΣΤΑΤΟΙ ΠΙΝΑΚΕΣ</u></b></h3>
+                <br>Οι πίνακες μπορούν να έχουν πολλές διαστάσεις. Μέχρι στιγμής οι πίνακες που έχουμε μάθει είναι μίας μόνο διάστασης. Σκεφτείτε ότι μπορούμε να τους αναπαραστίσουμε κάπως έτσι:
+                <br>
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240503114810/one-dimensional-array-in-c.png" , style="max-width: 50%;">
+
+                <br>Μπορούμε όμως να έχουμε και περισσότερες απο μία διαστάσεις στους πίνακες. Αν για παράδειγμα θέλουμε να αποθηκεύουμε για ένα άτομο τα στοιχεία του (τηλέφωνο, ηλικία, αφμ) θα χρειαζόμασταν τρεις διαφορετικούς πίνακες. Για να το αποφύγουμε αυτό, υπάρχουν οι δισδιάστατοι πίνακες.
+
+                Γένικα, είπαμε ότι υπάρχουν πίνακες με πολλές διαστάσεις, με τις πιο συνηθισμένες να είναι οι <b><span class="magenta">μονοδιάστατοι</span></b> (1D) και οι <b><span class="magenta">δισδιάστατοι</span></b> (2D) πίνακες.
+                
+                
+                <br><br><b>Δισδιάστατοι Πίνακες:</b> Είναι πίνακες που περιέχουν άλλους πίνακες, δημιουργώντας έτσι ένα πλέγμα.
+
+                <br><br>📍<b><u>ΣΥΝΤΑΞΗ:</u></b>
+                <br><div class="frame"> <!--κωδικας σε c-->
+                    <pre style="margin: 0; white-space: pre-wrap;">
+τύπος_δεδομένων <span class="magenta">όνομα</span>[πλήθος_γραμμών][πλήθος_στηλών]</pre>
+                </div>
+
+                <br>Για να έχουμε πρόσβαση σε κάποιο από τα στοιχεία του πίνακα, απλά αναφερόμαστε στο όνομα του και μέσα στις αγκύλες βάζουμε ΠΡΩΤΑ την <b>γραμμή</b> και έπειτα ξανά σε αγκύλες βάζουμε την <b>στήλη</b> του στοιχείου που θέλουμε να χρησιμοποιήσουμε. <b>Το πρώτο στοιχείο του πίνακα αποθηκεύεται πάντα στην θέση [0][0] του πίνακα.</b>
+                <br>Κάπως έτσι τον φανταζόμαστε:
+                <br>
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/two-d.png" , style="max-width: 50%;">
+
+                <br>Ένας δισδιάστατος πίνακας αποτελείται από πολλόυς μονοδιάστατους. Κάθε γραμμή ενός δισδιάστατου μπορεί να θεωρηθεί ότι είναι και ένας διαφορετικός μονοδιάστατος πίνακας.
+
+                <br><br><b><u>Ας δούμε ένα παράδειγμα κώδικα:</u></b>
+                
+                
+                <div class="frame"> <!--κωδικας σε c-->
+                    <span class="red-text"><b>#include &lt;stdio.h></b></span>
+                    
+                    <pre style="margin: 0; white-space: pre-wrap;"><br>int main(){
+    int A[2][3] = {
+        {1, 2, 3},
+        {4, 5, 6}
+    };
+
+    for (int i = 0; i < 2; i++) {       <b><span class="green">// Υπάρχουν δύο γραμμές</span></b>
+        for (int j = 0; j < 3; j++) {   <b><span class="green">// Υπάρχουν τρεις στήλες</span></b>
+            printf("A[%d][%d] = %d\n", i, j, A[i][j]);
+        }
+    }
+
+    return 0;
+}</pre>
+                </div>
+                
+                <br>Στο παράδειγμα αυτό, δημιουργούμε έναν δισδιάστατο πίνακα με 2 γραμμές και 3 στήλες και εκτυπώνουμε τα στοιχεία του. Η μεταβλητή i παίρνει κάθε φορά τις τιμές των γραμμών, ενώ η μεταβλητή j των στηλών. Η αρχικοποήση των στοιχείων του μπορεί να γίνει είτε μέσω του χρήστη όπως είδαμε στον μονοδιάστατο, είτε χειροκίνητα όπως στο παραπάνω παράδειγμα.
+
+                
+                <br><br><h3>💠<b><u>ΠΙΝΑΚΕΣ ΚΑΙ ΜΝΗΜΗ</u></b></h3>
+                <br><span class="magenta"><b>📌Μια πάρα πολύ σημαντική σημείωση για τους πίνακες είναι ότι:</b></span>
+                <br>Το <u>όνομα του πίνακα</u> είναι μια σταθερά δείκτης που <u>δείχνει τη διεύθυνση μνήμης του πρώτου στοιχείου του πίνακα</u>. Μπορείς να χρησιμοποιήσεις αυτό το όνομα για να έχεις πρόσβαση στα στοιχεία του πίνακα.
+                <br>📌Μία ακόμη σημείωση σχετικά με τον ορισμό ενός πίνακα αφορά την έλλειψη δήλωσης της ΠΡΩΤΗΣ μόνο διάστασης του. Για παράδειγμα:
+
+                <div class="frame"> <!--κωδικας σε c-->
+                    <pre style="margin: 0; white-space: pre-wrap;"><br>Α[] = {1,2,3,4,5,6,7,8,9} 
+<b><span class="green">// Ο compiler αυτόματα καταλαβαίνει ότι ο πίνακας έχει μέγεθος 9</span></b>
+
+<b><span class="green">// Για δύο διαστάσεις μπορούμε να παραλείψουμε το μέγεθος της πρώτης</span></b>
+Α[][4] = {
+{2, 1, 3, 10},
+{7, 1, 52, 8},
+}   <b><span class="green">// Υπάρχουν δύο γραμμές και τέσσερις στήλες</span></b>
+                </div>
+
+                
+                <br><br><h3>💠<b><u>ΣΗΜΑΝΤΙΚΑ ΣΗΜΕΙΑ</u></b></h3>
+                <br>📍Η αρίθμηση των θέσεων στον πίνακα αρχίζει από το 0.
+                <br>📍Η προσπάθεια πρόσβασης σε θέση εκτός των ορίων του πίνακα μπορεί να οδηγήσει σε σφάλματα. <span class="magenta">Μεγάλη προσοχή στα όρια των πινάκων</span> (μέγεθος, αριθμός στηλών, αριθμός γραμμών).
+                <br>📍Δεν είναι αναγκαίο να γεμίσουν όλες οι θέσεις του πίνακα.
+                <br>📍Ο πίνακας που έχει δηλωθεί με [] είναι μια στατική δομή δεδομένων. Αυτό σημαίνει ότι το μέγεθός του <span class="magenta"><b>ΔΕΝ</b></span> μπορεί να αλλάξει κατά την εκτέλεση του προγράμματος. Υπάρχουν και δυναμικοί πίνακες οι οποίοι μπορούν να αυξομειώσουν το μέγεθος τους κατά την διάρκεια εκτέλεσης του προγράμματος, όμως είναι πιο περίπλοκοι.
+                <br>📍Οι πίνακες μπορούν να διευκολύνουν την αποθήκευση και τη διαχείριση μεγάλων ποσοτήτων δεδομένων, αλλά πρέπει να χρησιμοποιούνται με προσοχή όσον αφορά τα όρια και τη διαχείριση της μνήμης. Έστω πίνακας: int A[3], οι επιτρεπτές τιμές θέσης των στοιχείων είναι από 0 έως και 2.
+
+                <br><br><b>📍Τι γίνεται αν καταλάθος αποθηκεύουμε μια τιμή στην θέση Α[5] της προηγούμενης παρατήρησης;</b>
+                <br> Ο compiler της C <span class="magenta"><b>ΔΕΝ</b></span> θα ενοπίσει κανένα συντακτικό σφάλμα και το πρόγραμμα θα εκτελεστεί και θα τερματίσει κανονικά. Παρ'όλα αυτά η έξοδος του προγράμματος θα είναι λανθασμένη και στην αν εκτυπώσουμε για παράδειγμα το συγκεκριμένο στοιχείο θα παρατηρήσουμε ότι εμφανίζονται "σκουπίδια".
+                
+
+                <br><br><br><br><br><h3><b>Είσαι πανέτοιμος/η για να κάνουμε λίγη παραπάνω εξάσκηση;</b></h3>
+                <br><button class="buttonClick" onclick="example2()">ΑΣΚΗΣΗ 1</button>
+                <br><br><br><button class="buttonClick" onclick="example3()">ΑΣΚΗΣΗ 2</button>
+
+            </div> 
+
+            <div id="cStringMSG" , class="hide" , style="position: absolute;">
+                <h1 style="text-align: center;">Strings στην C</h1>
+
+                <br><br><h3 class="magenta">Τι είναι ένα String;</h3>
+                <p>
+                    <br>Ένα string ή αλλιώς <u><b>ένα Αλφαρηθμητικό στην C είναι ένας πίνακας χαρακτήρων</b></u> που τελειώνει με τον ειδικό χαρακτήρα <b><code>'\0'</code> (null character)</b>. 
+                    <br>Ο χαρακτήρας αυτός χρησιμοποιείται για να υποδείξει το τέλος του string.
+
+                    <br><br>Στην ενότητα που μιλήσαμε για τις μεταβλητές και τις σταθερές, μάθαμε τους βασικούς τύπους δεδομένων της γλώσσας. 
+                    <br>Συγκεκριμένα, μιλήσαμε για τον τύπο δεδομένων <b>char</b> ο οποίος χρησιμοποιείται για <b>αποθήκευση μόνο ενός χαρακτήρα!!</b> 
+                    <br>Υπάρχει περίπτωση όμως να θέλουμε να αποθηκέυσουμε μια σειρά από χαρακτήρες όπως για παράδειγμα μια λέξη ή μια ολόκληρη πρόταση. Αυτός είναι ο λόγος
+                    ύπαρξης των <b>strings</b>. 
+                    <br><br>Λόγο ότι η C δεν μπορεί να γνωρίζει πότε μια λέξη πχ που αποθηκεύσαμε έχει τελειώσει πρέπει ΠΑΝΤΑ να υπάρχει ο χαρακτήρας <code>'\0'</code> για να μπορεί να το 
+                    αναγνωρίσει. Βέβαια αυτός ο ειδικός χαρακτήρας τοποθετείται αυτόματα από την C και δεν χρειάζεται να τον προσθέσουμε εμείς.
+                </p>
+
+                <br><br><hr>
+
+                <br><br><h3 class="magenta">Δημιουργία και Αρχικοποίηση Strings</h3>
+                <p>
+                    <br>Τα strings είναι πίνακες χαρακτήρων, άρα θα είναι ένας πίνακας char[]. 
+                    <br>Μπορούν να δηλωθούν και να αρχικοποιηθούν με τους εξής τρόπους:
+                </p>
+
+                <br><div class="frame"> <!--κωδικας σε c-->
+                    <pre style="margin: 0; white-space: pre-wrap;">
+    <code><b class="green">// Παραλείπεται το μέγεθος του πίνακα-αυτόματος υπολογισμός του μεγέθους</b>
+    char str1[] = "Hello, World!";   
+    
+    <b class="green">// Δηλωμένο μέγεθος, το string είναι μικρότερο από το μέγεθος</b>
+    char str2[20] = "Hello, World!";  
+
+    <b class="green">// Χαρακτήρες με τερματισμό null</b>
+    char str3[] = {'H', 'e', 'l', 'l', 'o', '\0'};  </code>
+                    </pre>
+                </div>
+
+                <br><br><hr>
+
+                <br><br><h3 class="magenta">Βασικές Συναρτήσεις</h3>
+                <p>
+                    <br>Τα string λειτουργούν λίγο διαφορετικά σε σχέση με τους απλούς τύπους δεδομένων που γνωρίσαμε. Για την διαχείρηση τους η C έχει προνοήσει και μας έχει 
+                    κάνει την ζωή λίγο πιο εύκολη🙃. 
+                    
+                    <br><br>Πάμε να δούμε ένα παράδειγμα! 
+                    <br>Αν έχω την μεταβλητή <b>int a = 5;</b> και την <b>int b = 8;</b> και θέλω να περάσω την τιμή της μεταβλητής b στην a, τότε τι θα πρέπει να κάνουμε;
+                    <br>Πολύ απλά θα πούμε <b>a = b;</b> όπως και στα μαθηματικά. Στην περίπτωση των αλφαριθμητικών αυτό <span class="magenta">ΔΕΝ θα λειτουργήσει.</span>
+
+                    <br><br>Ήρθε η ώρα να γνωρίσεις το νέο μέλος της παρέας των βιβλιοθηκών, την βιβλιοθήκη <b class="magenta"><code>&lt;string.h&gt;</code></b>. 
+                    <br>Αυτή, περιλαμβάνει πολλές έτοιμες και χρήσιμες συναρτήσεις για τη διαχείριση των strings. 
+                    <br><br>Μερικές από αυτές είναι:
+                </p>
+                <br><hr>
+                <br><h3>💠gets/puts</h3>
+                <p>
+                    <br>Οι δύο αυτές συναρτήσεις gets() και puts() χρησιμοποιούνται με παρόμοιο τρόπο με τις αντίστοιχες scanf() και printf() συναρτήσεις. 
+                    <br>Είχαμε δει ότι για τα αλφαριθμητικά το σύμβολο προσδιορισμού τους είναι το <b class="magenta">%s</b>. 
+                    <br>Προσοχή❗️Όταν χρησιμοποιείται η scanf() <b>δεν</b> πρέπει να βάζουμε μπροστά από το όνομα το σύμβολο & όπως γίνεται με τους άλλους τύπους δεδομένων. 
+
+                    <br><br>Η gets() είναι μια ακόμη συνάρτηση για ανάγνωση δεδομένων από πληκτρολόγιο. 
+                    <br>Η puts() είναι μια συνάρτηση που χρησιμοποιείται για εκτύπωση των δεδομένων στην οθόνη του χρήστη. Επισρέφει <code>0</code> αν ήταν επιτυχής.
+
+                    <br><br><div class="frame"> <!--κωδικας σε c-->
+                        <pre style="margin: 0; white-space: pre-wrap;">
+<code>#include &lt;stdio.h&gt;
+
+int main() {
+    char str[100];  
+
+    <b class="green">// Χρησιμοποιούμε τη gets για να διαβάσουμε μια σειρά χαρακτήρων</b>
+    printf("Παρακαλώ εισάγετε ένα string: ");
+    gets(str);
+
+    <b class="green">// Χρησιμοποιούμε τη puts για να εμφανίσουμε τη σειρά χαρακτήρων</b>
+    printf("Το string που εισάγατε είναι: ");
+    puts(str);
+
+    return 0;
+}</code>
+                        </pre>
+                    </div>
+
+                </p>
+
+                <br><h3>💠strlen</h3>
+                <p>Η <code>strlen()</code> επιστρέφει το μήκος ενός string, χωρίς να περιλαμβάνει τον χαρακτήρα <code>'\0'</code>.</p>
+
+                <br><div class="frame"> <!--κωδικας σε c-->
+                    <pre style="margin: 0; white-space: pre-wrap;">
+<code>#include &lt;string.h&gt;
+...
+char str[] = "Hello";
+int len = strlen(str);  <b class="green">// len = 5</b></code>
+                    </pre>
+                </div>
+
+                <br><h3>💠strcpy</h3>
+                <p>
+                    Η <code>strcpy()</code> αντιγράφει το περιεχόμενο ενός string σε ένα άλλο. Συγκεκριμένα, αντιγράφει το <u>δεύτερο</u> αλφαριθμητικό στο <u>πρώτο</u> 
+                    και επιστρέφει την διεύθυνση του πρώτου.
+                    <br><br>Προσοχή❗️Η αποθήκευση κάποιων στοιχείων από έναν πίνακα με strings σε έναν άλλον πρέπει να γίνει μέσω της strcpy. Επομένως το παράδειγμα με τις μεταβλητές
+                    <br>a = 5;
+                    <br>b = 8;
+                    <br>θα μπορεί να ολοκληρωθεί με την βοήθεια της συνάρτησης αυτής και θα έχουμε: <span class="magenta">strcpy(a,b);</span> με <b class="blue">a = 8</b>
+                </p>
+
+                <br><div class="frame"> <!--κωδικας σε c-->
+                    <pre style="margin: 0; white-space: pre-wrap;">
+<code>#include &lt;string.h&gt;
+...
+char src[] = "Hello";
+char str[20];
+
+strcpy(str, src);  <b class="green">// str = "Hello"</b></code>
+                    </pre>
+                </div>
+
+                <br><h3>💠strcmp</h3>
+                <p>
+                    Η <code>strcmp()</code> συγκρίνει δύο strings και επιστρέφει ένα ακέραιο που υποδηλώνει τη σχέση τους.
+                    <br>Συγκρίνει τα δύο Αλφαρηθμητικά χαρακτήρα προς χαρακτήρα και εάν όλα αυτά ταυτίζονται επακριβώς, τότε η συνάρτηση επιστρέφει 0.
+                </p>
+
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20230220124008/strcmp_case_ii.png", style="max-width:50%">
+
+                <br><div class="frame"> <!--κωδικας σε c-->
+                    <pre style="margin: 0; white-space: pre-wrap;">
+<code>#include &lt;string.h&gt;
+...
+char str1[] = "Hello";
+char str2[] = "World";
+
+int result = strcmp(str1, str2);  
+<b class="green">//result &lt; 0, επειδή: "Hello" &lt; "World" (in ASCII)</b></code>
+                    </pre>
+                </div>
+
+                <br><h3>💠strcat</h3>
+                <p>Η <code>strcat()</code> προσθέτει το περιεχόμενο ενός string στο τέλος ενός άλλου.</p>
+                <br><div class="frame"> <!--κωδικας σε c-->
+                    <pre style="margin: 0; white-space: pre-wrap;">
+<code>#include &lt;string.h&gt;
+...
+char str1[20] = "Hello, ";
+char str2[] = "World!";
+
+strcat(str1, str2);  
+<b class="green">// str1 = "Hello, World!"</b></code>
+                    </pre>
+                </div>
+
+                <br><br><hr><br><br>
+
+                <h3 class="magenta">‼️Σημαντικά Σημεία</h3>
+                
+                <br>📍Τα strings στην C είναι πίνακες χαρακτήρων που τελειώνουν με <code>'\0'</code>.
+                <br>📍Ο χώρος αποθήκευσης πρέπει να είναι αρκετά μεγάλος για το string <b>και</b> τον χαρακτήρα τερματισμού.
+                <br>📍Κατά την χρήση της scanf() δεν πρέπει να χρησιμοποιείται ο ειδικός χαρακτήρας &.
+                <br>📍Πολλές συναρτήσεις για τη διαχείριση strings περιλαμβάνονται στη βιβλιοθήκη <code>&lt;string.h&gt;</code>.
+                <br>📍Πρέπει να είστε προσεκτικοί για αποφυγή overflow (ξεχείλισμα) στα μεγέθοι των strings όταν χρησιμοποιείτε συναρτήσεις όπως η <code>strcpy</code> και η <code>strcat</code>.
+                
+
+                <br><br><hr><br><br>
+
+                <div class="quiz-container">
+                    <h3>Τεστ Κατανόησης</h3>
+                
+                    <br><br><span class="magenta">1. Τι είναι ένα string στη γλώσσα C και πώς δηλώνεται;</span>
+                    <br><input type="radio" id="q1-1" name="q1" value="1"> Ένας πίνακας από ακέραιους αριθμούς.
+                    <br><input type="radio" id="q1-2" name="q1" value="2"> Ένας πίνακας από χαρακτήρες που τελειώνει με τον χαρακτήρα '\0'.
+                    <br><input type="radio" id="q1-3" name="q1" value="3"> Ο τύπος δεδομένων char.
+                    <br><input type="radio" id="q1-4" name="q1" value="4"> Ένας δείκτης σε πίνακα.
+                
+                    <br><br><span class="magenta">2. Ποια είναι η έξοδος του παρακάτω κώδικα;</span>
+                    <br>        <pre>#include &lt;stdio.h&gt;
+                
+int main() {
+    char str[] = "Hello";
+    printf("%c\n", str[1]);
+    return 0;
+}</pre>
+
+                    <br><input type="radio" id="q2-1" name="q2" value="1"> H
+                    <br><input type="radio" id="q2-2" name="q2" value="2"> e
+                    <br><input type="radio" id="q2-3" name="q2" value="3"> l
+                    <br><input type="radio" id="q2-4" name="q2" value="4"> o
+                
+                    <br><br><span class="magenta">3. Τι επιστρέφει η συνάρτηση <code>strlen</code> στη C;</span>
+                    <br><input type="radio" id="q3-1" name="q3" value="1"> Το μέγεθος του πίνακα χαρακτήρων, συμπεριλαμβανομένου του τερματικού χαρακτήρα '\0'.
+                    <br><input type="radio" id="q3-2" name="q3" value="2"> Το μήκος του string, χωρίς να περιλαμβάνει τον τερματικό χαρακτήρα '\0'.
+                    <br><input type="radio" id="q3-3" name="q3" value="3"> Το μέγεθος του πίνακα χαρακτήρων, χωρίς να περιλαμβάνει τον τερματικό χαρακτήρα '\0'.
+                    <br><input type="radio" id="q3-4" name="q3" value="4"> Το πλήθος των λέξεων στο string.
+                
+                    <br><br><span class="magenta">4. Ποια από τις παρακάτω συναρτήσεις χρησιμοποιείται για τη σύγκριση δύο strings στη C;</span>
+                    <br><input type="radio" id="q4-1" name="q4" value="1"> strcat
+                    <br><input type="radio" id="q4-2" name="q4" value="2"> strcpy
+                    <br><input type="radio" id="q4-3" name="q4" value="3"> strcmp
+                    <br><input type="radio" id="q4-4" name="q4" value="4"> strlen
+
+                    <br><br><div class="magenta">5. Ποιο γράμμα πρέπει να προστεθεί μετά το % στη scanf() και στην printf() για να προσδιορίσουμε ότι πρόκειται για string;
+                    </div>
+                    <br><input type="radio" id="q5-1" name="q5" value="1"> s
+                    <br><input type="radio" id="q5-2" name="q5" value="2"> c
+                    <br><input type="radio" id="q5-3" name="q5" value="3"> p
+
+                    <br><br><span class="magenta">6. Είναι σωστός ο παρακάτω κώδικας;</span>
+                    <br>        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    char str[100];
+
+    printf("Δώσε μια λέξη\n");
+    scanf("%s", &str);
+
+    return 0;
+}</pre>
+                    
+                    <br><input type="radio" id="q6-true" name="q6" value="true">
+                        <label for="q6-true">Σωστό</label><br>
+                        <input type="radio" id="q6-false" name="q6" value="false">
+                        <label for="q6-false">Λάθος</label>
+                
+                    
+                    <button class="button" onclick="checkAnswersGeneric(4, ['2', '2', '2', '3', '1', 'false'], 6)"> Υποβολή Απαντήσεων</button>
+                    <div id="result4" class="result"></div>
+                    <p>Μόλις απαντήσεις στις ερωτήσεις αυτές μπορείς να πας στην ενότητα "Βαθμολογίες" και να δεις τα συνολικά σου αποτελέσματα.</p>
+                </div>
+            </div>
+
+            <div id="cFuncMSG" , class="hide" , style="position: absolute;">
+                <h2 style="text-align: center;"> ΣΥΝΑΡΤΗΣΕΙΣ ΣΤΗΝ C</h2>
+
+                <p>
+                    <br>Στην αρχή των ενοτήτων μας μάθαμε την έννοια του δομημένου προγραμματισμού. <u>Υπενθυμίζουμε:</u>
+
+                    <br><br><u><b>Δομημένος προγραμματισμός</u></b> είναι η διαίρεση του προγράμματος σε μικρότερα τμήματα, τις συναρτήσεις. 
+                    Κάθε συνάρτηση είναι ορισμένη να επιτελεί <b>μια</b> συγκεκριμένη ενέργεια και μπορεί να κληθεί είτε μέσα στο κύριο πρόγραμμα,
+                    είτε σε κάποιο άλλο από τα υπό-προγράμματα του.
+
+                    <br><br><b class="magenta">Ποιά συνάρτηση γνωρίζουμε έως τώρα στα προγράμματα μας;</b>
+
+                    <br>Αν απάντησες την συνάρτηση main, πολύ σωστά. Η main είναι η κύρια συνάρτηση που χρησιμοποιούμε σε όλα τα προγράμματα. Η main 
+                    με την σειρά της μπορεί να καλέσει και αυτή άλλες συναρτήσεις, τις οποίες πρέπει να τις
+                    <br><b>📍1.</b>Δηλώσουμε / Ορίσουμε
+                    <br><b>📍2.</b>Υλοποιήσουμε
+                    <br><b>📍3.</b>Καλέσουμε
+
+                    <br><br><hr>
+
+                    <br><br><b>Χαρακτηριστικά:</b>
+                    <br>💠Κάθε συνάρτηση αποτελεί ένα υπό-πρόγραμμα του κυρίου προγράμματος. 
+                    <br>💠Μια συνάρτηση μπορεί να κληθεί είτε από το κύριο πρόγραμμα (την main), είτε από κάποια άλλη συνάρτηση, είτε και από 
+                    τον ίδιο της τον εαυτό όπου στην συγκεκριμένη περίπτωση αυτό ονομάζεται <b>αναδρομή</b>.
+                    <br>💠Η φιλοσοφία σχεδίασης της C βασίζεται στη χρήση συναρτήσεων.
+                    <br>💠Όλες οι συναρτήσεις που πρόκειται να σχεδιαστούν στον κώδικα πρέπει πάντα να εκτελούν <b>μια</b> συγκεκριμένη εργασία.
+                    <br>💠Μία άλλη γνωστή συνάρτηση έτοιμη από την βιβλιοθήκη stdio.h που γνωρίζουμε είναι η printf(). Κάποιες συναρτήσης, λοιπόν, 
+                    έχουν ως αποτέλεσμα την παραγωγή μιας ενέργειας ενώ άλλες, υπολογίζουν και επιστρέφουν μια τιμή. <b>Μια συνάρτηση μπορεί 
+                    να παράγει ενέργειες ή να παράγει τιμές.</b>
+
+                    <br><br><hr>
+
+                    <br><br><br><h3>Ορισμός Συνάρτησης:</h3>
+
+                    <br>Ο ορισμός των συναρτήσεων μοιάζει με την δήλωση των μεταβλητών που έχουμε δει έως τώρα. Όλες οι συναρτήσεις πρέπει να δηλώνονται
+                    στην αρχή του προγράμματος πριν την main.
+
+                    <br><div class="frame"> <!--κωδικας σε c-->
+                        <pre style="margin: 0; white-space: pre-wrap;">
+    τύπος_δεδομένων <span class="magenta">όνομα_συνάρτησης</span>(παράμετροι μαζί με τύπους δεδομένων τους)</pre>
+                    </div>
+
+                    <br>📍Ο τύπος δεδομένων μπορεί να είναι: int, void, float, double κτλπ
+                    <br><b><u>Αν χρησιμοποιηθείο τύπος void τότε η συνάρτηση απλώς θα παράγει κάποια ενέργεια και δεν θα επιστρέψει κάποια τιμή.</u></b>
+                    <br>📍Οι <b class="magenta">παράμετροι</b> ή αλλιώς <b>ορίσματα</b> της συνάρτησης δεν είναι υποχρεωτικό να υπάρχουν. Είναι τα 
+                    δεδομένα στα οποία η συνάρτηση αυτή θα έχει πρόσβαση, σε σχέση με τα στοιχεία που υπάρχουν στην συνάρτηση που την κάλεσε. 
+                    <br>Πάμε να εξηγήσουμε περισσότερο! 
+
+                    <br><br><hr>
+
+                    <br><br><h3 class="blue">Εμβέλεια μεταβλητών(scope):</h3>
+
+                    <br>Κάθε μεταβλητή και σταθερά έχουν μια συγκεκριμένη εμβέλεια στο πρόγραμμα, δηλαδή δεν είναι πάντα ορατές σε όλο το πρόγραμμα. 
+                    <br>Υπάρχουν δύο ήδη: οι μεταβλητές/σταθερές με <b class="magenta">τοπική εμβέλεια(local)</b> και αυτές με <b class="magenta">καθολική εμβέλεια(global)</b>.
+                    
+                    <br><br>Η τοπική εμβέλεια το καταλαβαίνουμε και από την λέξη έχει εύρος μόνο τοπικά στο πρόγραμμα και συγκεκριμένα μόνο στην συνάρτηση
+                    στην οποία έχει δηλωθεί. Για παράδειγμα:
+
+                    <div class="frame"> <!--κωδικας σε c-->
+                        <pre style="margin: 0; white-space: pre-wrap;"><b>void</b> main(){
+    int age = 20;
+}</pre>
+                    </div>
+
+                    <br>εδώ η μεταβλητη age έχει τοπική εμβέλεια στην συνάρτηση main και είναι ορατή μόνο από αυτήν. 
+                    <br>Σε περίπτωση που υπάρχουν άλλες συναρτήσεις στο πρόγραμμα μας, τότε υπάρχει περίπτωση να υπάρχει και εκεί κάποια άλλη μεταβλητη
+                    με το ίδιο όνομα. Αυτό δεν μας ενοχλεί καθώς και οι δύο μεταβλητές μπορεί να έχουν ίδιο όνομα αλλά έχουν τοπική εμβέλεια η 
+                    κάθε μία στην συνάρτηση της και έτσι ο compliler δεν βγάζει κάποιο error.
+
+                    <br><br>Για να μπορέσει μια μεταβλητή λοιπόν να είναι ακριβώς η ίδια (ίδια εμβέλεια και ίδια διεύθυνση μνήμης) πρέπει όταν καλούμε μια συνάρτηση
+                    αν θέλουμε να είναι η μεταβλητή ορατή και σε αυτήν να την περάσουμε ως παράμετρο. 
+
+                    Μέσα στην παρένθεση δηλαδή της συνάρτησεις βάζουμε τον τύπο δεδομένων και την μεταβλητη που θέλουμε να είναι ορατή στην νέα συνάρτηση.
+
+                    <br><br>Από την άλλη έχουμε και την καθολική εμβέλεια. Μία καθολική μεταβλητή είναι ορατή σε <b>όλο</b> το πρόγραμμα και στην κύρια συνάρτηση main 
+                    δηλαδή και σε όλα τα υπό-προγράμματα της. Για παράδειγμα:
+
+                    <div class="frame"> <!--κωδικας σε c-->
+                        <pre style="margin: 0; white-space: pre-wrap;">int age;     <b class="green">//καθολική μεταβλητή δηλώνεται πριν την main</b>
+void main(){
+    age = 20;
+    int id = 202020;       <b class="green">//τοπική μεταβλητή δηλώνεται μέσα στην main</b>
+}</pre>
+                    </div>
+
+                    <br>Σε περίπτωση που σε μια συνάρτηση υπάρχει τοπική μεταβλητή που έχει ίδιο όνομα με μια καθολική μεταβλητή, υπερισχύει η τοπική 
+                    μεταβλητή.
+
+                    <br><br><hr>
+
+                    <br><br><br><h3>Κλήση Συνάρτησης:</h3>
+
+                    <br>Η κλήση της συνάρτησης γίνεται μέσα σε κάποια άλλη συνάρτηση και αναγράφεται ως -> <b>όνομα_συνάρτησης(πατάμετροι χωρίς τύπο δεδομένων τους)</b>
+
+                    <br><br><u>Παράδειγμα:</u>
+
+                    <div class="frame"> <!--κωδικας σε c-->
+                        <pre style="margin: 0; white-space: pre-wrap;">#include &lt;stdio.h&gt;
+void show();
+
+int main(int argc, char *argv []){
+    show();     <b class="green">//κλήση συνάρτησης</b>
+
+    return 0;
+}</pre>
+                    </div>
+
+                    <br><br><hr>
+
+                    <br><br><br><h3>Υλοποίηση Συνάρτησης:</h3>
+
+                    <br>Είναι το τμήμα κώδικα με τις ενέργειες που θέλουμε να εκτελέσει η συνάρτηση αυτή. Ισχύουν όλα όσα έχουμε δει μέχρι τώρα στις ενότητες. 
+                    <br>Γράφουμε ότι και στην δήλωση της συνάρτησης <b class="magenta">τύπος_δεδομένων όνομα_συνάρτησης(παράμετροι μαζί με τύπους δεδομένων τους)</b>
+                    και προσθέτουμε αγκλύλες {}. Μέσα στις αγκλύλες γράφουμε τον κώδικα της συνάρτησης
+                    <br><br><u>Για παράδειγμα:</u>
+
+                    <div class="frame"> <!--κωδικας σε c-->
+                        <pre style="margin: 0; white-space: pre-wrap;"><br>#include &lt;stdio.h&gt;
+void show();    <b class="green">//δεν έχει παραμέτρους</b>
+
+int main(int argc, char *argv []){
+    show();
+
+    return 0;
+}
+
+void show(){
+    printf ("hello world!\n");
+}</pre>
+                    </div>
+
+                    <br><br><hr>
+
+                    <br><br><b><u>Παράδειγμα2:</u></b>
+
+                    <div class="frame"> <!--κωδικας σε c-->
+                        <pre style="margin: 0; white-space: pre-wrap;"><br>#include &lt;stdio.h&gt;
+                                
+<b class="green">//ορισμός συνάρτησης-δήλωση</b>
+<b class="green">//δεν επιστρέφει τιμή απλά παράγει μια ενέργεια</b>
+void add(int x, int y);     <b class="green">//παράμετροι: δύο μεταβλητές τύπου int</b>
+
+int main(int argc, char *argv []){
+
+    int x, y;
+
+    x = 10;
+    y = 20;
+
+    add(x, y);      <b class="green">//κλήση συνάρτησης με παράμετρο x,y</b>
+    add(y, x);      <b class="green">//κλήση συνάρτησης με παράμετρο y,x</b>
+    add(50, 10);    <b class="green">//κλήση συνάρτησης με παταμέτρους σταθερούς αριθμούς</b>
+
+    return 0;
+}
+
+void add(int x, int y){     <b class="green">//υλοποίηση κώδικα συνάρτησης</b>
+
+    int sum; 6
+    sum = x + y;
+
+    printf ("%d + %d = %d\n", x, y, sum);
+}</pre>
+                    </div>
+
+                    <br>📍Η εντολή <b class="magenta">return</b> χρησιμοποιείται όταν θέλουμε να επιστρέψουμε μια τιμή από μια συνάρτηση. Όπως το έχουμε εξηγήσει για την main.
+                    <br>📍<b>Κάθε συνάρτηση μπορεί να επιστρέψει <u>μόνο μία τιμή</u> μέσω της εντολής return.</b>
+                    <br>📍<b>Η τιμή που θα επιστραφεί (αν υπάρχει) θα πρέπει να είναι ίδιου τύπου με τον τύπο δεδομένων της συνάρτησης.</b>
+                    <br>📍Όταν η συνάρτηση είναι void η εντολή return δε χρησιμοποιείται ακριβώς όπως συμβαίνει με την main και που είδαμε στο παράδειγμα1.
+                    <br>📍Όταν η <u>ροή εκτέλεσης μιας συνάρτησης</u> φτάσει στην εντολή return, σταματάει την εκτέλεσή της σε εκείνο το σημείο και επιστρέφει 
+                    στη συνάρτηση που την κάλεσε.
+
+                    <br><br><hr>
+
+                    <br><br><b class="magenta">❗️❗️Δοκίμασε να υλοποιήσεις το πρόγραμμα της ενότητας των δομών επιλογής (την αριθμομηχανή) με χρήση συναρτήσεων.</b>
+
+                    <br>Ορίστε μια μικρή αρχή για το πρόγραμμα σου. Συνέχισε το προσθέτοντας και άλλες επιλογές πράξεων. 
+
+                    <div class="frame"> <!--κωδικας σε c-->
+                        <pre style="margin: 0; white-space: pre-wrap;"><br>#include &lt;stdio.h&gt;
+
+<b class="green">//δήλωση συναρτήσεων</b>
+int add(int a, int b);
+int subtract(int a, int b);
+int multiply(int a, int b);
+float divide(int a, int b);
+
+int main(int argc, char *argv []){
+
+    int num1, num2;
+    printf("Δώσε τον πρώτο αριθμό: ");
+    scanf("%d", &num1);
+    printf("Δώσε τον δεύτερο αριθμό: ");
+    scanf("%d", &num2);
+
+    <b class="green">//κλήση συναρτήσεων και εμφάνιση αποτελεσμάτων</b>
+    printf("Άθροισμα: %d\n", add(num1, num2));
+    printf("Διαφορά: %d\n", subtract(num1, num2));
+    printf("Γινόμενο: %d\n", multiply(num1, num2));
+
+    <b class="green">//ελεγχος για αποφυγή διαίρεσης με το μηδέν</b>
+    if (num2 != 0) {
+        printf("Πηλίκο: %.2f\n", divide(num1, num2));
+    } else {
+        printf("Δεν επιτρέπεται η διαίρεση με το μηδέν!\n");
+    }
+
+    return 0;
+}
+
+<b class="green">//υλοποίηση συναρτήσεων</b>
+int add(int a, int b){
+    return a + b;
+}
+
+int subtract(int a, int b){
+    return a - b;
+}
+
+int multiply(int a, int b){
+    return a * b;
+}
+
+float divide(int a, int b){
+    return (float)a / b;
+    <b class="green">/*Τα a, b είναι ακέραιοι. Το αποτέλεσμα διάιρεσης μπορεί όμως να είναι δεκαδικός</b>
+    <b class="green">Το (float) ορίζει ότι το αποτέλεσμα μπορεί να είναι δεκαδικός αριθμός</b>
+    <b class="green">Για να μην βγει σφάλμα πρέπει τουλάχιστον έναν από τους a, b να είναι και αυτός float</b>
+    <b class="green">Αυτή η διαδικασία όπου μπορούμε να αλλάξουμε παροδικά τον τύπο δεδομένων μια μεταβλητής λέγεται <u>type casting</u>*/</b>
+}</pre>
+                    </div>
+
+                    <br><br><hr>
+
+                    <br><br><b><u>Παράδειγμα με χρήση πινάκων και συναρτήσεων:</u></b>
+                    <br>Υπολογίζει τον μέσο όρο των στοιχείων ενός πίνακα και το εμφανίζει.
+
+                    <div class="frame"> <!--κωδικας σε c-->
+                        <pre style="margin: 0; white-space: pre-wrap;"><br>#include &lt;stdio.h&gt;
+                            
+<b class="green">//δήλωση</b>
+void readArray(int arr[], int size);
+void printArray(int arr[], int size);
+float calculateAverage(int arr[], int size);
+
+int main(int argc, char *argv []){
+    
+    int arr[5];
+    int size = 5;
+
+    <b class="green">κλήση</b>
+    readArray(arr, size);
+
+    <b class="green">//εμφάνιση του πίνακα με κλήση συνάρτησης</b>
+    printf("Τα στοιχεία του πίνακα είναι: ");
+    printArray(arr, size);
+
+    <b class="green">//υπολογισμός και εμφάνιση του μέσου όρου με κλήση συνάρτησης</b>
+    float average = calculateAverage(arr, size);
+    printf("Ο μέσος όρος των στοιχείων είναι: %.2f\n", average);
+
+    return 0;
+}
+
+<b class="green">//ορισμός συνάρτησης για ανάγνωση των στοιχείων του πίνακα</b>
+void readArray(int arr[], int size){
+    
+    for (int i = 0; i < size; i++){
+
+        printf("Δώσε το στοιχείο %d: ", i + 1);
+        scanf("%d", &arr[i]);
+    }
+}
+
+<b class="green">//ορισμός συνάρτησης για εκτύπωση των στοιχείων του πίνακα</b>
+void printArray(int arr[], int size){
+    
+    for (int i = 0; i < size; i++){
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+<b class="green">//ορισμός συνάρτησης για υπολογισμό του μέσου όρου</b>
+float calculateAverage(int arr[], int size){
+    
+    int sum = 0;
+    
+    for (int i = 0; i < size; i++){
+        sum += arr[i];
+    }
+    
+    return (float)sum / size;
+
+}</pre>
+                    </div>
+
+                    <br><br><hr>
+
+                    <br><br><h3>❗️Σημαντικά Στοιχεία:</h3>
+
+                    <br>💠Όταν περνάμε μια μεταβλητή ως όρισμα σε μια συνάρτηση, ότι αλλαγές γίνονται στη μεταβλητή <b class="magenta">δεν</b> είναι 
+                    ορατές στη συνάρτηση που την κάλεσε εκτός αν υπάρχει τιμή που επιστρέφεται με την εντολή return.
+                    <br>💠<b>Όταν περνάμε ένα πίνακα ως όρισμα σε μια συνάρτηση, ότι αλλαγές γίνονται στον πίνακα είναι ορατές και στη συνάρτηση που την κάλεσε.</b>
+                    <br>💠Κατά την κλήση μιας συνάρτησης με παράμετρο έναν πίνακα απλά βάζουμε το όνομα του πίνακα <b class="magenta">χωρίς</b> το μέγεθος του. 
+                    <br>💠Σε μια συνάρτηση μπορώ να περάσω αν θέλω ως όρισμα και μόνο ένα στοιχείο από έναν πίνακα πχ Α[3].
+                    <br>💠Μια συνάρτηση επιστρέφει μόνο μία τιμή στην συνάρτηση που την κάλεσε. Αν θέλω να επιστρέψω περισσότερες από μια τιμές δεν 
+                    γίνεται με χρήση της return, αλλά με χρήση των <b class="blue">δεικτών</b> που θα δούμε στο επόμενο μάθημα.
+                </p>
+
+                <br><hr>
+
+                <p>
+                    <br><h3 class="blue">🧠ΤΡΟΦΗ ΓΙΑ ΣΚΕΨΗ: ΕΡΩΤΗΣΕΙΣ ΚΡΙΣΕΩΣ</h3>
+
+                    <br>✏️Τι είναι η επιστροφή τιμής από μια συνάρτηση και πώς χρησιμοποιείται η εντολή return σε συνάρτηση με την επιστροφή τιμών;
+                    <br>✏️Ποια είναι η διαφορά μεταξύ μιας συνάρτησης που επιστρέφει τιμή και μιας που δεν επιστρέφει; Δώσε παράδειγμα.
+                    <br>✏️Πώς η εμβέλεια (scope) των μεταβλητών επηρεάζει τη χρήση τους σε συναρτήσεις; Δώσε παράδειγμα όπου μια τοπική μεταβλητή σκιάζει μια καθολική.
+                    <br>✏️Τι είναι το void ως τύπος επιστροφής και πότε θα το χρησιμοποιήσεις σε μια συνάρτηση;
+                    <br>✏️Πώς οι συναρτήσεις μπορούν να επαναχρησιμοποιηθούν σε ένα πρόγραμμα; Δώσε ένα παράδειγμα με τουλάχιστον δύο συναρτήσεις.
+                    <br>✏️Πώς μπορείς να χρησιμοποιήσεις πίνακες ως παραμέτρους σε συναρτήσεις; Τι πρέπει να προσέξεις;
+                    <br>✏️Τι είναι η αναδρομή (recursion) και πώς χρησιμοποιείται στις συναρτήσεις; Δώσε ένα παράδειγμα συνάρτησης με αναδρομή.
+                </p>
+            </div>
+
+            <div id="cPointersMSG" , class="hide" , style="position: absolute;">
+                <br><h2 style="text-align: center;"> ΔΕΙΚΤΕΣ ΣΤΗΝ C</h2>
+
+                <p>
+                    <br><br><b class="magenta">Ορισμός:</b>
+
+                    <br>Ο <b>δείκτης (pointer)</b> είναι μια θεμελιώδης έννοια που επιτρέπει την άμεση διαχείριση της μνήμης. Είναι μια μεταβλητή, που χρησιμοποιείται για να 
+                    αποθηκεύσουμε τη <u>διεύθυνση μνήμης</u> μιας άλλης μεταβλητής.
+
+                    <br><br><hr>
+
+                    <br><br><b class="magenta">Δήλωση:</b>
+
+                    <br>Για να δηλώσεις έναν δείκτη, χρησιμοποιείς τον χαρακτήρα <b>dereferencing *</b>. Για παράδειγμα:
+                    
+                    <br><br>
+                    <div class="frame"> <!--κωδικας σε c-->
+                        <pre style="margin: 0; white-space: pre-wrap;">int *p;</pre>
+                    </div>
+                    <br>Εδώ η μεταβλητή p είναι ένας δείκτης που μπορούμε να αποθηκέυσουμε την διεύθυνση μνήμης μιας οποιοδήποτε μεταβλητής τύπου int.
+
+                    <br><br><hr>
+
+                    <br><br><b class="magenta">Ο τελεστής &:</b>
+
+                    <br>Ο τελεστής <b>&</b> χρησιμοποιείται όταν θέλουμε να βρούμε τη διεύθυνση μνήμης μιας μεταβλητής. Χρησιμοποιείται για να αναθέσουμε μια διεύθυνση
+                    μνήμης σε κάποιον δείκτη. Ονομάζεται <u>τελεστής διεύθυνσης</u>. Για παράδειγμα:
+                    
+                    <br><br>
+                    <div class="frame"> <!--κωδικας σε c-->
+                        <pre style="margin: 0; white-space: pre-wrap;">int a = 10;
+p = &a;</pre>
+                    </div>
+                    <br>Εδώ, ο p αποθηκεύει τη διεύθυνση της μεταβλητής a.
+
+                    <br><br><hr>
+
+                    <br><br><b class="magenta">Ο τελεστής *:</b>
+
+                    <br>Για να προσπελάσεις την τιμή της μεταβλητής στην οποία δείχνει ο δείκτης, χρησιμοποιείς τον τελεστή <b>dereferencing (*)</b>. Ο τελεστής * χρησιμοποιείται 
+                    όταν θέλουμε να πάρουμε το περιεχόμενο της διεύθυνσης μνήμης. Για παράδειγμα:
+
+                    <br><br>
+                    <div class="frame"> <!--κωδικας σε c-->
+                        <pre style="margin: 0; white-space: pre-wrap;">int value = *p;</pre>
+                    </div>
+
+                    <br><br><hr>
+
+                    <br><br>📍Για να εμφανίσουμε τη διεύθυνση μνήμης μιας μεταβλητής χρησιμοποιούμε στη συνάρτηση printf() το %p.
+                    <br>📍Ας δούμε ένα πρώτο ολοκληρωμένο παράδειγμα:
+
+                    <br><br>
+                    <div class="frame"> <!--κωδικας σε c-->
+                        <pre style="margin: 0; white-space: pre-wrap;"><code>#include &lt;stdio.h&gt;
+
+int main(int argc, char *argv []){
+
+    int x;
+    float y;
+    double z;
+    char c;
+    int *p;
+
+    p = &x;
+
+    <b class="green">// Εμφάνιση των διευθύνσεων μνήμης των μεταβλητών x, y, z και c</b>
+    printf ("%p %p %p %p\n", &x, &y, &z, &c);
+
+    <b class="green">// Εμφάνιση του περιεχομένου του δείκτη p που είναι διεύθυνση μνήμης</b>
+    <b class="green">// και της διεύθυνσης μνήμης του p (ίδια με του x)</b>
+    printf ("%p %p\n", p, &p);
+
+    return 0;
+}</code></pre>
+                    </div>
+
+                    <br><br><hr>
+
+                    <br><br><b class="blue">Βασικό Πρόβλημα:</b>
+
+                    <br>
+                    <div class="frame"> <!--κωδικας σε c-->
+                        <pre style="margin: 0; white-space: pre-wrap;"><code>#include &lt;stdio.h&gt;
+                            
+void swap(int x, int y);
+
+int main(int argc, char *argv []){
+
+    int a, b;
+    
+    a = 52;
+    b = 63;
+    
+    swap(a, b);
+    
+    return 0;
+}
+
+void swap(int x, int y){
+    int temp;
+    
+    temp = x;
+    x = y;
+    y = temp;
+}</code></pre>
+                    </div>
+
+                    <br>❗️Αναφέραμε στην προηγούμενη ενότητα ότι:
+                    <br>Όταν περνάμε μια μεταβλητή ως όρισμα σε μια συνάρτηση, ότι αλλαγές γίνονται στη μεταβλητή δεν είναι ορατές στη συνάρτηση που την κάλεσε εκτός αν 
+                    υπάρχει τιμή που επιστρέφεται με την εντολή return. Μια συνάρτηση επιστρέφει μόνο μία τιμή στην συνάρτηση που την κάλεσε.
+
+                    <br><br>Αυτό σημαίνει ότι το προηγούμενο παράδειγμα πρόκειται να παράγει <b class="blue">ΛΑΝΘΑΣΜΕΝΑ αποτελέσματα</b>. Εμείς θέλουμε να ανταλλάξουμε το περιεχόμενο των δύο 
+                    μεταβλητών a, b. Για τον σκοπό αυτόν φτιάξαμε την συνάρτηση swap όπου περνάμε ως παραμέτρους τις δύο αυτές μεταβλητές και με την βοήθεια μιας τρίτης
+                    μεταβλητής γίνεται η αλλαγή στα περιεχόμενα των a, b. 
+                    <br>Η swap όμως <b class="magenta">δεν επιστρέφει</b> καμία από τις δύο τιμές πίσω στην κύρια 
+                    συνάρτηση main. 
+                    <br><u>Ενώ οι δύο μεταβλητές αλλάξουν τα περιεχόμενα τους στην συνάρτηση, όταν αυτή σταματήσει την ροή εκτέλεσης της και γυρίσει ο compiler 
+                        πίσω στην main, οι αλλαγές δεν είναι ορατές. </u>
+
+                    <br><br><b class="magenta">Την λύση σε αυτό το πρόγραμμα θα μας την δώσουν οι δείκτες!!! </b>
+                    <br><b>Αντι να αλλάξουμε απλώς τα περιεχόμενα των μεταβλητών θα αλλάξουμε τις θέσεις μνήμης τους. Ότι αλλαγές γίνονται στις θέσεις μνήμης επιρεάζουν ΟΛΟ το 
+                    πρόγραμμα και επομένως, είναι ορατές από παντου.</b>
+
+                    <br><br>Πάμε να δούμε πως μοιάζει το ίδιο πρόγραμμα με χρήση δεικτών αυτή την φορά. 
+
+                    <div class="frame"> <!--κωδικας σε c-->
+                        <pre style="margin: 0; white-space: pre-wrap;">#include &lt;stdio.h&gt;
+                            
+void swap(int *x, int *y);
+
+int main(int argc, char *argv []){
+
+    int a, b;
+
+    a = 52;
+    b = 63;
+
+    swap(&a, &b);   <b class="green">//Περνάω ως παράμετρο τις διευθύνσεις μνήμης</b>
+    
+    return 0;
+}
+
+void swap(int *x, int *y){
+
+    int temp;
+    
+    temp = *x;  
+    *x = *y;
+    *y = temp;
+}</pre>
+                    </div>
+
+                    <br>💠Ας δούμε τις αλλαγές παρέα για να είναι πιο κατανοητά και οπτικά. 
+
+                    <br><br>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>a</th>
+                                    <th>Διεύθυνση μνήμης a</th>
+                                    <th>b</th>
+                                    <th>Διεύθυνση μνήμης b</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>52</td>
+                                    <td>1000</td>
+                                    <td>63</td>
+                                    <td>1004</td>
+                                    </tr>
+                                <tr>
+                                    <td>52</td>
+                                    <td>1000</td>
+                                    <td>63</td>
+                                    <td>1004</td>
+                                    </tr>
+                                <tr>
+                                    <td>63</td>
+                                    <td>1000</td>
+                                    <td>63</td>
+                                    <td>1004</td>
+                                    </tr>
+                                <tr>
+                                    <td>63</td>
+                                    <td>1000</td>
+                                    <td>52</td>
+                                    <td>1004</td>
+                                    </tr>
+                                
+                            </tbody>
+                        </table>
+
+                        <br><br>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>x</th>
+                                    <th>Διεύθυνση μνήμης x</th>
+                                    <th>y</th>
+                                    <th>Διεύθυνση μνήμης y</th>
+                                    <th>temp</th>
+                                    <th>Διεύθυνση μνήμης temp</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>0</td>
+                                    <td>5000</td>
+                                    <td>0</td>
+                                    <td>5004</td>
+                                    <td>0</td>
+                                    <td>5008</td>
+                                </tr>
+                                <tr>
+                                    <td>1000</td>
+                                    <td>5000</td>
+                                    <td>1004</td>
+                                    <td>5004</td>
+                                    <td>52</td>
+                                    <td>5008</td>
+                                </tr>
+                                <tr>
+                                    <td>1000</td>
+                                    <td>5000</td>
+                                    <td>1004</td>
+                                    <td>5004</td>
+                                    <td>52</td>
+                                    <td>5008</td>
+                                </tr>
+                                <tr>
+                                    <td>1000</td>
+                                    <td>5000</td>
+                                    <td>1004</td>
+                                    <td>5004</td>
+                                    <td>52</td>
+                                    <td>5008</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <br><br><hr>
+
+                    <br><br><b class="magenta">Δείκτες και Πίνακες:</b>
+
+                    <br>Στην C, οι πίνακες και οι δείκτες έχουν στενή σχέση. <b>Το όνομα ενός πίνακα είναι στην ουσία ένας δείκτης που δείχνει στη διεύθυνση μνήμης του πρώτου 
+                    στοιχείου του πίνακα.</b>
+
+                    <br><br>
+                    <div class="frame"> <!--κωδικας σε c-->
+                        <pre style="margin: 0; white-space: pre-wrap;">int arr[5] = {1, 2, 3, 4, 5};
+int *p = arr;
+printf("%d\n", *(p + 1));</pre>
+                    </div>
+
+                    <br>📍Ο πίνακας arr είναι 5 στοιχείων. 
+                    <br>📍Η μεταβλητή p είναι δείκτης. Η εντολή <b class="magenta">*p = arr;</b> σημαίνει ότι στον p θα αποθηκευτεί η διεύθυνση μνήμης του πρώτου στιχείου του arr, άρα η διεύθυνση
+                    του <b>arr[0]</b>. 
+                    <br>📍Η εντολή <b class="magenta">*(p + 1)</b> σημαίνει ότι θα πάμε να βρούμε το περιεχόμενο του p (την διεύθυνση του arr[0] ουσιαστικά) και θα την εμφανίσουμε 
+                    στην οθόνη αυξημένη κατά 1. Αυξημένη κατά ένα όταν μιλάμε για θέσεις μνλημης σημαίνει ότι θα προχωρίσουμε στην επόμενη θέση άρα στο arr[1]. 
+                    <br>📍Τι θα εμφανίσει εν τέλη το πρόγραμμα; Έχουμε τον τελεστή * επομένως θα εκτυπωθεί στην οθόνη το περιεχόμενο του arr[1], δηλαδή ο αριθμός 2.
+
+                    <br><br><hr>
+
+                    <br><br><b class="blue">Δείκτες σε Δείκτες:</b>
+
+                    <br><br>Αυτή είναι μια πιο πολύπλοκη και ιδιαίτερη κατηγορία με την οποία δεν ια ασχοληθούμε πολύ. Θα κάνουμε όμως μια αναφορά:
+
+                    <br><b>Οι δείκτες μπορούν να δείχνουν σε άλλους δείκτες.</b> Αυτό επιτρέπει την επίλυση πιο περίπλοκων προβλημάτων, όπως δυναμική ανάθεση μνήμης για 
+                    πολυδιάστατους πίνακες. Η δήλωση τους γίνεται με έναν διπλό τελεστή dereferencing ως -> <b class="magenta">int **pptr;</b>
+
+                    <br><br>
+                    <div class="frame"> <!--κωδικας σε c-->
+                        <pre style="margin: 0; white-space: pre-wrap;">#include &lt;stdio.h&gt;
+
+int main() {
+    int x = 10;   <b class="green">// Αρχική μεταβλητή</b>
+    int *p = &x;   <b class="green">// Δείκτης στον x</b>
+    int **pp = &p; <b class="green">// Δείκτης στον δείκτη p</b>
+
+    printf("Τιμή του x: %d\n", x);            <b class="green">// Εκτυπώνει 10</b>
+    printf("Τιμή μέσω του p: %d\n", *p);      <b class="green">// Εκτυπώνει 10</b>
+    printf("Τιμή μέσω του pp: %d\n", **pp);   <b class="green">// Εκτυπώνει 10</b>
+
+    return 0;
+}</pre>
+                    </div>
+                    
+                    <br>Οι δείκτες χρησιμοποιούνται ευρέως στη δυναμική διαχείριση μνήμης και στους δυναμικούς πίνακες (dynamic arrays) με τους οποίους δεν ασχοληθούμε 
+                    παραπάνω σταπλαίσια των μαθημάτων μας. 
+
+                    <br><br><hr>
+                    
+                    <br><br><b class="magenta">Παράδειγμα με χρήση Δεικτών:</b>
+
+                    <br>Πάμε να δούμε και ένα τελευταίο ολοκληρωμένο παράδειγμα με χρήση δεικτών και όλων όσων αναφέραμε προηγουμένως. 
+
+                    <br><br>
+                    <div class="frame"> <!--κωδικας σε c-->
+                        <pre style="margin: 0; white-space: pre-wrap;">#include &lt;stdio.h&gt;
+
+<b class="green">// Συνάρτηση που υπολογίζει το άθροισμα και το μέσο όρο ενός πίνακα</b>
+void calculateSumAndAverage(int *arr, int size, int *sum, float *average);
+
+int main(){
+
+    int numbers[5] = {1, 2, 3, 4, 5};
+    int size = 5;  <b class="green">// Μέγεθος πίνακα</b>
+    
+    int sum;       <b class="green">// Μεταβλητή για το άθροισμα</b>
+    float average; <b class="green">// Μεταβλητή για το μέσο όρο</b>
+    
+    <b class="green">// Εκτύπωση διευθύνσεων μνήμης των sum και average</b>
+    printf("Διεύθυνση του sum: %p\n", &sum);
+    printf("Διεύθυνση του average: %p\n\n", &average);
+    
+    <b class="green">// Κλήση της συνάρτησης calculateSumAndAverage</b>
+    calculateSumAndAverage(numbers, size, &sum, &average);
+    
+    <b class="green">// Εκτύπωση των αποτελεσμάτων</b>
+    printf("\nΤο άθροισμα είναι: %d\n", sum);
+    printf("Ο μέσος όρος είναι: %.2f\n", average);
+    
+    return 0;
+}
+
+
+void calculateSumAndAverage(int *arr, int size, int *sum, float *average){
+    
+    *sum = 0;
+    
+    <b class="green">// Υπολογισμός του αθροίσματος</b>
+    for (int i = 0; i < size; i++) {
+        *sum += *(arr + i);  // Πρόσθεση του στοιχείου στο άθροισμα
+    }
+
+    printf("Διεύθυνση του πρώτου στοιχείου του πίνακα: %p\n", arr); 
+    <b class="green">/* Δεν χρησιμοποιούμε τον τελεστή & αφού πρόκειται για πίνακα.
+        Σε αντίθεση με τα sum και average.*/</b>
+    
+    <b class="green">// Υπολογισμός του μέσου όρου με type casting</b>
+    *average = (float)(*sum) / size;
+}</pre>
+                    </div>
+
+                </p>
+
+                <br><hr><br><div class="quiz-container">
+                    <h3>Πάμε για ακόμη ένα τεστάκι κατανόησης με δείκτες και συναρτήσεις:</h3>
+
+                    <br><br><span class="magenta">1. Τι είναι ένας δείκτης σε C;</span>
+                            
+                    <br><input type="radio" id="q1-1" name="q1" value="1"> Ένας μεταβλητός τύπος που αποθηκεύει τιμές δεδομένων.
+                    <br><input type="radio" id="q1-2" name="q1" value="2"> Ένας τύπος δεδομένων που αποθηκεύει τη διεύθυνση μνήμης μιας άλλης μεταβλητής.
+                    <br><input type="radio" id="q1-3" name="q1" value="3"> Μια εντολή για την εκτέλεση μιας συνάρτησης.
+                    <br><input type="radio" id="q1-4" name="q1" value="4"> Ένας τύπος δεδομένων που μπορεί να κρατήσει πολλαπλές τιμές.
+
+                    <br><br><span class="magenta">2. Ποια είναι η σχέση μεταξύ δεικτών και συναρτήσεων στην C;</span>
+                            
+                    <br><input type="radio" id="q2-1" name="q2" value="1"> Οι δείκτες δεν μπορούν να χρησιμοποιηθούν με συναρτήσεις.
+                    <br><input type="radio" id="q2-2" name="q2" value="2"> Οι δείκτες μπορούν να χρησιμοποιηθούν για να επιστρέψουν πολλές τιμές από μια συνάρτηση.
+                    <br><input type="radio" id="q2-3" name="q2" value="3"> Οι δείκτες μπορούν να χρησιμοποιηθούν μόνο για να μεταφέρουν δεδομένα σε συναρτήσεις.
+                    <br><input type="radio" id="q2-4" name="q2" value="4"> Οι δείκτες χρησιμοποιούνται μόνο για δυναμική μνήμη.
+
+                    <br><br><span class="magenta">3. Τι θα εμφανίσει το παρακάτω πρόγραμμα;</span>
+                    <br><pre class="blue">#include &lt;stdio.h&gt;
+
+void update(int *a) {
+    *a = 10;
+}
+
+int main() {
+    int x = 5;
+
+    update(&x);
+    printf("%d\n", x);
+
+    return 0;
+}</pre>
+
+                    <br><input type="radio" id="q3-1" name="q3" value="1"> 5
+                    <br><input type="radio" id="q3-2" name="q3" value="2"> 10
+                    <br><input type="radio" id="q3-3" name="q3" value="3"> 0
+                    <br><input type="radio" id="q3-4" name="q3" value="4"> Σφάλμα κατά τη μεταγλώττιση.
+
+                    <br><br><span class="magenta">4. Τι από τα παρακάτω ισχύει για τους δείκτες και τις συναρτήσεις;</span>
+                            
+                    <br><input type="radio" id="q4-1" name="q4" value="1"> Οι συναρτήσεις δεν μπορούν να επιστρέφουν δείκτες.
+                    <br><input type="radio" id="q4-2" name="q4" value="2"> Οι δείκτες μπορούν να χρησιμοποιηθούν για να περάσουν πίνακες ως παράμετροι σε συναρτήσεις.
+                    <br><input type="radio" id="q4-3" name="q4" value="3"> Οι δείκτες δεν επιτρέπουν τη χρήση δυναμικής μνήμης μέσα σε συναρτήσεις.
+                    <br><input type="radio" id="q4-4" name="q4" value="4"> Οι δείκτες δεν μπορούν να αλλάξουν την τιμή της μεταβλητής που δείχνουν.
+
+                    <br><br><span class="magenta">5. Οι δείκτες μπορούν να χρησιμοποιηθούν για να αλλάξουν την τιμή μιας μεταβλητής μέσα σε μια συνάρτηση.</span>
+
+                    <br><input type="radio" id="q5-true" name="q5" value="true"> Σωστό
+                    <br><input type="radio" id="q5-false" name="q5" value="false"> Λάθος
+
+                    <br><br><span class="magenta">6. Ένας δείκτης μπορεί να χρησιμοποιηθεί για να επιστρέψει τη διεύθυνση μιας τοπικής μεταβλητής σε μια συνάρτηση χωρίς πρόβλημα.</span>
+
+                    <br><input type="radio" id="q6-true" name="q6" value="true"> Σωστό
+                    <br><input type="radio" id="q6-false" name="q6" value="false"> Λάθος
+
+                    <br><br><span class="magenta">7. Τι θα εμφανίσει το παρακάτω πρόγραμμα;</span>
+                    <br><pre class="blue">#include &lt;stdio.h&gt;
+
+int multiplyByFactor(int x, int factor);
+int add(int a, int b);
+
+int main() {
+
+    int num1 = 3, num2 = 4;
+    int result = add(num1, num2);
+    printf("%d\n", result);
+
+    return 0;
+}
+
+int multiplyByFactor(int x, int factor) {
+    return x * factor;
+}
+
+int add(int a, int b) {
+    int sum = a + b;
+    return multiplyByFactor(sum, 2);
+}</pre>
+                        
+                        <br><input type="radio" id="q7-1" name="q7" value="1"> 10
+                        <br><input type="radio" id="q7-2" name="q7" value="2"> 12
+                        <br><input type="radio" id="q7-3" name="q7" value="3"> 14
+                        <br><input type="radio" id="q7-4" name="q7" value="4"> Σφάλμα κατά τη μεταγλώττιση.
+
+                    <br><br>
+
+                    <button class="button" onclick="checkAnswersGeneric(5, ['2', '2', '2', '2', 'true', 'false', '3'], 7)"> Υποβολή Απαντήσεων</button>
+                    <div id="result5" class="result"></div>
+                    <p>Μόλις απαντήσεις στις ερωτήσεις αυτές μπορείς να πας στην ενότητα "Βαθμολογίες" και να δεις τα συνολικά σου αποτελέσματα.</p>
+                </div>
+            </div>
+
+            <div id="cStructMSG" , class="hide" , style="position: absolute;">
+                <h1 style="text-align: center;">Structs στην C</h1>
+
+                <br><br><h2 class="magenta" style="text-align: left;">Τι είναι ένα Struct;</h2>
+                <p>
+                    <br>Ένα <u><b>struct (δομή) στην C είναι μια σύνθετη δομή δεδομένων που επιτρέπει την ομαδοποίηση διαφορετικών τύπων δεδομένων υπό έναν κοινό όνομα</b></u>.
+                    <br>Είναι χρήσιμο όταν θέλουμε να ομαδοποιήσουμε δεδομένα που ανήκουν μαζί, όπως οι πληροφορίες ενός βιβλίου ή ενός μαθητή.
+                    <br><br>Μια δομή μπορεί να περιλαμβάνει μεταβλητές διαφόρων τύπων δεδομένων, όπως ακέραιοι, χαρακτήρες, float, κ.λπ.
+
+                    <br>Είναι στην ουσία ένας "τεχνιτός" τύπος δεδομένων όπου μπορούμε να φτιάξουμε μεταβλητές, σταθερές ακόμα και πίνακες αυτού του τύπου.
+                    
+                    <br><br><hr>
+
+                    <br><br><h2 class="magenta" style="text-align: left;">Σύνταξη</h2>
+                    <br>Για να ορίσετε μια δομή, χρησιμοποιείτε τη λέξη-κλειδί struct ακολουθούμενη από το όνομα της δομής και τα μέλη της μέσα σε άγκιστρα {} ως εξής:
+                </p>
+
+                <br><div class="frame"> <!--κωδικας σε c-->
+                    <pre style="margin: 0; white-space: pre-wrap;"><b>struct</b> όνομα_δομής{
+    ονόματα_πεδίων_δομής
+};
+
+<b class="green">//δημιουργία μεταβλητης τύπου struct</b>
+struct όνομα_δομής όνομα_μεταβλητής</pre>
+                </div>
+
+                    <br><span class="magenta" style="text-align: left;">Για παράδειγμα:</span>
+
+                    <br><div class="frame"> <!--κωδικας σε c-->
+                        <pre style="margin: 0; white-space: pre-wrap;"><code>#include &lt;stdio.h&gt;
+
+struct Book {
+    <b class="green">//Πεδία δομής</b>
+    char title[50];
+    char author[50];
+    int year;
+};
+
+int main() {
+    struct Book myBook;
+    return 0;
+}</code></pre>
+                    </div>
+                
+                <br><br><hr>
+
+                <br><br><h2 class="magenta" style="text-align: left;">Χρήση Structs</h2>
+
+                <br><h3 class="blue">Ο τελεστής " . "</h3>
+                <p>
+                    <br>Ο τελεστής . χρησιμοποιείται για να έχουμε πρόσβαση στα μέλη ενός struct και συγκεκριμένα όταν θέλουμε να αναθέσουμε τιμή σε κάποιο από τα πεδία
+                    της δομής. <u>Για παράδειγμα:</u>
+                </p>
+
+                <br><div class="frame"> <!--κωδικας σε c-->
+                    <pre style="margin: 0; white-space: pre-wrap;"><code>#include &lt;stdio.h&gt;
+
+struct Person {
+    <b class="green">//Πεδία δομής</b>
+    char name[50];
+    int age;
+};
+
+int main() {
+
+    struct Person per1; <b class="green">//Δημιουργία αντικειμένου τύπου struct Person</b>
+    per1.age = 20;  <b class="green">//Αναθέτουμε ότι το άτομο per1 έχει ηλικία 20 ετών</b>
+
+    return 0;
+}</code></pre>
+                </div>
+
+                <br><h3 class="blue">Ο τελεστής " -> "</h3>
+                <p>
+                    <br>Ο τελεστής -> χρησιμοποιείται για να έχουμε πρόσβαση στα μέλη ενός struct  μέσω ενός δείκτη (pointer) στη δομή. Ουσιαστικά, είναι συντόμευση για
+                    τον συνδυασμο δύο διαφορετικών τελεστών, του τελεστή * και του . όπου ο τελεστής -> είναι ιδιαίτερα χρήσιμος όταν θέλουμε να έχουμε πρόσβαση στα 
+                    πεδία της δομής μέσω συναρτήσεων. <u>Για παράδειγμα:</u>
+                </p>
+
+                <br><div class="frame"> <!--κωδικας σε c-->
+                    <pre style="margin: 0; white-space: pre-wrap;"><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+<b class="green">//Ορισμός της δομής Car</b>
+struct Car {
+    char model[50];
+    int year;
+    double price;
+};
+
+void printInfo(struct Car *carPtr){    <b class="green">//Πρόκειται για δείκτη </b>
+
+    printf("Model: %s\n", carPtr->model);
+    printf("Year: %d\n", carPtr->year);
+    printf("Price: %.2f\n", carPtr->price);
+}
+
+int main() {
+    <b class="green">//Δημιουργία μιας μεταβλητής τύπου struct Car</b>
+    struct Car car1;
+
+    <b class="green">//Ανάθεση τιμών στα μέλη της δομής car1</b>
+    strcpy(car1.model, "Toyota Corolla");   <b class="green">//Προσοχή! πρόκειται για string</b>
+    car1.year = 2020;
+    car1.price = 20000.00;
+
+    <b class="green">//Κλήση της συνάρτησης με τον δείκτη στη δομή car1</b>
+    printCarInfo(&car1);
+
+    return 0;
+}</code></pre>
+                </div>
+
+                <br><br><hr><br><br>
+
+                <h2 class="magenta" style="text-align: left;">Typedef</h2>
+
+                <p>
+                    <br>Το <b>typedef</b> είναι μια λέξη-κλειδί στη γλώσσα προγραμματισμού C που χρησιμοποιείται για να ορίσει ένα νέο όνομα για έναν υπάρχοντα τύπο 
+                    δεδομένων. Συχνά, το typedef χρησιμοποιείται για να απλοποιήσει τη χρήση των δομών (structs) και κάνει την χρήση τους πιο εύκολη και κατανοητή για 
+                    τον προγραμματιστή. 
+
+                    <br><br>Στα παραπάνω παραδείγματα, κάθε φορά που θέλουμε να δηλώσουμε μια μεταβλητή τύπου struct, πρέπει να γράψουμε τη λέξη-κλειδί <b>struct</b> και το 
+                    <b>όνομα_δομής</b> συν το <b>όνομα_μεταβλητής</b> που θέλουμε να ορίσουμε. Με την χρήση του typedef αυτό μετατρέπεται πολύ πιο απλά ως εξής:
+                </p>
+
+                <br><div class="frame"> <!--κωδικας σε c-->
+                    <pre style="margin: 0; white-space: pre-wrap;"><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+<b class="green">//Χρήση λέξης typedef πριν το struct και ονομάζουμε την δομή στο τέλος όχι στην αρχή όπως πριν</b>
+<b>typedef struct</b> {
+    char name[50];
+    int age;
+} <b>Person;</b>
+
+int main(){
+
+    <b class="green">/*Κατά την δήλωση τώρα σ=δεν χρειάζεται να βάζουμε την λέξη struct
+        κάθε φορά απλώς γράφουμε το όνομα_δομής και το όνομα_μεταβλητής*/</b>
+    <b>Person per1;</b>
+
+    strcpy(per1.name, "Alice");
+    per1.age = 25;
+    
+    printf("Name: %s, Age: %d\n", per1.name, per1.age);
+    return 0;
+
+}</code></pre>
+                </div>
+                
+
+                <br><br><hr><br><br>
+
+                <h2 class="magenta" style="text-align: left;">Παράδειγμα</h2>
+
+                <p>
+                    <br>Φτιάξε ένα πρόγραμμα σε γλώσσα C που να ορίζει τα στοιχεία ενός μαθητή με χρήση δομής struct. Το πρόγραμμα θα πρέπει να εισάγει τα στοιχεία του μαθητή 
+                    και να τα εμφανίζει στην οθόνη. Το πρόγραμμα πρέπει να γίνει με χρήση συναρτήσεων.
+                </p>
+
+                <br><div class="frame"> <!--κωδικας σε c-->
+                    <pre style="margin: 0; white-space: pre-wrap;"><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+typedef struct {
+    char name[50];
+    int age;
+    int student_id;
+    float gpa;
+} Student;
+
+<b class="green">//Εισαγωγή δεδομένων για έναν φοιτητή</b>
+void inputStudent(Student *s) {     <b class="green">//Περνάμε ως παράμετρο εναν δείκτη</b>
+
+    printf("Enter name: ");
+    scanf("%s", s->name);  <b class="green">//Δεν βάζουμε τον τελεστή & όταν πρόκειται για string</b>
+
+    printf("Enter age: ");
+    scanf("%d", &s->age);
+
+    printf("Enter student ID: ");
+    scanf("%d", &s->student_id);
+
+    printf("Enter GPA: ");
+    scanf("%f", &s->gpa);
+}
+
+<b class="green">//Eκτύπωση δεδομένων ενός φοιτητή</b>
+void printStudent(Student s) {  <b class="green">//Περνάμε το αντικείμενο ως παράμετρο</b>
+
+    printf("\nStudent Information:\n");
+    printf("Name: %s\n", s.name);
+    printf("Age: %d\n", s.age);
+    printf("Student ID: %d\n", s.student_id);
+    printf("GPA: %.2f\n", s.gpa);
+}
+
+int main() {
+    Student student1;
+
+    inputStudent(&student1);
+
+    printStudent(student1);
+
+    return 0;
+                            
+}</code></pre>
+                </div>
+
+                <br><br><hr><br><br>
+
+                <h2 class="magenta" style="text-align: left;">‼️Σημαντικά Σημεία</h2>
+                
+                <br>📍 Τα structs επιτρέπουν την ομαδοποίηση διαφορετικών τύπων δεδομένων και τα μέλη της δομής μπορούν να είναι οποιοισδήποτε τύποι δεδομένων.
+                <br>📍 Μπορούμε να χρησιμοποιούμε structs σε συναρτήσεις ως παραμέτρους ή σαν επιστρεφόμενη τιμή.
+
+                <br><br><hr><br><br>
+
+                <div class="quiz-container">
+                    <h3>Τεστ Κατανόησης</h3>
+                
+                    <br><br><span class="magenta">1. Τι είναι ένα struct στη γλώσσα C;</span>
+                    <br><input type="radio" id="q1-1" name="q1" value="1"> Ένας πίνακας χαρακτήρων.
+                    <br><input type="radio" id="q1-2" name="q1" value="2"> Μια σύνθετη δομή δεδομένων που ομαδοποιεί διαφορετικούς τύπους δεδομένων.
+                    <br><input type="radio" id="q1-3" name="q1" value="3"> Ένας δείκτης σε πίνακα.
+                    <br><input type="radio" id="q1-4" name="q1" value="4"> Ένας ακέραιος τύπος δεδομένων.
+                
+                    <br><br><span class="magenta">2. Πώς δηλώνεται μια μεταβλητή τύπου struct όταν χρησιμοποιείται typedef;</span>
+                    <br><input type="radio" id="q2-1" name="q2" value="1"> typedef struct StructName { Variables } StructName;
+                    <br><input type="radio" id="q2-2" name="q2" value="2"> typedef StructName struct { Variables };
+                    <br><input type="radio" id="q2-3" name="q2" value="3"> typedef struct { Variables } StructName;
+                    <br><input type="radio" id="q2-4" name="q2" value="4"> typedef type StructName { Variables };
+                
+                    <br><br><span class="magenta">3. Πώς μπορούμε να αποκτήσουμε πρόσβαση σε ένα μέλος της δομής;</span>
+                    <br><input type="radio" id="q3-1" name="q3" value="1"> Με τη χρήση του τελεστή `->`
+                    <br><input type="radio" id="q3-2" name="q3" value="2"> Με τη χρήση του τελεστή `.` 
+                    <br><input type="radio" id="q3-3" name="q3" value="3"> Με την χρήση του τελεστή `&`
+                    <br><input type="radio" id="q3-4" name="q3" value="4"> Με τη χρήση του τελεστή `*`
+                
+                    <br><br><span class="magenta">4. Ποια είναι η ενέργεια του τελεστή `.` στην πρόσβαση στα μέλη μιας δομής;</span>
+                    <br><input type="radio" id="q4-1" name="q4" value="1"> Επιτρέπει την πρόσβαση σε μέλη της δομής μέσω ενός δείκτη στη δομή.
+                    <br><input type="radio" id="q4-2" name="q4" value="2"> Επιτρέπει την πρόσβαση σε μέλη της δομής μέσω ενός αντικειμένου της δομής.
+                    <br><input type="radio" id="q4-3" name="q4" value="3"> Χρησιμοποιείται για τη δήλωση της δομής.
+                    <br><input type="radio" id="q4-4" name="q4" value="4"> Δημιουργεί έναν νέο τύπο δεδομένων βασισμένο στη δομή.
+                
+                    <br><br><span class="magenta">5. Πώς δηλώνεται μια μεταβλητή τύπου struct;</span>
+                    <br><input type="radio" id="q5-1" name="q5" value="1"> struct StructName variableName;
+                    <br><input type="radio" id="q5-2" name="q5" value="2"> StructName variableName;
+                    <br><input type="radio" id="q5-3" name="q5" value="3"> variableName struct StructName;
+                    <br><input type="radio" id="q5-4" name="q5" value="4"> variableName type StructName;
+                
+                    <br><br><span class="magenta">6. Ποιες είναι οι συνέπειες της χρήσης του `typedef` με τις δομές;</span>
+                    <br><input type="radio" id="q6-1" name="q6" value="1"> Δημιουργεί μια συνώνυμη ονομασία για μια υπάρχουσα δομή.
+                    <br><input type="radio" id="q6-2" name="q6" value="2"> Επιτρέπει τη δημιουργία δομών με διαφορετικό τύπο δεδομένων.
+                    <br><input type="radio" id="q6-3" name="q6" value="3"> Δημιουργεί μια νέα μορφή για την συνάρτηση `printf`.
+                    <br><input type="radio" id="q6-4" name="q6" value="4"> Αλλάζει τη συμπεριφορά των δεικτών σε δομές.
+                
+                    <br><br><button class="button" onclick="checkAnswersGeneric(6, ['2', '3', '2', '2', '1', '1'], 6)"> Υποβολή Απαντήσεων</button>
+                    <div id="result6" class="result"></div>
+                    <p>Μόλις απαντήσεις στις ερωτήσεις αυτές μπορείς να πας στην ενότητα "Βαθμολογίες" και να δεις τα συνολικά σου αποτελέσματα.</p>
+                </div>
+               
+            </div>
+
+            <div id="cProgMSG" , class="hide" , style="position: absolute;">
+
+                <p>
+                    <br><b class="magenta">Αυτή είναι η τελευταία ενότητα πριν ολοκληρώσεις την εκπαίδευση σου! Συγχαριτήρια αν κατάφερες να φτάσεις ως εδώ 👏🏼.</b> 
+                    <br>Παρακάτω θα βρεις ένα μεγάλο πρόγραμμα σε C οπου θέλω να προσπαθήσεις να το φτιάξεις όλο μόνος/η σου από το μηδέν. 
+                    
+                    <br><br>Το πρόγραμμα αυτό περιέχει υλικό από όλες τις ενότητες και είναι μια πρώτη επαφή σε ένα ολοκληρώνο project. 
+                    <br>Ακόμα και να μην θυμάσαι κατι μπορείς ανά πάσα στιγμή να ανατρέξεις στις ενότητες που κάναμε μαζί για να θυμηθείς πράγματα. 
+                    <b>
+                        <br>ΜΗΝ ΚΛΕΨΕΙΣ και δεις το πρόγραμμα έτοιμο😜.
+                        <br>Πρώτα να προσπαθήσεις μόνος/η σου!!! 
+                    </b>
+
+                    <br><br><h2 class="magenta">Καλή Επιτυχία!❤️‍🔥</h2>
+                </p>
+
+                <br><br><button class="buttonClick" onclick="final()">Final Project</button>
+
+                <!-- <p>
+                    <br><br>Παρακάτω θα δεις τα συνολικά αποτελέσματα από τα τεστ και τα κουιζ που έκανες σε όλη την διάρκεια των μαθημάτων. 
+
+                    <br>Τα πήγες τέλεια!
+                </p> -->
+
+                <!-- Η επίδοση μου -->
+
+                <br><br><hr><br><br><p>
+                    <h3 class="blue">Μόλις ολοκλήρωσες ένα πλήρες σεμινάριο για την γλώσσα προγραμματισμού C👏🏼👏🏼.</h3>
+
+                    <br><br>Αυτή η γλώσσα είναι μια από τις βασικότερες και από τις απλές γλώσσες προγραμματισμού. Η γλώσσα C δεν είναι μια αντικειμενοστραφείς 
+                    γλώσσα προγραμματισμού όπως πολλές άλλες, αλλά βασίζεται στον δομημένο προγραμματισμό όπως έχουμε πει πολλές φορές κατά την διάρκεια 
+                    των μαθημάτων -δηλαδή στην χρήση συναρτήσεων. 
+
+                    <br><br>Έχουμε ολοκληρώσει τα μαθήματα μας με μια θεωρητική σκοπιά η οποία είναι η βάση του προγραμματισμού, αλλά θα χρειαστεί να κάνεις εξάσκηση
+                    και να γράψεις και μόνος/η σου πολλά προγράμματα μικρά και μεγάλα για να καταφέρεις να αποκτήσεις εμπειρία και να επομένως να γίνεις και 
+                    εσύ ένας έμπειρος προγραμματιστής. 
+                    <br>Υπάρχουν πολλά πράγματα για τα οποία δεν έχουμε αναφερθεί στα πλαίσια των μαθημάτων μας και παραπέμπουν σε πιο εξειδικευμένα προγράμματα 
+                    τα οποία είμαι σίγουρη ότι αν ασχοληθείται θα τα βρείται πολύ ενδιαφέροντα! 
+                    <br>Είδαμε μέσω της πλατφόρμας μας πως να γράφουμε τον πρώτο μας κώδικα, πως να μπορούμε να αναλύσουμε έναν κώδικα και να καταλάβουμε τι
+                    πρόκειται να εμφανίσει στο τερματικό μας, μάθαμε όλη την βασική θεωριτική προσέγγιση της γλώσσας C και πως αυτή μπορεί από πολύ απλή να γίνει 
+                    πολύ σύνθετη. Μέσα από τα παραδείγματα κώδικα, τις ασκήσεις, τα τεστ είδαμε τις επιδόσεις σου και όλη την πρόοδο που έχεις καταφέρει μέχρι 
+                    στιγμής. 
+
+                    <br><br>Ελπίζω πραγματικά η ιστοσελίδα αυτή να σε βοήθησε να βρεθείς λίγο πιο κοντά στον μαγικό κόσμο των υπολογιστών και στο πως μπορείς να του "πεις" 
+                    τι να κάνει για να παράγει τα αποτελέσματα που θέλεις. Μην ξεχνάς ότι ο υπολογστής είναι ένα μηχάνιμα και ΕΣΥ είσαι αυτός που πρέπει να του 
+                    μεταφέρεις ακριβώς την σκέψη σου και τι θέλεις να κάνει. 
+
+                    <br><br>Τα περιθώρια εξέλιξης είναι πολλά στον προγραμματισμό. Κάποιες γλώσσες "πεθαίνουν" και άλλες ζωντανεύουν με τον καιρό. Η C είναι μια καλή αρχή 
+                    για εσένα.
+                    <br>Εάν θέλεις να προχωρήσεις με μια αντικειμενοστραφή γλώσσα προγραμματισμού θα σου πρότινα την γλώσσα C++ όπου πολλά πράγματα είναι 
+                    παρόμοια στις δύο αυτές γλώσσες ή ακόμα και ίδια. 
+
+                    <br><br>Μην τα παρατήσεις αν δεν τα καταφέρεις την πρώτη φορά και ο compliler σου βγάζει όλη την ώρα σφάλματα🥹. Ο προγραμματισμός θέλει υπομονή και 
+                    πολύ ψάξιμο στο internet.🙃
+                </p>
+
+                <div class="container-img">
+                    <p style="margin-left: 30px;">
+                        
+                        <br><br><b class="magenta" style="font-size: 30px;">Επλίζω να καταφέραμε κάτι όμορφο παρέα και να τα πούμε σύντομα σε κάποιο άλλο project!❤️‍🔥</b>
+                    </p>
+                
+                    <img src="https://spaces-wp.imgix.net/2016/06/coding-in-the-classroom.png?auto=compress,format&q=50", style="max-width:80%">
+                </div>
+                
+                
+
+            </div>
+
+            <div id="showResultsBtnMSG" , class="hide" , style="position: absolute;"></div>
+
+        </main>
+
+        <footer>
+            <a href="more_info.html">More Info About us</a>
+            <br><br> Made with 🩷 by Γεωργία Τούμπα |Copyright © 2024
+        </footer>
+    </div>
+  
+</body>
+
+</html>

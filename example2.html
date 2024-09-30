@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>CodeNest</title>
+    <link rel="icon" type="image/png" href="https://www.khmer168.com/wp-content/uploads/2024/01/c-tutorial-for-beginners.png"> 
+    
+    <link rel="stylesheet" type="text/css" href="style_first.css">
+</head>
+<body>
+
+    <div class="grid">
+        <header style="background-color: rgba(159, 182, 148, 0.884);">
+            <h1><b>Ας γνωρίσουμε τους Πίνακες</b></h1>
+        </header>
+            
+        <main style="background-color: rgba(200, 213, 193, 0.884);">
+            <h2>❓Με τι θα ασχοληθούμε;</h2>
+
+            <br>Σε αυτό το project καλείστε να φτιάξετε τον κώδικα ενός προγράμματος στην C, το οποίο θα εκτελεί τρείς από τις βασικότερες ενέργειες που μπορούμε να υλοποιήσουμε πάνω στους πίνακες.
+            
+            <div class="container-img">
+                <p style="margin-left: 30px;">
+                    
+                    <br>Η ενέργειες με τις οποίες θα ασχοληθούμε αφορούν την:
+                    <br>📍Αναζήτηση στοιχείου στον πίνακα
+                    <br>📍Διαγραφή στοιχείου στον πίνακα
+                    <br>📍Εύρεση μικρότερου στοιχείου του πίνακα
+                    <br>📍Εύρεση μεγαλύτερου στοιχείου του πίνακα
+                    <br>📍Υπολογισμός αθροίσματος όλων των στοιχείων του πίνακα
+                </p>
+            
+                <img src="https://images.shiksha.com/mediadata/ugcDocuments/images/wordpressImages/2022_05_Copy-of-What-is-1.jpg"> 
+            </div>
+
+            <p>
+                Ετοιμάσου να εξερευνήσεις τον μαγικό κόσμο των αριθμών μέσα από αυτήν την άσκηση σε γλώσσα C. Θα δημιουργήσεις έναν πίνακα με ακέραιους αριθμούς και θα τον διαχειρίζεσαι μέσω ενός μενού επιλογών,
+                το οποίο θα δίνει στον χρήστη την δυνατότητα να επιλέξει την ενέργεια που επιθυμεί όπως αυτές αναφέρθηκαν προηγουμένος.
+                <br><br>Συγκεκριμένα, 
+                <br><br><b><span class="magenta">Α.</span></b>      Το πρόγραμμά σου θα ζητήσει από τον χρήστη να εισάγει 10 αριθμούς με εύρος από 1 έως 100 και θα τους αποθηκεύει σε έναν μονοδιάστατο πίνακα. 
+                Θα πρέπει να ελέγχεται η περίπτωση που ο χρήστης εισάγει έναν αριθμό εκτός ορίων και να του εμφανίζει το αντίστοιχο μύνημα λέγοντας να προσπαθήσει εκ νέου. 
+                <br><br><b><span class="magenta">Β.</span></b>      Θα εμφανίζει τον πίνακα στην οθόνη με την σειρά που διάλεξε ο χρήστης και έπειτα θα του εμφανίζει το menu επιλογών. 
+                <br><br><b><span class="magenta">Γ.</span></b>      Θα διαβάζει την επιλογή του (1-5) και αναλόγως αυτήν θα εκτελείται η κατάλληλη ενέργεια. Η έξοδος του προγράμματος θα γίνεται στην περίπτωση που 
+                ο χρήστης δώσει σαν επιλογή το μηδέν (0). Σε περίπτωση που εισάγει μια επιλογή που δεν είναι έγκυρη, το πρόγραμμά σου θα του ζητήσει να προσπαθήσει ξανά.
+            </p>
+
+            
+            <h3 class="magenta">
+                Έτοιμος/η να δοκιμάσεις;
+            </h3>
+            
+            <br><hr>
+
+            <br><h2 class="magenta" style="text-align: center;">Βήμα 1: Δημιουργία αρχείου</h2>
+            <p>Αρχικά, χρειάζεται να δημιουργήσεις ένα νέο αρχείο με την κατάληξη <code>.c</code>, για παράδειγμα <code>arrays.c</code></p>
+            
+            <h2 class="magenta" style="text-align: center;">Βήμα 2: Κώδικας</h2>
+            <p>Άνοιξε το περιβάλλον προγραμματισμού που επιθυμείς και έπειτα το αρχείο που μόλις δημιούργησες. Τώρα είμαστε έτοιμοι να γράψουμε παρέα τον κώδικα μας.</p>
+
+            <h2 class="magenta" style="text-align: center;">Βήμα 3: Ορισμός βιβλιοθηκών και της κύριας συνάρτησης</h2>
+            <p>Ξεκίνα με τη συμπερίληψη των απαραίτητων βιβλιοθηκών και τον ορισμό της κύριας συνάρτησης <code>main</code>:</p>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main(int argc, char *argv[]) {
+
+    return 0;
+}
+            </code></pre>
+
+            <h2 class="magenta" style="text-align: center;">Βήμα 4: Εισαγωγή αριθμών</h2>
+            <p>
+                Για να ζητήσεις από τον χρήστη να εισάγει δέκα (10) αριθμούς από το 1 έως το 100 ποιά βασική εντολή θα χρησιμοποιήσεις;
+                <br>Πολύ σωστά κατάλαβες! Την εντολή <b>scanf()</b> όπου θα ζητήσεις 10 αριθμούς από το πληκτολόγιο. Αυτή η εντολή λοιπόν θα πρέπει να επαναληφθεί 10 φορές για κάθε
+                διαφορετική εισαγωγή αριθμού που θα σου δίνει. 
+                <br>Τι θα μπορούσες να κάνεις στο πρόγραμμα σου για να μην την επαναλάβεις πολλές φορές;
+                <br>Την απάντηση στην ερώτηση αυτή θα σου την δώσουν οι <u>δομές επανάληψης</u>. Με την χρήση για παράδειγμα μιας <b>for</b> εντολής (αφού γνωρίζουμε τον αριθμό των επαναλήψεων)
+                μπορείς να τρέξεις τις ίδιες εντολές 10 φορές. Πολύ σωστά!
+                <br><br><b class="magenta">Όμως</b> η εκφώνηση της άσκησης μας ζητάει: <u>"να ελέγχεται η περίπτωση που ο χρήστης εισάγει έναν αριθμό εκτός ορίων και να του εμφανίζει το αντίστοιχο μύνημα 
+                    λέγοντας να προσπαθήσει εκ νέου."</u>
+                    <br>**Η καταλληλότερη δομή επανάληψης για να ελεγθεί μια τιμή αν είναι εκτός ορίων είναι η <span class="magenta">do-while</span>! Αυτή η διαδικασία ονομάζεται 
+                <b>έλεγχος εγκυρότητας τιμής</b>. 
+                <br>Με αυτόν τον τρόπο θα εξασφαλίσουμε ότι η εντολή scanf() θα εκτελεστεί τουλάχιστον μία φορά.
+                <br><br>Αφού λοιπόν δημιουργήσουμε την δομή επανάληψης ζητάμε από τον χρήστη να δώσει 10 αριθμόυς, τους οποίους ελέγχουμε αν είναι από 1 έως 100.
+                <br>Έπειτα μπορούμε να τους αποθηκεύσουμε στον πίνακα μας και να προχωρήσουμε στον επόμενο αριθμό.
+                
+                <br><br><span class="magenta">🤪Ας το δούμε στην πράξη γιατί ξέρω ότι μπορεί να μπερδεύτηκες.</span>
+            </p>
+
+            <pre><code><b class="green">//Dhlwseis metablitwn kai pinaka</b>
+int A[10], input, i, size;
+
+size = 10;      <b class="green">//megethos pinaka</b>
+i = 0;      <b class="green">//metritis thesewn pinaka</b>
+
+do {
+    printf("Dwse enan arithmo apo to 1 mexri to 100:\t");
+    scanf("%d", &input);
+
+    if (input < 1 || input > 100) {
+        printf("Mh apodektos arithmos! Dwse allon.\n");
+        continue;
+    <b class="green">//sunexise sthn epomenh epanalipsi agnoontas tis epomenes entoles</b>   
+    }
+
+    A[i] = input;   <b class="green">//apothikeush arithmou ston pinaka</b>
+    i++;            <b class="green">//proxwrame mia thesh ston pinaka</b>
+
+} while (i < size);     <b class="green">//mexri o pinakas na mhn exei alles theseis</b>
+            </code></pre>
+
+            <h2 class="magenta" style="text-align: center;">Βήμα 5: Εμφάνιση μενού επιλογών</h2>
+            <p>
+                Εμφάνισε τον ολοκληρωμένο πίνακα του προηγούμενου βήματος όπως λέει το Β ερώτημα της εκφώνησης. Μετά πρόσθεσε έναν βρόχο 
+                που θα εμφανίζει επαναληπτικά το μενού επιλογών όπως αυτό δίνεται στην αρχή. 
+                <br>Είσαι έτοιμος/η να διαβάσεις την επιλογή του χρήστη!
+                <br>Ανάλογα με την επιλογή αυτή πρέπει να εκτελεστεί η αντίστοιχη ενέργεια από το πρόγραμμα και επιπλέον αν δωθεί το μηδέν να γίνει τερματισμός του προγράμματος.
+            </p>
+
+            <pre><code>int choice;  <b class="green">//prosthetw thn metablhth sthn arxh tou programmatos</b>
+
+printf("\nPinakas:\n");
+for(i = 0; i < size; i++){    
+    printf("%d\t", A[i]);   <b class="green">//ektipwsh stoixeiwn pinaka</b>
+}
+printf("\n");
+
+while (1) {     <b class="green">//oso h epilogh einai 1</b>
+    
+    printf("\n1. Athrisma Stoixeiwn\n");      <b class="green">//menu</b>
+    printf("2. Mikrotero Stoixeio\n");
+    printf("3. Megalutero Stoixeio\n");
+    printf("4. Anazhthsh Stoixeiou\n");
+    printf("5. Diagrafh Stoixeiou\n");
+    printf("0. Exit\n");
+
+    printf("Epileje mia energeia: 0-5\n");
+    scanf("%d", &choice);       <b class="green">//diabase thn epilogh tou xrhsth</b>
+
+    if (choice == 0) {
+        break;
+    <b class="green">// an einai 0 termatise thn epanalipsh (ara kai to programma)</b>
+    }
+}</code></pre>
+
+            <h2 class="magenta" style="text-align: center;">Βήμα 6: Υλοποίηση μενού</h2>
+            <p>
+                Είμαστε στο Γ στάδιο της εκφώνησης που ήρθε η ώρα να εκτελέσουμε την ενέργεια που επέλεξε ο χρήστης.
+                <br>Πρόσθεσε τον κώδικα για κάθε επιλογή του μενού. Με ποιά εντολή θα γίνει αυτό;
+                <br>🙄Σου δίνω λίγο χρόνο να το σκεφτείς...
+                <br>Το βρήκες;
+                <br>Αν ναι μπράβο σου! Είναι η εντολή <b class="magenta">if</b>. 
+                <br><br>Ας δούμε την δομή:
+            </p>
+
+            <pre><code>if (choice == 0) {      <b class="green">//an dwsei 0 termatizei to programma</b>
+    break;
+}
+else if (choice == 1) {
+    <b class="green">//ylopogizw athrisma</b>
+}
+else if (choice == 2) {
+    <b class="green">//ypologizw Mikrotero Stoixeio</b>
+}
+else if (choice == 3) {
+    <b class="green">//ypologizw Megalutero Stoixeio</b>
+}
+else if (choice == 4) {
+    <b class="green">//Anazhthsh Stoixeiou</b>
+}
+else if (choice == 5) {
+    <b class="green">//Diagrafh Stoixeiou</b>
+}
+else {      <b class="green">//opoiadipote allh epilogh einai akurh</b>
+    printf("Mh egkiri epilogh! Dwse arithmo 0-5\n");
+}</code></pre>
+
+            <h2 class="magenta" style="text-align: center;">Βήμα 7: Υλοποίηση ενεργειών μενού - Υπολογισμός Αθροισματος</h2>
+            <p>
+                Η πιο εύκολη από τις ενέργειες του μενού είναι να υπολογίσουμε το άθροισμα όλων των στοιχείων του πίνακα. 
+                <br>Πρώτα ορίζουμε και αρχικοποιούμε την μεταβλητή που θα έχει το αποτέλεσμα, έστω <b>sum=0</b>.
+                <br><br>Με μια δομή επανάληψης <b class="magenta">for</b>, όπως γνωρίζουμε από τα μαθήματα, έχουμε την δυνατότητα να προσπελάσουμε όλα τα στοιχεία που υπάρχουν αποθηκευμένα
+                στον πίνακα και να τα προσθέσουμε ένα ένα στην μεταβλητή sum. 
+                <br>Αφού προστεθεί και το τελευταίο στοιχείο στο συνολικό άθροισμα, το εμφανίζουμε στην οθόνη.
+            </p>
+
+            <pre><code>int sum;
+<b class="green">//choice == 0</b>
+else if (choice == 1) {
+
+    sum = 0;
+    for(i = 0; i < size; i++) {
+        sum += A[i];
+    }
+    printf("\nTo athroisma twn stoixeiwn einai: %d\n", sum);
+}</code></pre>
+
+            <p>
+                ❓<b>Μπορείς να σκεφτείς τι θα γινόταν αν αρχικοποιούσαμε την μεταβλητή sum μέσα στην επανάληψη; 
+                    <br>Με τι θα ισούταν το τελικό άθροισμα; 
+                    <br>Το ΄χεις! Είναι απλό. </b>
+            </p>
+
+            <h2 class="magenta" style="text-align: center;">Βήμα 8: Υλοποίηση ενεργειών μενού - Υπολογισμός Μικρότερου Στοιχείου</h2>
+            <p>
+                Όπως αρχικοποιήσαμε μια μεταβλητή για το άθροισμα τώρα θα προσθέσουμε μια για να αποθηκεύσουμε το μικρότερο στοιχείο και στην συνέχεια να το εμφανίσουμε. 
+                <br><br>Το στοιχείο αυτό όμως, με τι θα χρειαστεί να το ορίσουμε αρχικά ίσο; 
+                <br>Για να το συγκρίνουμε λοιπόν με όλα τα στοιχεία του πίνακα και να αποφασίσουμε ποιό είναι το μικρότερο χρειάζεται αυτή η μεταβλητή να έχει μια αρχική τιμή η οποία 
+                θα είναι 100% μεγαλύτερη από όλα τα στοιχεία του πίνακα για να μπορεί να άλλαξει στην πορεία με την τιμή του στοιχείου του πίνακα με την μικρότερη τιμή. 
+
+                <br><br>Στην άσκηση νας γνωρίζουμε ότι όλες οι τιμές που υπάρχουν στον πίνακα είναι από 1 έως 100 οπότε αυτόματα σκεφτόμαστε πως η μικρότερη τιμή είναι μια χαμηλότερη του 1
+                και αντίστοιχα μια μεγαλύτερη από όλες αυτές που έδωσε ο χρήστης είναι μια υψηλότερη του 100. 
+                <br>Έστω, λοιπόν, η μεταβλητή <b class="magenta">min</b> που θα μπορούσε να έχει αρχική τιμή 0 (< 1).
+
+                <br><br>*Στα πλαίσια του διαδικτυακού μας μαθήματος θα δούμε και την <u>γενική περίπτωση</u> που δεν γνωρίζουμε εξ'αρχής το εύρος τιμών ενός πίνακα. 
+                <br>Αυτό το πρόβλημα λύνεται πολύ απλά αρχικοποιώντας την μεταβλητή min με μια τιμή που ήδη υπάρχει μέσα στον πίνακα, έστω την πρώτη (Α[0]). 
+                <br>Κατά αυτόν τον τρόπο συγκρίνει
+                το πρόγραμμα την τιμή του πρώτου στοιχείου με όλες τις υπόλοιπες του πίνακα και αν βρεθεί κάποια μικρότερη του 1ου στοιχείου τότε αυτή αλλάζει τιιμή. 
+            </p>
+
+            <pre><code>int min; <b class="green">//to orizoume mazi me ta upoloipa</b>
+else if (choice == 2) {
+
+    min = A[0];
+    <b class="green">//i=1 oxi 0 giati to 1o stoixeio mpainei sto min</b>
+    for(i = 1; i < size; i++){
+        if (A[i] < min) {
+            min = A[i];
+        }
+    }
+    printf("\nTo mikrotero stoixeio einai: %d\n", min);
+}</code></pre>
+
+            <h2 class="magenta" style="text-align: center;">Βήμα 9: Υλοποίηση ενεργειών μενού - Υπολογισμός Μεγαλύτερου Στοιχείου</h2>
+            
+            <p>
+                Ότι αναφέραμε πριν για την εύρεση του ελάχιστου στοιχεία από αυτά που βρίσκονται στον πίνακα μας, ισχύει και για την εύρεση του μέγιστου στοιχείου του.
+                <br>Έστω η μεταβλητή <b class="magenta">max</b> ίση με το πρώτο πάλι στοιχείο και τώρα θα συγκρίνουμε με αυτήν όλα τα υπόλοιπα στοιχεία. 
+            </p>
+
+            <pre><code>int max; <b class="green">//to orizoume mazi me ta upoloipa</b>
+else if (choice == 3) {
+
+    max = A[0];
+    for(i = 1; i < size; i++) {
+        if (A[i] > max) {
+            max = A[i];
+        }
+    }
+    printf("\nTo megalytero stoixeio einai: %d\n", max);
+}</code></pre>
+
+
+            <h2 class="magenta" style="text-align: center;">Βήμα 10: Υλοποίηση ενεργειών μενού - Αναζήτηση Συγκεκριμένου Στοιχείου</h2>
+            
+            <p>
+                Το πρώτο πράγμα που χρειαζόμαστε για αυτήν την ενέργεια είναι ένα <u>στοιχείο αναζήτησης</u>. Ζητάμε από τον χρήστη να εισάγει μια τιμή και την αποθηκεύουμε σε μια μεταβλητή, έστω key.
+                <br>Επίσης θα χρειαστούμε μια ακόμη μετάβλητη <b class="magenta">flag</b> η οποία θα αποσαφηνίζει εαν έχει βρεθεί η τιμή αναζήτησης στον πίνακα ή όχι. 
+
+                <br><br>Με την γνωστή σε όλους μας πλέον δομή <b>for</b> προσπελαύνει το πρόγραμμα όλα τα δεδομένα του πίνακα και συγκρίνει αν η τιμή που θέλουμε να βρούμε ταιριάζει με κάποια από αυτές του πίνακα. 
+                <br>Αν βρεθεί αντιστοιχία τότε αλλάζουμε την τιμή της flag από 0 που την ορίσαμε σε 1 και επιπλέον μπορούμε να κρατήσουμε και την θέση (<b>spot</b>) στην οποία βρέθηκε η συγκεκριμένη τιμή στον πίνακα 
+                για να την εμφανίσουμε στην οθόνη. 
+
+                <br><br>Τέλος, εκτυπώνουμε στην οθόνη το κατάλληλο μύνημα αναλόγως με το αν βρέθηκε η τιμή αναζήτησης ή όχι. Πολύ εύκολα τσεκάρουμε εαν η τιμή της flag έχει αλλάξει σε 1.
+                <br><br>Πάμε να το δούμε ολοκληρωμένο:
+            </p>
+
+            <pre><code>int key, flag, spot;
+else if (choice == 4) {
+
+    printf("Dwse to stoixeio pou psaxneis:\t");
+    scanf("%d", &key);      <b class="green">// key einai to stoixeio anazhthshs</b>
+
+    <b class="green">//orizoume  metablhth an brethike h oxi to stoixeio</b>
+    flag = 0;   <b class="green">//an parameinei 0 tote to stoixeio den brethike</b>
+    spot = -1;
+    <b class="green">//bazoume -1 oxi 0 giati oi theseis tou pinaka arxizoun apo 0</b>
+
+    for(i = 0; i < size; i++){
+        if(key == A[i]){
+            flag = 1;   <b class="green">//brethike to stoixeio allazw thn flag se 1</b>
+            spot = i;   <b class="green">//kratame thn thesh pou brethike</b>
+        }
+    }
+
+    if(flag == 1){  <b class="green">//brethike</b>
+        printf("\nBrethike to %d sthn thesh -> %d\n", key, spot+1);
+        <b class="green">//+1 giati arxizoun apo to 0 oi theseis</b>   
+    }
+    else{   <b class="green">// den brethike</b>
+        printf("\nTo stoixeio den brethike ston pinaka!\n");
+    }
+}</code></pre>
+
+            <h2 class="magenta" style="text-align: center;">Βήμα 11: Υλοποίηση ενεργειών μενού - Διαγραφή Συγκεκριμένου Στοιχείου</h2>
+            
+            <p>
+                <br>Αυτή η ενέργεια είναι η πιο περίπλοκη από όλες αλλά θα την δούμε σιγά σιγά παρέα. 
+
+                <br><br>Ποιό ήταν το πρώτο βήμα που κάναμε πριν στην αναζήτηση; Να αποθηκεύσουμε το στοιχείο που αναζητούμε! 
+                <br>Το ίδιο θα γίνει και εδώ. Για να διαγράψεις ένα στοιχείο πρέπει πρώτα να το βρεις. Σωστά;
+
+                <br><br>Ζητάμε από τον χρήστη να μας δώσει την τιμή που θέλει να διαγράψει από τον πίνακα (αν αυτή υπάρχει). Μπορούμε να ορίσουμε μια νέα μεταβλητή, αλλά στο συγκεκριμένο πρόγραμμα δεν είναι απαραίτητο 
+                καθώς μπορούμε να χρησιμοποιήσουμε την ποηγούμενη μεταβλητή key.
+                <br>Επιπλέον, πάλι θα ορίσουμε μια νέα μεταβλητή <b class="magenta">found</b> με την ίδια λογική της μεταβλητής flag.
+
+                <br><br>Θα χρειαστεί όπως καταλαβαίνεις να δημιουργηθεί μια επανάληψη για να βρεθεί το <u>στοιχείο διαγραφής</u>. Θα χρησιμοποιήσουμε την <b>while</b>. 
+                <br>Πρέπει οποσδήποτε να γίνει έλεγχος αν υπάρχουν στοιχεία μέσα στον πίνακα, για την περίπτωση που ο χρήστης τα έχει διαγράψει όλα. Αυτός είναι και ο λόγος που ορίσαμε στην αρχή του προγράμματος 
+                την μεταβλητή <b>size=10</b> για έχουμε την δυνατότητα να "επεξεργαστούμε" το μέγεθος του πίνακα και παράλληλα να μπορούν να λειτουργούν κανονικά όλες οι υπόλοιπες ενέργειες του μενού. 
+
+                <br><br>Αν βρούμε δηλαδή το στοιχείο διαγραφής και υπάρχουν στοιχεία στον πίνακα, τότε <b>μεταφέρουμε όλα τα στοιχεία του πίνακα που υπάρχουν ΜΕΤΑ από αυτό, μια θέση προς τα αριστερά</b>! 
+                <br>Αυτό θα έχει ως αποτέλεσμα το στοιχείο διαγραφής να μετακινηθεί στην τελευταία θέση του πίνακα και εφόσον εγω μειώσω το μέγεθος του αυτό να διαγραφτεί. 
+                <br>Η διαδικασία μετακίνησης ονομάζεται <b class="magenta">ολίσθηση</b>. 
+
+                <br><br>Σε κάθε περίπτωση (είτε βρεθεί, είτε όχι) πρέπει ο δείκτης i του πίνακα να αυξάνεται για να μπορεί το πρόγραμμα να προσπελάσει όλα τα στοιχεία του. 
+
+                <br><br>Τέλος, όπως και στην αναζήτηση, έτσι και στην διαγραφή ελέγχουμε με την βοήθεια της found αν διαγράφθηκε το στοιχείο key ή όχι και να εμφανίσουμε το αντίστοιχο μύνημα. 
+                <br>Αν η διαγραφή ήταν επιτυχής, στην οθόνη θα εκτυπωθεί και ο νέος πίνακας χωρίς το στοιχείο διαγραφής. 
+            </p>
+
+            <pre><code>int found, temp; <b class="green">//prosthetoume sthn arxh</b>
+else if (choice == 5) {
+    printf("\nDwse to stoixeio pou thes na diagrapseis:\t");
+    scanf("%d", &key);      
+
+    i = 0;
+    found = 0;  <b class="green">//an brethei to stoixeio diagrafhs</b>
+
+    <b class="green">//an den exei brethei to stoixeio KAI yparxoun stoixeia</b>
+    while(i < size && found == 0){    
+        if (key == A[i]){   <b class="green">//anazhthsh stoixeiou</b>
+            found = 1;      <b class="green">//brethike</b>
+
+            <b class="green">//olisthisi mia thesh pisw apo thn thesh pou brethike to key</b>
+            temp = A[i];    
+            A[i] = A[size-1];
+            A[size-1] = temp;
+
+            size--; <b class="green">//meiwnw to megethos tou pinaka</b>
+        }
+        i++;  <b class="green">//phgainw sto epomeno stoixeio </b>  
+    }
+
+    if(found == 1){     <b class="green">//brethike</b>
+        printf("\nO arithmos %d entopisthke kai diagrafthke.\n", key);
+        printf("Neos Pinakas: \n");
+
+        for(i = 0; i < size ; i++){
+            printf ("%d\t", A[i]);
+        }
+        printf ("\n");
+    }
+    else{
+        printf("\nO aritmos pou edwses den uparxei\n");
+    }
+}</code></pre>
+
+            <h2 class="magenta" style="text-align: center;">Βήμα 12: Μετάφραση - μεταγλώττιση και Εκτέλεση</h2>
+            <p>Αποθηκεύουμε το αρχείο και το μεταγλωττίζουμε χρησιμοποιώντας τον compiler της C (gcc). Ανοίγουμε ένα τερματικό και πληκτρολογούμε την παρακάτω εντολή:</p>
+            
+            <pre><code>gcc .\arrays.c</code></pre>
+            
+            <p>Για να τρέξουμε τώρα το πρόγραμμα μας, πληκτρολογούμε την παρακάτω εντολή:</p>
+            
+            <pre><code>.\a.exe</code></pre>
+            
+            <p>
+                Αυτό είναι ένα αρχικό πρόγραμμα το οποίο δουλεύει με μονοδιάστατους πίνακες και με τις βασικές ενέργειες πάνω σε αυτούς.
+                <br>Μπορείτε να προσθέσετε περισσότερες λειτουργίες ή να βελτιώσετε τον κώδικα με βάση τις ανάγκες σας.
+                <br><br>Σε επόμενο κεφάλαιο θα ασχοληθούμε και με τους δισδιάστατους πίνακες.
+            </p>
+            
+            <br><br><h1 , style="text-align: center;"><span class="magenta"><b>🙂Καλή επιτυχία!</b></span></h1>
+
+            <p>
+                <hr><br><br>◾️Παρακάτω θα βρεις ολόκληρο τον κώδικα που δημιουργήσαμε μαζί! Προσπάθησε να μην τον αντιγράψεις κατευθείαν και να τον φτιάξεις από την αρχή μόνος/η σου για καλύτερη εξάσκηση. 
+            </p>
+
+            <pre><code style="font-size: 10px;">#include&lt;stdio.&gt;
+
+    int main(int argc, char *argv[]){
+    
+        int A[10], input, i, choice, key, flag, spot, found, size, temp;
+        int sum, min, max;
+    
+        i=0;
+        size = 10;  // an ginei diagrafh prepei na meiwsw to megethos toy pinaka
+    
+        do {  // kanoyme elegxo egkurothtas timhs
+    
+            printf("Dwse enan arithmo apo to 1 mexri to 100:\t");
+            scanf("%d", &input);
+    
+            if (input < 1 || input > 100) {
+                printf("Mh apodektos arithmos! Dwse allon.\n");
+                continue;
+            }
+    
+            A[i] = input;  // prosthikh tou arithmou ston pinaka
+            i++;           // proxorame sthn epomenh thesh tou pinaka
+    
+        } while (i < size);  // gia size arithmous
+    
+    
+        printf("\nPinakas:\n");
+        for(i = 0; i < size; i++){    //ektipwsh stoixeiwn pinaka
+            printf("%d\t", A[i]);
+        }
+        printf("\n");
+    
+        while(1){   //oso h epilogh einai 1 (auto)
+    
+            printf("\n1. Athrisma Stoixeiwn\n");      //menu
+            printf("2. Mikrotero Stoixeio\n");
+            printf("3. Megalutero Stoixeio\n");
+            printf("4. Anazhthsh Stoixeiou\n");
+            printf("5. Diagrafh Stoixeiou\n");
+            printf("0. Exit\n");
+            
+            printf("Epileje mia energeia: 0-5\n");
+            scanf("%d", &choice);   //diavazw thn epilogh tou menu
+    
+    
+            if (choice == 0) {      //an dwsei 0 termatizei to programma
+                break;
+            }
+            else if (choice == 1) {
+    
+                sum = 0;
+                for(i = 0; i < size; i++) {
+                    sum += A[i];
+                }
+                printf("\nTo athroisma twn stoixeiwn einai: %d\n", sum);
+            }
+            else if (choice == 2) {
+                
+                min = A[0];
+                for(i = 1; i < size; i++) {
+                    if (A[i] < min) {
+                        min = A[i];
+                    }
+                }
+                printf("\nTo mikrotero stoixeio einai: %d\n", min);
+            }
+            else if (choice == 3) {
+    
+                max = A[0];
+                for(i = 1; i < size; i++) {
+                    if (A[i] > max) {
+                        max = A[i];
+                    }
+                }
+                printf("\nTo megalytero stoixeio einai: %d\n", max);
+            }
+            else if (choice == 4) {
+    
+                printf("Dwse to stoixeio pou psaxneis:\t");
+                scanf("%d", &key);      // key einai to stoixeio anazhthshs
+    
+                // orizoume mia metablhth pou leei an brethike h oxi to stoixeio anazhthshs
+                flag = 0;     // an parameinei 0 tote to stoixeio den brethike
+                spot = -1;     // bazoume -1 oxi 0 giati oi theseis tou pinaka arxizoun apo 0
+    
+                for(i = 0; i < size; i++){
+                    if(key == A[i]){
+                        flag = 1;   // brethike to stoixeio allazw thn flag se 1
+                        spot = i;   // kratame thn thesh pou brethike
+                    }
+                }
+    
+                if(flag == 1){  //an brethike
+                    printf("\nBrethike to stoixeio %d, sthn thesh -> %d\n", key, spot+1);
+                    //spot+1 giati arxizoun apo to 0 oi theseis   
+                }
+                else{
+                    printf("\nTo stoixeio den brethike ston pinaka!\n");
+                }
+            }
+            else if (choice == 5) {
+                printf("\nDwse to stoixeio pou thes na diagrapseis:\t");
+                scanf("%d", &key);      // key einai to stoixeio diagrafhs
+    
+                i = 0;
+                found = 0;  // an brethei to stoixeio diagrafhs
+    
+                // an den exei brethei to stoixeio akoma KAI yparxoun stoixeia mesa ston pinaka
+                while(i < size && found == 0){    
+                    if (key == A[i]){   // anazhthsh stoixeiou
+                        found = 1;      // brethike
+    
+                        //metaferw ola ta stoixeia tou pinaka mia thesh pisw
+                        //apo thn thesh pou brethike to stoixeio diagrafhs
+                        temp = A[i];    
+                        A[i] = A[size-1];
+                        A[size-1] = temp;
+    
+                        size--; // meiwnw to megethos tou pinaka
+                    }
+                    i++;  // phgainw sto epomeno stoixeio 
+                    // DEN kanw break gia na elegjw an uparxei kai allh fora to stoixeio ston pinaka  
+                }
+    
+                if(found == 1){     // an brethike
+                    printf("\nO arithmos %d entopisthke kai diagrafthke.\n", key);
+                    printf("Neos Pinakas: \n");
+    
+                    for(i = 0; i < size ; i++){
+                        printf ("%d\t", A[i]);
+                    }
+                    printf ("\n");
+                }
+                else{
+                    printf("\nO aritmos pou edwses den uparxei\n");
+                }
+            }
+            else {
+                printf("Mh egkiri epilogh! Dwse arithmo 0-5\n");
+            }
+    
+        }
+    
+        return 0;
+    }</code></pre>
+
+        </main>
+    </div>
+
+</body>
+</html>

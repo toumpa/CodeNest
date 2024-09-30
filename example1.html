@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>CodeNest</title>
+    <link rel="icon" type="image/png" href="https://www.khmer168.com/wp-content/uploads/2024/01/c-tutorial-for-beginners.png"> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: rgba(186, 201, 178, 0.884);
+        }
+        pre {
+            background-color: rgba(237, 246, 235, 0.884);
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .magenta { color: #e80fa3; }
+
+        .container {
+            display: flex;
+        }
+        .text {
+            flex: 2;
+            padding-right: 20px;
+        }
+        .image {
+            flex: 1;
+            text-align: right;
+            padding-right: 30px;
+            padding-top: 30px;
+        }
+        .image img {
+            max-width: 70%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1><b>Φτιάχνω την πρώτη μου Αριθμομηχανή στην γλώσσα C</b></h1>
+
+    Γειά σου! Hρθε η ώρα να δοκιμάσεις να φτιάξεις το πρώτο σου πρόγραμμα σε C 
+
+    <p>Σε αυτή τη σελίδα, θα δούμε παρέα πώς μπορούμε να φτιάξουμε μια πολύ απλή <u>αριθμομηχανή (calculator)</u> χρησιμοποιώντας τη γλώσσα C. 
+        Το κουμπιουτεράκι μας θα μπορεί να κάνει κάπoιες βασικές, απλές πράξεις όπως πρόσθεση, αφαίρεση, πολλαπλασιασμό, διαίρεση, δύναμη, ρίζα, ημίτονο και συνημίτονο.
+    </p>
+    
+    <div class="container">
+        <div class="text">
+
+            <h2><span class="magenta">Βήμα 1: Δημιουργία αρχείου</span></h2>
+            <p>Αρχικά, χρειάζεται να δημιουργήσουμε ένα νέο αρχείο με την κατάληξη <code>.c</code>, για παράδειγμα <code>calculator.c</code>.</p>
+            
+            <h2><span class="magenta">Βήμα 2: Κώδικας</span></h2>
+            <p>Ανοίγουμε το αρχείο <code>calculator.c</code> και αρχίζουμε να γράφουμε τον κώδικα.</p>
+
+        </div>
+    
+        <div class="image">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaILPqe-CZR5Zn3Y5xqMsIB9H-XQx282jeS8DLhu48E5bu3-dUeBbRCTfHUrAcBa_dHSYKt-Gt2B0_3BK-yMiiVdqEMg58w-rmcGXRMm22i9R3hg12pFjeEXCpQ3u78lGRB3aEJvbsLldQ/s200/Math_Symbol_Clipart.jpg" alt="Calculator Image">
+        </div>
+    </div>
+    
+    <h2><span class="magenta">Βήμα 3: Ορισμός βιβλιοθηκών και της κύριας συνάρτησης</span></h2>
+    <p>Ξεκινάμε με τη συμπερίληψη των απαραίτητων βιβλιοθηκών και τον ορισμό της κύριας συνάρτησης <code>main</code>:</p>
+    
+    <pre><code>#include &lt;stdio.h>
+#include &lt;math.h>
+
+int main() {
+
+    return 0;
+}
+</code></pre>
+
+    <br>Την βιβλιοθήκη <b>math.h</b> δεν την έχουμε αναφέρει. Είναι μια κοινή βιβλιοθήκη της γλώσσας C με έτοιμες συναρτήσεις για διάφορους μαθηματικούς υπολογισμούς, 
+    όπως ακριβώς λειτουργεί και η βιβλιοθήκη stdio.h με τις συναρτήσεις printf() και scanf().
+    <br>Αυτό το πλήθος συναρτήσεων που περιέχει, επιτρέπουν την εκτέλεση μαθηματικών πράξεων όπως η δύναμη, η τετραγωνική ρίζα, οι τριγωνομετρικές συναρτήσεις και πολλές άλλες.
+    
+    <h2><span class="magenta">Βήμα 4: Εισαγωγή τιμών από τον χρήστη</span></h2>
+    <p>Προσθέτουμε στον κώδικα την printf και scanf για να ζητήσουμε από τον χρήστη να εισάγει τον τελεστή και τους αριθμούς της πράξης.</p>
+    
+    <pre><code>    char op;
+    float num1, num2, result;
+
+    printf("Eisagwgh telesth: (+, -, *, /, ^, r, s, c).\n O telesths r simbolizei thn riza, to s to hmitono kai to c to sinhmitono.\n");
+    scanf(" %c", &op);
+    
+
+    if (op == 'r') {    // αν ο τελεστής είναι η ρίζα χρειαζόμαστε μόνο έναν αριθμό
+        printf("Dwste enan arithmo: ");
+        scanf("%f", &num1);
+    } 
+    else if (op == 's' || op == 'c') {  // αν είναι ημίτονο ή συνημίτονο θέλουμε γωνία
+        printf("Dwste mia gwnia se aktinia: ");
+        scanf("%f", &num1);
+    }
+    else {  // σε οποιαδήποτε άλλη περίπτωση χρειαζόμαστε 2 αριθμούς
+        printf("Dwste dio arithmous: ");
+        scanf("%f %f", &num1, &num2);
+    }
+</code></pre>
+    
+    <h2><span class="magenta">Βήμα 5: Υπολογισμός πράξεων</span></h2>
+    <p>Προσθέτουμε τον κώδικα για να υπολογίσουμε το αποτέλεσμα ανάλογα με τον τελεστή που έδωσε ο χρήστης χρησιμοποιώντας μια δομή πολλαπλής επιλογής <code>if</code>:</p>
+    
+    <pre><code>    if (op == '+') {     // πρόσθεση
+        result = num1 + num2;
+        printf("%.2f + %.2f = %.2f\n", num1, num2, result);
+    } 
+    else if (op == '-') {   // αφαίρεση
+        result = num1 - num2;
+        printf("%.2f - %.2f = %.2f\n", num1, num2, result);
+    } 
+    else if (op == '*') {   // πολλαπλασιασμός
+        result = num1 * num2;
+        printf("%.2f * %.2f = %.2f\n", num1, num2, result);
+    } 
+    else if (op == '/') {   // διαίρεση
+
+        if (num2 != 0) {    // απαγορεύεται η διαίρεση με το 0
+            result = num1 / num2;
+            printf("%.2f / %.2lf = %.2f\n", num1, num2, result);
+        } 
+        else {
+            printf("Den epitrepetai diairesh me to mhden (0).\n");
+        }
+    } 
+    else if (op == '^') {   // δύναμη
+        result = pow(num1, num2);
+        printf("%.2f ^ %.2f = %.2f\n", num1, num2, result);
+    } 
+    else if (op == 'r') {   // ρίζα
+
+        if (num1 >= 0) {    // πρέπει το υπόριζο να είναι μεγαλύτερο ή ίσο με το 0
+            result = sqrt(num1);
+            printf("riza: %.2f = %.2f\n", num1, result);
+        } 
+        else {
+            printf("H riza arnhtikou arithmou den epitrepetai.\n");
+        }
+    } 
+    else if (op == 's') {   // ημίτονο
+        result = sin(num1);
+        printf("sin(%.2f) = %.2f\n", num1, result);
+    } 
+    else if (op == 'c') {   // συνημίτονο
+        result = cos(num1);
+        printf("cos(%.2f) = %.2f\n", num1, result);
+    }
+    else {  // οποιοσδήποτε άλλος τελεστής
+        printf("Mh egkiros telesths.\n");
+    }
+</code></pre>
+
+    <br>Στον κώδικα υπάρχουν μερικές πράξεις που δεν γνωρίζουμε τις οποίες χρησιμοποιούμε από έτοιμες συναρτήσεις. Ας τις δούμε μια μια:
+
+    <br><span class="magenta"><b>📍pow()</b></span>     &emsp;☛&emsp;    Υπολογίζει την δύναμη ενός αριθμού ως pow(base, exponent) όπου βάση είναι το 1ο όρισμα και ο εκθέτης το 2ο
+    <br><span class="magenta"><b>📍sqrt()</b></span>    &emsp;☛&emsp;    Υπολογίζει την τετραγωνική ρίζα ενός αριθμού ως sqrt(number)
+    <br><span class="magenta"><b>📍 sin()</b></span>     &emsp;☛&emsp;     Υπολογίζει το ημίτονο ενός αριθμού ως sin(angle) όπου angle είναι η γωνία σε ακτίνια
+    <br><span class="magenta"><b>📍cos()</b></span>     &emsp;☛&emsp;     Υπολογίζει το συνημίτονο ενός αριθμού ως cos(angle) όπου angle είναι η γωνία σε ακτίνια
+
+    
+    <h2><span class="magenta">Βήμα 6: Μετάφραση - μεταγλώττιση και Εκτέλεση</span></h2>
+    <p>Αποθηκεύουμε το αρχείο και το μεταγλωττίζουμε χρησιμοποιώντας τον compiler της C (gcc). Ανοίγουμε ένα τερματικό και πληκτρολογούμε την παρακάτω εντολή:</p>
+    
+    <pre><code>gcc .\calculator.c</code></pre>
+    
+    <p>Για να τρέξουμε τώρα το πρόγραμμα μας, πληκτρολογούμε την παρακάτω εντολή:</p>
+    
+    <pre><code>.\a.exe</code></pre>
+    
+    <p>Αυτή είναι μια πολύ απλή αριθμομηχανή που χρησιμοποιεί τη γλώσσα C. Μπορείτε να προσθέσετε περισσότερες λειτουργίες ή να βελτιώσετε τον κώδικα με βάση τις ανάγκες σας. </p>
+    <h1 , style="text-align: center;"><span class="magenta"><b>Καλή επιτυχία!</b></span></h1>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>CodeNest</title>
+    <link rel="icon" type="image/png" href="https://www.khmer168.com/wp-content/uploads/2024/01/c-tutorial-for-beginners.png"> 
+    
+    <link rel="stylesheet" type="text/css" href="style_first.css">
+</head>
+<body>
+
+    <div class="grid">
+        <header style="background-color: rgba(159, 182, 148, 0.884);">
+            <h1><b>Ας γνωρίσουμε τους Πίνακες</b></h1>
+        </header>
+            
+        <main style="background-color: rgba(200, 213, 193, 0.884);">
+
+            <p>
+                Ήρθες σε μια πρώτη επαφή με ένα ολοκληρωμένο πρόγραμμα σε C που χρησιμοποιεί <u>μονοδιάστατους πίνακες</u>.
+                <br>Αυτή την φορά θα ασχοληθούμε και με τους <b class="magenta">δισδιάστατους πίνακες</b>!
+
+
+                <br><br>Σε αυτό το project θα χρειαστεί να αποθηκεύσεις σε πίνακα κάποια δεδομένα μαθητών σχετικά με τις βαθμολογίες τους σε <b>τρία (3)</b> διαφορετικά <b>μαθήματα</b>. 
+                <br>Τα μαθήματα αυτά είναι -> <u>Έκθεση , Μαθηματικά , Πληροφορική</u>.
+
+                <br><br><b class="magenta">Α.</b> Ζήτησε από τον χρήστη να σου δώσει τις βαθμολογίες των μαθημάτων από <b>5 μαθητές</b>. Οι βαθμοί θα κυμένονται από 0 έως 20(άριστα).
+
+                <br><br><b class="magenta">B.</b> Σύγκρινε τις βαθμολογίες τους με τον μέσο όρο του τμήματος. 
+                <br><b class="magenta">average = συνολικό άθροισμα βαθμών μαθήματος / μαθητές</b> 
+                <br>Κάθε μάθημα θα έχει τον δικό του μέσο όρο, τους οποίους θα πρέπει να βρεις, να αποθηκεύσεις και να τους εμφανίσεις στην οθόνη ξεχωριστά. Υπάρχουν τρία μαθήματα, άρα
+                θα πρέπει να βρεις <u>τρεις μέσους όρους</u>. 
+                <br>Θα εμφανίζει τον μονοδιάστατο πίνακα (τριών θέσεων) με τον μέσο όρο των βαθμολογιών <b>ταξινομημένο</b> σε <b>αύξουσα ή φθίνουσα</b> σειρά, ανάλογα με την επιλογή του 
+                χρήστη, την οποία θα πρέπει να διβάσεις από το πληκτολόγιο.
+
+                <br><br><b class="magenta">Γ.</b> Εμφάνισε πόσοι μαθητές βρίσκονται κάτω από τον μέσο όρο του μαθήματος των Μαθηματικών. O μέσος όρος του μαθήματος Μαθηματικών πρέπει να συγκριθεί με 
+                τις βαθμολογίες των μαθητών.
+
+                <br><br><b class="magenta">Δ.</b> Εμφάνισε πόσοι μαθητές προάγωνται στην επόμενη τάξη. Ένας μαθητής μπορεί να συνεχίσει στην επόμενη τάξη αν η <u>συνολική του βαθμολογία όλων των μαθημάτων του</u>
+                έχει μέσο όρο μεγαλύτερο του <b>15.0</b> και επιπλέον θα ορίζει την κλίμακα του βαθμού σε:
+                <br><b>"Καλά" < 16</b>
+                <br><b>"Πολύ Καλά" > 16 και < 18</b>
+                <br><b>"Άριστα" > 18</b>
+                <br>Π.χ. αν ένας μαθητής έχει συνολικό μέσο όρο μαθημάτων 17,2 τότε θα πρέπει να περάσει στην επόμενη τάξη με βαθμό 17,2 (Πολύ Καλά)!
+
+                <br><br><b class="magenta">Ε.</b> Τέλος, θα <b>ταξινομεί</b> τον πίνακα με τις βαθμολογίες ανά μάθημα (ανά στήλη) και θα εμφανίζει την χαμηλότερη βαθμολογία καθενός από αυτά. Δηλαδή, 
+                τον χαμηλότερο βαθμό που πήρε ο μαθητής στο συγκεκριμένο μάθημα.
+            </p>
+
+            <p>
+                <br><br>**Όσο αφορά την ταξινόμηση, αυτή μπορεί να είναι είτε αύξουσα είτε φθίνουσα.
+                <br>Για να το επιτύχουμε αυτό, θα κάνουμε χρήση του πιο απλού "έτοιμου" αλγορίθμου ταξινόμησης που ονομάζεται <b class="magenta">bubble sort</b> (ταξινόμηση φυσαλίδας).
+
+                <br>Όταν λέμε "έτοιμο" αλγόριθμο εννοούμε ότι είναι μια τυποποιημένη διαδικασία (εντολές κώδικα) η οποία μπορεί να χρησιμοποιηθεί αυτούσια σε πολλές περιπτώσης, όμως δεν δίνεται έτοιμη μέσα από κάποια βιβλιοθήκη της γλώσσας.
+            </p>
+
+
+            <br><hr>
+
+            <br><h2 class="magenta" style="text-align: center;">Βήμα 1: Δημιουργία αρχείου</h2>
+            <p>Αρχικά, χρειάζεται να δημιουργήσεις ένα νέο αρχείο με την κατάληξη <code>.c</code>, για παράδειγμα <code>grades.c</code></p>
+            
+            <h2 class="magenta" style="text-align: center;">Βήμα 2: Κώδικας</h2>
+            <p>Άνοιξε το περιβάλλον προγραμματισμού που επιθυμείς και έπειτα το αρχείο που μόλις δημιούργησες. Τώρα είμαστε έτοιμοι να γράψουμε παρέα τον κώδικα μας.</p>
+
+            <h2 class="magenta" style="text-align: center;">Βήμα 3: Ορισμός βιβλιοθηκών και της κύριας συνάρτησης</h2>
+            <p>Ξεκίνα με τη συμπερίληψη των απαραίτητων βιβλιοθηκών και τον ορισμό της κύριας συνάρτησης <code>main</code>:</p>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main(int argc, char *argv[]) {
+
+    return 0;
+}
+            </code></pre>
+
+            <h2 class="magenta" style="text-align: center;">Βήμα 4: Εισαγωγή αριθμών</h2>
+
+            <p>
+                Εδώ θα ζητήσεις από τον χρήστη να εισάγει τις βαθμολογίες των μαθητών για διάφορα μαθήματα. 
+                <br>Σύμφωνα με την εκφώνηση υπάρχουν <b>5 μαθητές και 3 μαθήματα</b>, άρα θα χρειαστούμε μια εμφωλευμένη επανάληψη για να τις διαχειριστούμε. 
+                <br><br>Σε τι θα γίνει επομένως η αποθήκευση των βαθμολογιών; Σε έναν <b class="magenta">δισδιάστατο πίνακα</b>!
+                <br>Χρησιμοποίησε δύο βρόχους για να καταχωρίσεις τους βαθμούς για κάθε μαθητή και κάθε μάθημα.
+            </p>
+
+            <pre><code>float scores[5][3];
+<b class="green">//pinakas bathmwn: mathites->grammes kai mathimata->sthles</b> 
+int i, j;
+
+<b class="green">//Eisagwgh bathmwn</b>
+printf("Dwse tous bathmous gia 5 mathites se 3 mathimata (0-20):\n");
+
+for (i = 0; i < 5; i++) {
+    printf("Mathiths %d:\n", i + 1);
+
+    for (j = 0; j < 3; j++) {
+
+        <b class="green">//1 sthlh exei batmous ekthesis</b>
+        if (j == 0) printf("Ekthesh: ");
+        <b class="green">//2 sthlh exei batmous mathimatikwn</b>
+        else if (j == 1) printf("Mathimatika: ");
+        <b class="green">//3 sthlh exei batmous plhroforikhs</b>
+        else if (j == 2) printf("Plhroforikh: ");
+        scanf("%f", &scores[i][j]);
+    }
+}</code></pre>
+
+            <h2 class="magenta" style="text-align: center;">Βήμα 5: Υπολογισμός Μέσων Όρων Μαθημάτων</h2>
+
+            <p>
+                Υπάρχουν 3 μαθήματα, άρα θα βρούμε 3 μέσους όρους έναν για κάθε μάθημα. 
+                <br>Θα αποθηκεύσουμε τα αποτελέσματα σε έναν μονοδιάστατο πίνακα. 
+                <br><br>Αρχικά πρέπει να βρούμε το άθροισμα όλων των βαθμών κάθε μαθητή στο συγκεκριμένο μάθημα και να το διαιρέσουμε 
+                το πλήθος των μαθητών όπως αναφέρει η εκφώνηση, δηλαδή το 5.
+            </p>
+
+            <pre><code>float sum;   <b class="green">//prosthikh sthn arxh</b>
+float averages[3]; //pinakas meswn orwn
+
+<b class="green">//Mesos Oros kathe mathimatos</b>
+for (j = 0; j < 3; j++) {
+    sum = 0;
+    for (i = 0; i < 5; i++) {
+        sum += scores[i][j];
+    }
+    averages[j] = sum / 5;  <b class="green">//apothikeush se monodiastato</b>
+}</code></pre>
+
+            <h2 class="magenta" style="text-align: center;">Βήμα 6: Ταξινόμηση Μέσων Όρων</h2>
+
+            <p>
+                Ρώτα τον χρήστη τη σειρά ταξινόμησης (αύξουσα ή φθίνουσα) και ταξινόμησε τον πίνακα των μέσων όρων. 
+
+                <br><br>📍Παρακάτω θα δεις την ταξινόμηση φυσσαλίδας (bubble sort) που έχει έναν "τυποποιημένο" κώδικα. 
+                <br>💠Αποτελείται από δύο εμφωλευμένες επαναλήψεις for όπως η μία προσπελαύνει τις γραμμές και η άλλη τις στήλες. 
+                <br>💠ξεκινά από το 0 και συνεχίζει μέχρι το 3 - 1, δηλαδή το 2. Αυτός ο βρόχος ελέγχει κάθε στοιχείο του πίνακα εκτός από το τελευταίο.
+                <br>💠Η j ξεκινά από το i + 1 και συνεχίζει μέχρι το 3. Αυτός ο βρόχος συγκρίνει το στοιχείο στη θέση i με τα στοιχεία στις θέσεις i + 1 έως 2 (τελευταία θέση του πίνακα). Ο σκοπός του είναι να βρει αν υπάρχει στοιχείο πιο μικρό (για αύξουσα σειρά) ή πιο μεγάλο (για φθίνουσα σειρά) από το στοιχείο στη θέση i.
+                <br>💠Αν η τιμή ενός στοιχείου είναι μεγαλύτερη (αύξουσα) ή μικρότερη (φθίνουσα) από την επόμενη,  αλλάζω θέσης τα στοιχεία
+                ώστε αυτό με την μικρότερη τιμή να πάει στην αρχή του πίνακα. 
+            
+                <br><br>Στην συνέχεια εμφανίζουμε τον πίνακα ταξινομημένο, δηλαδή εμφανίζεται ο μέσος όρος κάθε μαθήματος.
+            </p>
+
+            <pre><code>int order;   <b class="green">//prosthikh sthn arxh</b>
+float temp;
+
+printf("Tajinomhse tous mesous orous twn mathimatwn");
+printf("\nDialeje metaji 1.Aujousa h 2.Fthinousa Tajinomhsh:\n");
+scanf("%d", &order);    <b class="green">//apanthsh xrhsth</b>
+
+<b class="green">//Tajinomhsh monodiastatou</b>
+for (i = 0; i < 3 - 1; i++){
+    for (j = i + 1; j < 3; j++){
+        if(
+            (order == 1 && averages[i] > averages[j]) || 
+            (order == 2 && averages[i] < averages[j])
+        ){    
+            temp = averages[i];
+            averages[i] = averages[j];
+            averages[j] = temp;
+        }
+    }
+}
+
+<b class="green">//Emfanish tajinomhmenou pinaka M.O.</b>
+printf("\nMesos oros mathimatwn meta thn tajinomhsh:\n");
+for (j = 0; j < 3; j++){
+
+    if (j == 0) printf("Ekthesh -> %.2f\n", averages[j]);
+    else if (j == 1) printf("Mathimatika -> %.2f\n", averages[j]);
+    else if (j == 2) printf("Plhroforikh -> %.2f\n", averages[j]);
+}</code></pre>
+
+            <h2 class="magenta" style="text-align: center;">Βήμα 7: Μέσος Όρος Μαθηματικών</h2>
+
+            <p>
+                Υπολόγισε πόσοι μαθητές έχουν βαθμό κάτω από τον μέσο όρο του μαθήματος Μαθηματικά. 
+                <br>Τον μέσο όρο του τμήματος στα Μαθηματικά τον ξέρουμε;
+                <br><br>ΝΑΙ! Τον έχουμε ήδη βρει σε προηγούμενο ερώτημα και συγκεκριμένα στο ερώτημα Β που έχουμε ήδη υλοποιήσει. 
+                <br><br>Αυτό που χρειάζεται να βρούμε και να αποθηκεύουμε είναι το πλήθος των μαθητών κάτω του μέσου όρου αυτού. 
+                <br>Στον πίνακα με τις βαθμολογίες μας (τον δισδιάστατο), οι βαθμοί για το μάθημα των Μαθηματικών έχουν καταχωρηθεί
+                στην στήλη νούμερο 1. Άρα εμείς θα εστιάσουμε μόνο σε αυτήν την στήλη, αγνοώντας τις υπόλοιπες. 
+            </p>
+
+            <pre><code>int below_math = 0;    <b class="green">//prosthikh sthn arxh</b>
+float math_avg = averages[1]; <b class="green">//arxikopoiw me thn prwth timh</b>
+
+for (i = 0; i < 5; i++) {   <b class="green">//psaxnw plithos mathitwn</b>
+    if (scores[i][1] < math_avg) {  <b class="green">//mono thn 1 sthlh</b>
+    below_math++;
+    }
+}
+printf("\nArithmos mathitwn katw tou M.O. sta Mathimatika:\t)
+printf(%d\n", below_math);</code></pre>
+
+            <h2 class="magenta" style="text-align: center;">Βήμα 8: Εξέταση Προαγωγής Μαθητών</h2>
+
+            <p>
+                Εξέτασε πόσοι μαθητές προάγονται στην επόμενη τάξη με βάση τον μέσο όρο τους. 
+                <br>Πρέπει να βρούμε τον μέσο όρο του κάθε μαθητή. 
+                
+                <br><br>Οι μαθητές είναι αποθηκευμένοι στις γραμμές του πίνακα άρα θα χρειαστεί να προσθέσουμε τις βαθμολογίες των μαθημάτων 
+                του κάθε μαθητή (όλη την γραμμή δηλαδή) και μετά να το διαιρέσεις με το 3, αφού τόσα είναι τα μαθήματα. 
+
+                <br><br>Αφού βρεθεί ο Μ.Ο. κάθε μαθητή θα ελέγξουμε την κλίμακα βαθμολογίας και αν είναι άνω του 15.0 τότε ο συγκεκριμένος μαθητής
+                προάγεται στην επόμενη τάξη. 
+            </p>
+
+            <pre><code>float total_score, average_score;    <b class="green">//ptosthetw sthn arxh</b>
+int passing_grade;
+<b class="green">//Posoi mathites pernane sthn epomenh tajh</b>
+for (i = 0; i < 5; i++) {   <b class="green">// gia kathe mathith</b>
+
+    <b class="green">//mhdenizw mesa sthn epanalhpsh</b>
+    <b class="green">kathe mathiths exei allh synolikh bathmologia</b>
+    total_score = 0;    
+
+    for (j = 0; j < 3; j++) {   <b class="green">//gia kathe mathima</b>
+        total_score += scores[i][j];    <b class="green">//athroisma bathmwn</b>
+    }
+
+    average_score = total_score / 3;    <b class="green">//mesos oros mathith</b>
+
+    if (average_score > 15.0) {     <b class="green">//pernane</b>
+        count_passing_students++;
+
+        if (average_score <= 16) {
+            passing_grade = 1;      <b class="green">// kala</b>
+        } 
+        else if (average_score <= 18) {
+            passing_grade = 2;      <b class="green">// polu kala</b>
+        } 
+        else {
+            passing_grade = 3;      <b class="green">// arista</b>
+        }
+
+        <b class="green">//Klimaka bathmologias</b>
+        printf("O mathiths %d proagetai me %.2f ->", i + 1, average_score);
+
+        if (passing_grade == 1) {
+            printf(" Kala\n");
+        }
+        else if (passing_grade == 2) {
+            printf(" Polu Kala\n");
+        }
+        else if (passing_grade == 3) {
+            printf(" Arista\n");
+        }
+    }
+    else{   <b class="green">//den pernane</b>
+        printf("O mathiths %d den pernaei thn tajh", i+1);
+    }
+}
+printf("\nMathites poy pernane thn tajh: %d/5\n", count_passing_students);
+</code></pre>
+
+            <h2 class="magenta" style="text-align: center;">Βήμα 9: Εύρεση Χαμηλότερης Βαθμολογίας ανά Μάθημα</h2>
+
+            <p>
+                <br>Τελευταίο βήμα είναι να ταξινομήσουμε τον δισδιάστατο πίνακα με τις βαθμολογίες των μαθημάτων και αφού γίνει αυτό μετά είναι πολύ
+                εύκολο να εμφανίζουμε ποιά είναι η χαμηλότερη βαθμολογία που δώθηκε στο συγκεκριμένο μάθημα. 
+                
+                <br><br><b>
+                    Γιατί;
+                </b>
+
+                <br><br>Η απάντηση είναι ότι η χαμηλότερες βαθμολογίες κάθε μαθήματος θα βρίσκονται στην πρώτη θέση του πίνακα μας, διότι τα στοιχεία του είναι ταξινομημένα
+                και επομένως δεν υπάρχει μικρότερη τιμή από αυτήν της πρώτης θέσης. 
+            </p>
+
+            <pre><code><b class="green">//Xamhloterh bathmologia ana mathima</b>
+<b class="green">//Aujhsh tajinomhsh kathe sthlhs ara kai kathe mathimatos</b>
+for (j = 0; j < 3; j++) {
+
+    <b class="green">//gia kathe grammh ektos ths teleytaias </b>
+    <b class="green">//giati den xreiazetai na sigkrithei me ton eyato ths</b>
+    for (i = 0; i < 5 - 1; i++) {
+        for (int k = i + 1; k < 5; k++) {   <b class="green">//apo to epomeno stoixeio</b>
+            if (scores[i][j] > scores[k][j]) {
+
+                temp = scores[i][j];
+                scores[i][j] = scores[k][j];
+                scores[k][j] = temp;
+            }
+        }
+    }
+
+    printf("\nXamhloteres Bathmologies ");
+    if (j == 0) printf("Ekthesh: ");
+    else if (j == 1) printf("Mathimatika: ");
+    else if (j == 2) printf("Plhroforikh: ");
+    printf("%.2f\n", scores[0][j]);
+}</code></pre>
+
+            <h2 class="magenta" style="text-align: center;">Βήμα 10: Μετάφραση - μεταγλώττιση και Εκτέλεση</h2>
+            <p>Αποθηκεύουμε το αρχείο και το μεταγλωττίζουμε χρησιμοποιώντας τον compiler της C (gcc). Ανοίγουμε ένα τερματικό και πληκτρολογούμε την παρακάτω εντολή:</p>
+
+            <pre><code>gcc .\grades.c</code></pre>
+
+            <p>Για να τρέξουμε τώρα το πρόγραμμα μας, πληκτρολογούμε την παρακάτω εντολή:</p>
+
+            <pre><code>.\a.exe</code></pre>
+
+            <p>
+                <br>Μπορείς να προσθέσεις περισσότερες λειτουργίες ή να βελτιώσεις τον κώδικα με βάση τις ανάγκες σου.
+                <br>Κατάφερες να υλοποιήσεις και το δεύτερο σου πρόγραμμα με χρήση πινάκων, μονοδιάστατου και δισδιάστατου!
+                <br>Μπράβο σου!!!
+            </p>
+
+            <br><br><h1 , style="text-align: center;"><span class="magenta"><b>🙂Καλή επιτυχία!</b></span></h1>
+
+            <p>
+                <hr><br><br>◾️Παρακάτω θα βρεις ολόκληρο τον κώδικα που δημιουργήσαμε μαζί! Προσπάθησε να μην τον αντιγράψεις κατευθείαν και να τον φτιάξεις από την αρχή μόνος/η σου για καλύτερη εξάσκηση. 
+            </p>
+
+            <pre><code style="font-size: 10px;">#include &lt;stdio.h&gt;
+
+    int main(int argc, char *argv[]) {
+    
+        float scores[5][3]; //pinakas bathmwn: mathites->grammes kai mathimata->sthles
+        int i, j, order;
+        float averages[3]; //pinakas meswn orwn
+        int below_math = 0;
+        int count_passing_students = 0;
+        int passing_grade; //klimaka bathmwn
+        float total_score, average_score, sum, math_avg, temp;
+        
+        //Eisagwgh bathmwn
+        printf("Dwse tous bathmous gia 5 mathites se 3 mathimata (0-20):\n");
+        for (i = 0; i < 5; i++) {
+            printf("Mathiths %d:\n", i + 1);
+            for (j = 0; j < 3; j++) {
+    
+                if (j == 0) printf("Ekthesh: ");
+                else if (j == 1) printf("Mathimatika: ");
+                else if (j == 2) printf("Plhroforikh: ");
+                scanf("%f", &scores[i][j]);
+            }
+        }
+    
+        //Mesos Oros kathe mathimatos
+        for (j = 0; j < 3; j++) {
+            sum = 0;
+            for (i = 0; i < 5; i++) {
+                sum += scores[i][j];
+            }
+            averages[j] = sum / 5;  //apothikeush se monodiastato
+        }
+    
+        printf("\nTajinomhse tous mesous orous twn mathimatwn");
+        printf("\nDialeje metaji 1.Aujousa h 2.Fthinousa Tajinomhsh:\n");
+        scanf("%d", &order);    //apanthsh xrhsth
+    
+        //Tajinomhsh monodiastatou
+        for (i = 0; i < 3 - 1; i++) {
+            for (j = i + 1; j < 3; j++) {
+                if (
+                    (order == 1 && averages[i] > averages[j]) || 
+                    (order == 2 && averages[i] < averages[j])
+                ){
+                    temp = averages[i];
+                    averages[i] = averages[j];
+                    averages[j] = temp;
+                }
+            }
+        }
+    
+        //Emfanish tajinomhmenou pinaka M.O.
+        printf("\nMesos oros mathimatwn meta thn tajinomhsh:\n");
+        for (j = 0; j < 3; j++) {
+            if (j == 0) printf("Ekthesh -> %.2f\n", averages[j]);
+            else if (j == 1) printf("Mathimatika -> %.2f\n", averages[j]);
+            else if (j == 2) printf("Plhroforikh -> %.2f\n", averages[j]);
+        }
+    
+        //Mathites katw tou mesou orou mathimatikwn
+        math_avg = averages[1];
+        for (i = 0; i < 5; i++) {
+            if (scores[i][2] < math_avg) {
+                below_math++;
+            }
+        }
+        printf("\nArithmos mathitwn katw tou M.O. sta Mathimatika: %d\n", below_math);
+    
+        //Posoi mathites pernane sthn epomenh tajh
+        for (i = 0; i < 5; i++) {   // gia kathe mathith
+            //mhdenizw mesa sthn epanalhpsh giati kathe mathiths exei allh synolikh bathmologia
+            total_score = 0;    
+    
+            for (j = 0; j < 3; j++) {   //gia kathe mathima
+                total_score += scores[i][j];    //athroisma bathmwn
+            }
+    
+            average_score = total_score / 3;    //mesos oros mathith
+    
+            if (average_score > 15.0) { //pernane
+                count_passing_students++;
+    
+                if (average_score <= 16) {
+                    passing_grade = 1; // kala
+                }
+                else if (average_score <= 18) {
+                    passing_grade = 2; // polu kala
+                }
+                else {
+                    passing_grade = 3; // arista
+                }
+    
+                printf("\nO mathiths %d proagetai me %.2f ->", i + 1, average_score);
+    
+                if (passing_grade == 1) {
+                    printf(" Kala\n");
+                }
+                else if (passing_grade == 2) {
+                    printf(" Polu Kala\n");
+                }
+                else if (passing_grade == 3) {
+                    printf(" Arista\n");
+                }
+            }
+            else{   //den pernane
+                printf("\nO mathiths %d den pernaei thn tajh", i + 1);
+            }
+        }
+        printf("\n\nMathites poy pernane thn tajh: %d/5\n", count_passing_students);
+        
+        
+        //Xamhloterh bathmologia ana mathima
+        //Aujhsh tajinomhsh kathe sthlhs ara kai kathe mathimatos
+        for (j = 0; j < 3; j++) {
+    
+            //gia kathe grammh 
+            //ektos ths teleytaias giati den xreiazetai na sigkrithei me ton eyato ths
+            for (i = 0; i < 5 - 1; i++) {
+                for (int k = i + 1; k < 5; k++) {   //apo to epomeno stoixeio
+                    if (scores[i][j] > scores[k][j]) {
+    
+                        temp = scores[i][j];
+                        scores[i][j] = scores[k][j];
+                        scores[k][j] = temp;
+                    }
+                }
+            }
+    
+            printf("\nXamhloterh Bathmologia -> ");
+            if (j == 0) printf("Ekthesh: ");
+            else if (j == 1) printf("Mathimatika: ");
+            else if (j == 2) printf("Plhroforikh: ");
+            printf("%.2f\n", scores[0][j]);
+        }
+    
+        return 0;
+    }</code></pre>
+
+                
+
+        </main>
+    </div>
+
+</body>
+</html>
