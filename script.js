@@ -18,6 +18,10 @@ function Video() {
   window.open('https://www.youtube.com/watch?v=KYxLEDF6kjs', '_blank');
 }
 
+function more_info() {
+  window.open('more_info.html', '_blank');
+}
+
 function logical() {
   window.open('http://photodentro.edu.gr/aggregator/lo/photodentro-lor-8521-10528', '_blank');
 }
