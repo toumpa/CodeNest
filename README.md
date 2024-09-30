@@ -6,7 +6,7 @@
 
 Το project είναι μεγαλύερο και πρόκειται για μια δυναμική διαδικτυακή εφαρμογή, όμως το github δεν υποστηρίζει την ύπαρξη server με node.js οπότε αυτό το repository αφορά ΜΟΝΟ τα στατικά δεδομένα της εφαρμογής: HTML, CSS, JAVASCRIPT. 
 
-toumpa.github.io/CodeNest/
+https://toumpa.github.io/CodeNest/
 
 📌ΠΕΡΙΛΗΨΗ
 
